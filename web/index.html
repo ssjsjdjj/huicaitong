@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#164c40"><title>惠才通 · 杭州青年人才服务</title><meta name="description" content="有据可查的杭州人才政策匹配与材料核验研究原型"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script><link rel="stylesheet" href="/workflow.css"><script src="/workflow.js" defer></script><link rel="stylesheet" href="/ux.css"><script src="/ux.js" defer></script></head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+<aside class="sidebar">
+  <a class="brand" href="#match"><img src="/icon.svg" alt="" width="42" height="42"><span>惠才通<small>HUI CAI TONG</small></span></a>
+  <div class="nav-label">青年人才服务工作台</div>
+  <nav aria-label="主要导航">
+    <button class="nav-item active" data-view="match"><span class="nav-symbol">◈</span>政策匹配<span class="nav-arrow">↗</span></button>
+    <button class="nav-item" data-view="materials"><span class="nav-symbol">▧</span>材料核验</button>
+    <button class="nav-item" data-view="knowledge"><span class="nav-symbol">▤</span>政策知识库</button>
+    <button class="nav-item" data-view="search"><span class="nav-symbol">⌕</span>证据检索</button>
+    <button class="nav-item" data-view="training"><span class="nav-symbol">▥</span>训练与评测</button>
+    <button class="nav-item" data-view="review"><span class="nav-symbol">✓</span>人工复核</button>
+  </nav>
+  <div class="sidebar-note"><span class="tiny-label">从了解政策，到准备材料</span><p>每一步判断，<br>都有据可查。</p><div class="note-line"></div><span>杭州 · 青年发展之城</span></div>
+  <div class="local-status"><span class="status-dot"></span><div>本地研究原型<small id="side-mode">规则基线 · 模型未连接</small></div><span class="version">v0.4</span></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div class="breadcrumb">人才服务<span>/</span><strong id="breadcrumb-title">政策匹配</strong></div><div class="top-actions"><span class="city-pill"><span>⌖</span> 杭州</span><button class="btn btn-quiet small" id="model-settings">连接本地模型 <span>↗</span></button></div></header>
+  <main id="main">
+    <section class="view" id="view-match">
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>让来杭的第一步，更清楚一点</div><h1>核对你的杭州人才补贴</h1><p class="subtitle">当前支持生活补贴首笔、第二笔及租房补贴首笔。先填基本情况，再核对下一步。</p></div><div class="snapshot"><span class="status-dot"></span>资料来源核对 <strong id="checked-on">2026.10.21</strong></div></div>
+
+      <div class="notice"><span class="notice-icon">i</span><p>这是可运行的研究原型。初筛只覆盖已录入条件，政策现行效力和实际资格仍需受理系统确认。<strong>不会保存你的申请信息。</strong></p></div>
+      <div class="match-grid">
+        <section class="panel profile-panel"><div class="panel-heading"><div><span class="section-index">01</span><h2>你的基本情况</h2></div><button class="text-button" id="reset-profile">清空</button></div>
+          <div class="example-block"><span>先体验一个合成案例</span><div class="example-buttons"><button class="example-chip" data-example="0">已就业硕士</button><button class="example-chip" data-example="6">在读研究生</button><button class="example-chip" data-example="9">资料待补充</button></div></div>
+          <form id="profile-form">
+            <div class="form-grid">
+              <label>学历<select name="degree"><option value="">请选择</option><option value="college">大专</option><option value="bachelor">本科</option><option value="master">硕士</option><option value="phd">博士</option></select></label>
+              <label>学习形式<select name="study_mode"><option value="">待确认</option><option value="fulltime">全日制</option><option value="parttime">非全日制</option></select></label>
+              <label>毕业高校<select name="school_region"><option value="">待确认</option><option value="mainland">国内普通高校</option><option value="overseas">国（境）外高校</option></select></label>
+              <label>国籍<select name="nationality"><option value="">待确认</option><option value="cn">中国国籍</option><option value="other">其他</option></select></label>
+              <label>毕业日期<input name="graduation_date" type="date"><small>在读可填预计日期，仅作当前初筛</small></label>
+              <label>拟申请日期<input name="application_date" type="date" value="2026-10-21" required></label>
+              <label>有效连续参保首月<input name="insurance_start_date" type="month"><small>毕业当月或以后，不计补缴</small></label>
+              <label>已完成连续参保月数<input name="insurance_months" type="number" min="0" max="600" placeholder="待确认"><small>不含当前未完成月份</small></label>
+            </div>
+            <details class="form-details" open><summary>就业与参保信息<span>05</span></summary><div class="form-grid"><label>在杭州就业或创业<select name="employed_hangzhou" data-bool></select></label><label>经人事或官方确认，单位符合指南要求<select name="employer_qualified" data-bool></select></label><label>当前在合格杭州单位参保<select name="insurance_current" data-bool></select></label><label>连续时长不包含补缴<select name="insurance_without_backpay" data-bool></select></label><label>是否在职取得本次学历<select name="degree_while_employed" data-bool></select></label></div><p class="field-note">不清楚就保留“待确认”，不会按“否”处理。请核对单位类型、税务或登记条件及参保主体。<button type="button" class="text-button help-button" data-field-help="employer_qualified">如何确认单位和参保条件？</button></p></details>
+            <details class="form-details"><summary>领取记录与住房情况<span>05</span></summary><div class="form-grid"><label>曾以其他学历领生活补贴<select name="prior_other_degree_subsidy" data-bool></select></label><label>本次学历已领生活补贴首笔<select name="first_installment_received" data-bool></select></label><label>申请家庭在杭州有房<select name="family_has_home" data-bool></select></label><label>已享受其他租房优惠<select name="other_housing_benefit" data-bool></select></label><label>已领取租房补贴首笔<select name="rent_first_received" data-bool></select></label></div><p class="field-note">家庭范围及优惠互斥口径请按原文确认。<button type="button" class="text-button help-button" data-field-help="family_has_home">如何核对住房与其他优惠？</button></p></details>
+            <details class="advanced-options"><summary>实验模型设置（选填）</summary><div class="evidence-options"><label for="assessment-question">想重点核对的问题（选填）</label><input id="assessment-question" maxlength="2000" placeholder="例如：首笔已经领过，还能申请哪一笔？"><label for="evidence-mode">模型使用的证据</label><select id="evidence-mode"><option value="retrieval">检索相关条款，并补齐必要条件</option><option value="full_document">旧版对照：所选事项全部条款</option></select><small>此问题仅用于实验模型检索，不会自动填写个人情况。模型不会收到规则结论。</small></div></details>
+            <div class="form-error" id="profile-error" role="alert" hidden></div><button class="btn btn-primary full" id="assess-button" type="submit">开始核对政策 <span>→</span></button><p class="privacy-line">◌ 不需要姓名、身份证号或银行卡号</p>
+          </form>
+          <details class="coverage-details"><summary>查看当前收录范围与核验方式</summary><div class="stats"><div class="stat-card"><div class="stat-icon">▤</div><div><span>首批可初筛事项</span><strong id="stat-policies">—<small>项</small></strong></div><span class="stat-foot">生活 · 安居</span></div><div class="stat-card"><div class="stat-icon">⌁</div><div><span>可追溯证据条款</span><strong id="stat-clauses">—<small>条</small></strong></div><span class="stat-foot">官方来源</span></div><div class="stat-card note-stat"><div class="stat-icon">◎</div><div><span>当前核验方式</span><strong class="stat-word">规则初筛</strong></div><span class="stat-foot">模型结果独立展示</span></div></div></details>
+    </section>
+        <section class="results-column"><div class="result-title"><div><span class="section-index">02</span><h2>政策匹配结果</h2></div><button class="btn btn-quiet small" id="export-report" disabled>查看中文报告 →</button></div><div id="report-stale" class="stale-notice" role="status" hidden>申请信息已修改。请点击「开始核对政策」更新结果；更新前不能调用模型或导出旧报告。</div><div id="results"><div class="empty-state"><div class="empty-illustration"><div class="paper"><span></span><span></span><span></span><b>✓</b></div><div class="orbit o1"></div><div class="orbit o2"></div></div><h3>你的下一步，从核对条件开始</h3><p>填写左侧信息，或载入一个演示案例。<br>信息不完整时，会明确告诉你还缺什么。</p><div class="empty-steps"><span>1 填写情况</span><i>→</i><span>2 核对条件</span><i>→</i><span>3 查看依据</span></div></div></div></section>
+      </div>
+    </section>
+
+    <section class="view" id="view-materials" hidden>
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>从材料到字段，每一步由你确认</div><h1>核对材料中的关键信息</h1><p class="subtitle">读取本机文件，查看提取依据，再把确认过的字段填入申请表。</p></div><span class="method-tag">本机处理</span></div>
+      <div class="workflow-steps"><span>01 选择材料</span><i>→</i><span>02 核对提取依据</span><i>→</i><span>03 确认填入表单</span><i>→</i><span>04 重新初筛</span></div>
+      <div class="materials-workspace"><section class="panel upload-panel"><div class="panel-heading"><h2>选择待核对的文件</h2></div><button type="button" class="upload-zone" id="choose-material"><span>▧</span><strong>选择本机文件</strong><small id="material-formats">文字 PDF 或 TXT · 每份不超过 2MB</small></button><input type="file" id="material-upload" accept=".pdf,.txt,.png,.jpg,.jpeg" hidden><p class="field-note">文件在本机处理，不发送给模型或外部服务。文字 PDF 最多 5 页。图片识别不可用时，可从原系统导出文字 PDF，或粘贴完整逐月记录为 TXT；不要把图片仅改后缀。</p><div class="material-context" id="material-context"></div><div class="demo-materials"><strong>先用合成样例体验</strong><button class="example-chip" data-material-demo="graduation">毕业信息 · PDF</button><button class="example-chip" data-material-demo="insurance">连续参保 · PDF</button><button class="example-chip" data-material-demo="gap">参保中断 · TXT</button><small>样例均有明确合成标识，不是正式证明。</small></div><div class="notice compact"><p>参保月数需有完整逐月记录，并覆盖毕业当月至参考日前一个月。缺行不会被当作未参保；补缴、未缴等会中断连续计数。</p></div><div id="material-capabilities" class="field-note"></div></section><section class="panel material-output"><div class="panel-heading"><h2>逐项核对，再确认填写</h2><span class="method-tag">默认不勾选</span></div><div id="material-result"><div class="simple-empty">上传文件，或选择左侧合成样例。<br>先确认毕业日期，再读取参保记录。</div></div></section></div>
+    </section>
+    <section class="view" id="view-knowledge" hidden>
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>让资料有来源，让版本有边界</div><h1>政策知识库</h1><p class="subtitle">公开来源、适用范围和规则覆盖，放在一起核对。</p></div><button class="btn btn-primary" id="import-button">导入政策 JSON ＋</button></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="policy-filter" placeholder="搜索政策名称或内容" aria-label="筛选政策"></label><label class="check-label"><input type="checkbox" id="show-history">显示历史资料</label><button class="text-button" id="download-template">下载导入模板 ↓</button></div><div class="notice"><span class="notice-icon">i</span><p>收录不等于已确认现行有效。历史资料默认隔离；新版本请使用新的政策和条款编号，导入前需人工核对原文。</p></div><div id="knowledge-list" class="knowledge-list"></div><input id="policy-file" type="file" accept=".json,application/json" hidden>
+    </section>
+    <section class="view" id="view-search" hidden>
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>每一个回答，先找到依据</div><h1>查找政策证据</h1><p class="subtitle">在本地知识库检索条款，查看出处与发布时间。</p></div><span class="method-tag">中文词法检索 · BM25</span></div>
+      <section class="panel search-panel"><form id="search-form"><div class="large-search"><span>⌕</span><input id="search-query" placeholder="例如：首笔生活补贴需要连续缴纳几个月社保？" required maxlength="4000" aria-label="检索问题"><button class="btn btn-primary" type="submit">查找依据 →</button></div><div class="search-options"><label>参考日期 <input type="date" id="search-date" value="2026-10-21" required></label><label class="check-label"><input type="checkbox" id="search-history">包含历史资料</label></div></form><div class="suggested-queries"><span>试着搜</span><button data-query="生活补贴首笔需要几个月社保">首笔社保要求</button><button data-query="租房补贴家庭有房能申请吗">家庭住房条件</button><button data-query="生活补贴申请材料银行卡">准备哪些信息</button></div></section><div id="search-results" class="search-results"><div class="simple-empty">输入问题，查看可追溯的政策条款。</div></div>
+    </section>
+    <section class="view" id="view-training" hidden>
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>把方法，变成可以检验的结果</div><h1>训练与评测</h1><p class="subtitle">建立基线，构造样本，验证后训练带来的变化。</p></div><span class="status-pill unknown">模型尚未训练</span></div>
+      <div class="training-grid"><section class="panel"><div class="panel-heading"><h2>开发路线</h2><span class="method-tag">RAG + SFT + GRPO</span></div><ol class="pipeline"><li class="done"><b>01</b><div><strong>整理杭州政策与证据</strong><span>公开来源、版本隔离、规则覆盖范围</span></div><em>已实现</em></li><li class="done"><b>02</b><div><strong>构建可审计规则基线</strong><span>三值判断、材料准备清单、引用回溯</span></div><em>已实现</em></li><li><b>03</b><div><strong>生成开发用弱监督样本</strong><span>程序生成标签，仍需人工复核</span></div><em>脚本就绪</em></li><li><b>04</b><div><strong>SFT 后进行 GRPO 训练</strong><span>小模型 + LoRA，先做显存试运行</span></div><em>待训练</em></li><li><b>05</b><div><strong>独立测试与消融对照</strong><span>同一证据，对比基础模型、SFT 与 GRPO</span></div><em>待模型结果</em></li></ol></section><section class="panel"><div class="panel-heading"><h2>本机实验起点</h2><span class="subtle">RTX 4060 · 8GB</span></div><div class="config-pairs"><div><span>首轮模型</span><strong>Qwen2.5 · 0.5B Instruct</strong></div><div><span>后训练方式</span><strong>LoRA → SFT → GRPO</strong></div><div><span>首版训练任务</span><strong>给定证据的结构化核验</strong></div><div><span>奖励依据</span><strong>结论、引用、缺失字段与材料</strong></div></div><p class="field-note">训练步数、峰值显存和评测结果读取自本机运行记录。新增数据或配置后，仍需先做 dry-run 与显存检查。</p><div class="command-row"><code>python -m training.build_dataset</code><button class="text-button" data-copy="python -m training.build_dataset">复制</button></div><div class="command-row"><code>python -m training.train sft --dry-run</code><button class="text-button" data-copy="python -m training.train sft --dry-run">复制</button></div><div class="command-row"><code>python -m training.train grpo --dry-run</code><button class="text-button" data-copy="python -m training.train grpo --dry-run">复制</button></div></section></div>
+      <section class="panel evaluation-panel"><div class="panel-heading"><div><h2>合成场景验收</h2><p class="subtitle">检查缺失信息、住房冲突、超期与境外学历等边界情形。</p></div><button class="btn btn-primary" id="run-evaluation">运行规则验收 →</button></div><div class="notice compact"><span class="notice-icon">i</span><p>这里显示规则程序的真实验收结果。合成场景不是人工标注政策基准，验收通过不代表大模型准确率。</p></div><div id="evaluation-results"><div class="simple-empty">尚未运行。点击右上方按钮开始检查。</div></div></section>
+    </section>
+
+    <section class="view" id="view-review" hidden>
+      <div class="page-heading"><div><div class="eyebrow"><span class="small-line"></span>让实验有可以核对的参考</div><h1>人工复核工作台</h1><p class="subtitle">36 条合成人物草稿，答案留空。请先阅读原文，再记录你的结论与依据。</p></div><span class="status-pill unknown" id="review-progress">0 / 36 已复核</span></div>
+      <div class="notice"><span class="notice-icon">i</span><p>这里不预填规则答案或模型答案。草稿不能计作人工基准；只有你填写依据并确认的记录才可导出为已复核标注。复核进度会暂存到当前浏览器标签页，刷新可恢复；长期保留请下载草稿，关闭标签页后不保证保留。政策匹配表单和上传原文件不会写入暂存。</p></div>
+      <div class="toolbar"><button class="btn btn-quiet small" id="review-import">导入已复核标注</button><input type="file" id="review-file" accept=".json" hidden><button class="btn btn-quiet small" id="review-download-draft">备份全部复核进度</button><button class="btn btn-quiet small" id="review-restore">恢复复核草稿</button><input type="file" id="review-restore-file" accept=".json" hidden><span id="review-storage-status" role="status"></span><button class="btn btn-primary small" id="review-export" disabled>导出已复核标注 ↓</button></div>
+      <div class="review-layout"><section class="panel review-list-panel"><div class="panel-heading"><h2>案例列表</h2></div><div id="review-case-list"></div></section><section class="panel review-detail"><div id="review-case-content"><div class="simple-empty">正在加载待复核草稿…</div></div></section></div>
+    </section>
+    <section class="view" id="view-report" hidden>
+      <div class="page-heading"><div><h1>你的政策核验报告</h1><p class="subtitle">便于阅读、打印和保存；初筛不替代官方审批。</p></div><button class="btn btn-quiet" data-view="match">返回修改资料</button></div>
+      <div class="toolbar report-toolbar"><button class="btn btn-primary" id="print-report">打印 / 另存 PDF</button><button class="btn" id="download-readable">下载中文报告（HTML）</button><button class="btn btn-quiet" id="export-json">导出实验数据（JSON）</button></div>
+      <div id="report-stale-copy" class="stale-notice" hidden>申请信息已修改，请回到政策匹配重新核对，再生成报告。</div><div id="readable-report" class="panel"></div>
+    </section>
+    <footer>惠才通 <span>·</span> 杭州人才服务研究原型 <span>·</span> 以证据为起点，以核验为下一步</footer>
+  </main>
+</div>
+<dialog id="field-help-dialog" class="detail-dialog" aria-label="填写指引"><div class="dialog-top"><strong>填写指引</strong><button class="icon-button" data-close aria-label="关闭">×</button></div><div id="field-help-content"></div></dialog>
+<dialog id="evidence-dialog" class="detail-dialog" aria-label="政策证据详情"><div class="dialog-top"><span class="eyebrow">证据详情</span><button class="icon-button" data-close aria-label="关闭">×</button></div><div id="evidence-content"></div></dialog>
+<dialog id="model-dialog" class="detail-dialog" aria-label="模型连接配置"><div class="dialog-top"><span class="eyebrow">连接模型</span><button class="icon-button" data-close aria-label="关闭">×</button></div><h2>连接你自己的本地模型</h2><p class="subtitle">当前规则基线可直接使用。模型接入后，其结果会单独显示，便于对照。</p><div class="setup-steps"><p>1. 启动支持 chat-completions 接口的本地模型服务。</p><p>2. 在项目根目录创建 <code>.env.local</code>，参考 <code>.env.example</code>：</p><pre>HCT_LLM_BASE_URL=http://127.0.0.1:11434/v1
+HCT_LLM_MODEL=你的本地模型名称</pre><p>3. 重启本应用。模型核验按钮会在检测到配置后启用。</p></div><p class="field-note">不会通过网页收集 API 密钥。配置模型不代表它已完成 SFT 或 GRPO 训练；训练步骤请查看项目 README。</p><button class="btn btn-primary full" id="refresh-model">刷新连接状态</button></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body></html>
