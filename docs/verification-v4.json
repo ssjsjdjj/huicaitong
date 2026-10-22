@@ -1,0 +1,72 @@
+{
+  "verified_at_utc": "2026-10-22T02:50:10.690392+00:00",
+  "client_date": "2026-10-22",
+  "client_timezone": "Asia/Shanghai",
+  "version": "0.4.0",
+  "python_regression_tests_passed": 109,
+  "javascript_syntax_checked": [
+    "web/app.js",
+    "web/workflow.js",
+    "web/ux.js"
+  ],
+  "static_assets": {
+    "/": {
+      "status": 200,
+      "bytes": 22290
+    },
+    "/app.js": {
+      "status": 200,
+      "bytes": 25544
+    },
+    "/workflow.js": {
+      "status": 200,
+      "bytes": 21272
+    },
+    "/ux.js": {
+      "status": 200,
+      "bytes": 12457
+    },
+    "/ux.css": {
+      "status": 200,
+      "bytes": 8307
+    }
+  },
+  "material_capabilities": {
+    "text": true,
+    "pdf": true,
+    "image": false,
+    "ocr_language": null
+  },
+  "pending_draft_restored_without_promotion": true,
+  "draft_cases": 36,
+  "confirmed_human_annotations_in_seed": 0,
+  "selected_model": "huicaitong-grpo-balanced-v1",
+  "selected_adapter_sha256": "c20e27f8962717f8e8b877da2c848562518da7986cd543ee43384dac7985ba1b",
+  "policy_snapshot_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "unchanged_since_v3": {
+    "checkpoints/grpo/adapter_model.safetensors": true,
+    "checkpoints/selection.json": true,
+    "data/generated/counterfactual_manifest.json": true,
+    "data/generated/manifest.json": true,
+    "data/generated/test_grpo.jsonl": true,
+    "data/generated/test_sft.jsonl": true,
+    "data/generated/test_v2_unseen_grpo.jsonl": true,
+    "data/generated/test_v2_unseen_grpo.manifest.json": true,
+    "data/generated/train_balanced_grpo.jsonl": true,
+    "data/generated/train_balanced_sft.jsonl": true,
+    "data/generated/train_counterfactual_grpo.jsonl": true,
+    "data/generated/train_counterfactual_sft.jsonl": true,
+    "data/generated/train_grpo.jsonl": true,
+    "data/generated/train_sft.jsonl": true,
+    "data/generated/validation_grpo.jsonl": true,
+    "data/generated/validation_sft.jsonl": true,
+    "data/material_examples/graduation-demo.pdf": true,
+    "data/material_examples/insurance-demo.pdf": true,
+    "data/material_examples/insurance-gap-demo.txt": true,
+    "data/policies.json": true,
+    "data/review_draft.json": true,
+    "llm.py": true,
+    "rag.py": true
+  },
+  "note": "User-facing fixes and program regressions only; no new training, human-policy benchmark or accuracy claim. Browser receipt is recorded separately."
+}

@@ -1,0 +1,44 @@
+{
+  "verified_at_utc": "2026-10-22T02:51:49.350Z",
+  "synthetic_tests_only": true,
+  "viewport": {
+    "contentWidth": 1265,
+    "viewportWidth": 1265
+  },
+  "fresh_page_console_errors": [],
+  "model": {
+    "raw_conclusion": "eligible",
+    "reference_conclusion": "ineligible",
+    "audit_status": "needs_review",
+    "blocking_record": "已领取本次学历生活补贴首笔",
+    "raw_prediction_preserved": true
+  },
+  "review": {
+    "restored_note_matches_backup": true,
+    "evidence_checked": true,
+    "formal_export_disabled": true,
+    "progress": "0 / 36 已复核"
+  },
+  "material": {
+    "candidateCount": 2,
+    "countedMonths": 15,
+    "contextMessage": "文件文字已读取，缺毕业日期，暂不能计算参保月数\n\n请在左侧补齐毕业日期，再点“保存日期并重新计算”。无需再次选择文件。",
+    "remainedOnMaterials": true
+  },
+  "stale_profile_guard": {
+    "reportDisabled": true,
+    "modelDisabled": true,
+    "htmlDisabled": true,
+    "jsonDisabled": true
+  },
+  "time_labels": {
+    "expired": "已超过所列申请期",
+    "student": "尚未到申请阶段"
+  },
+  "readable_report": {
+    "downloaded": true,
+    "contains_script": false,
+    "results_before_profile": true
+  },
+  "scope": "Desktop browser workflows. No physical print or mobile-specific QA."
+}

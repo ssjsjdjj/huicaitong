@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-21T07:53:28.218343+00:00",
+  "version": "0.3.0",
+  "automated_tests_passed": 86,
+  "material_capabilities": {
+    "text": true,
+    "pdf": true,
+    "image": false,
+    "ocr_language": null
+  },
+  "draft_cases": 36,
+  "human_annotations_completed": 0,
+  "selected_adapter_matches_frozen_weights": true,
+  "selected_model": "huicaitong-grpo-balanced-v1",
+  "policy_snapshot_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "note": "Runtime and synthetic integration verification only; no new policy-accuracy or GRPO-improvement claim."
+}
