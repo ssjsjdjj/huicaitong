@@ -1,0 +1,13 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "max_length": 1792,
+  "max_completion_length": 384,
+  "num_generations": 2,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 2,
+  "max_steps": 500,
+  "seed": 73,
+  "note": "单字段对照样本候选实验。与旧模型训练步数和解释目标不同，不能据此单独归因数据或 GRPO 收益。"
+}
