@@ -1,0 +1,81 @@
+{
+  "cases": 92,
+  "predictions": 92,
+  "missing_predictions": 0,
+  "conclusion_accuracy": 0.3804347826086957,
+  "valid_output_rate": 1.0,
+  "mean_evidence_f1": 0.5783643892339544,
+  "mean_missing_f1": 0.8079710144927535,
+  "mean_materials_f1": 0.391304347826087,
+  "mean_reward": 0.3911231521739131,
+  "structured_exact_match": 0.14130434782608695,
+  "macro_f1_observed_classes": 0.37161364267852176,
+  "balanced_accuracy": 0.6724137931034483,
+  "per_class": {
+    "eligible": {
+      "support": 12,
+      "predicted": 49,
+      "precision": 0.24489795918367346,
+      "recall": 1.0,
+      "f1": 0.39344262295081966
+    },
+    "ineligible": {
+      "support": 58,
+      "predicted": 1,
+      "precision": 1.0,
+      "recall": 0.017241379310344827,
+      "f1": 0.03389830508474576
+    },
+    "insufficient": {
+      "support": 22,
+      "predicted": 42,
+      "precision": 0.5238095238095238,
+      "recall": 1.0,
+      "f1": 0.6875
+    }
+  },
+  "confusion_matrix": {
+    "eligible": {
+      "eligible": 12,
+      "ineligible": 0,
+      "insufficient": 0,
+      "invalid": 0
+    },
+    "ineligible": {
+      "eligible": 37,
+      "ineligible": 1,
+      "insufficient": 20,
+      "invalid": 0
+    },
+    "insufficient": {
+      "eligible": 0,
+      "ineligible": 0,
+      "insufficient": 22,
+      "invalid": 0
+    }
+  },
+  "per_policy": {
+    "hz-living-first-2024": {
+      "cases": 46,
+      "correct": 19,
+      "valid": 46
+    },
+    "hz-living-second-2024": {
+      "cases": 46,
+      "correct": 16,
+      "valid": 46
+    }
+  },
+  "error_counts": {
+    "conclusion": 57,
+    "evidence_ids": 74,
+    "materials": 56,
+    "missing_fields": 28
+  },
+  "label_source": "synthetic weak supervision unless separately replaced and reviewed",
+  "warning": "只评价提供的预测；不证明训练来源，不构成人工政策准确率。结构完全一致不评价解释文字。",
+  "input_sha256": {
+    "gold": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed",
+    "predictions": "c2424116e408c04869e02f50a5a9c4bbd3fcaa8fda53520d59b1215944961ddd"
+  }
+}

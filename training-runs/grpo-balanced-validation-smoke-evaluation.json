@@ -1,0 +1,13 @@
+{
+  "cases": 12,
+  "predictions": 12,
+  "missing_predictions": 0,
+  "conclusion_accuracy": 0.75,
+  "valid_output_rate": 1.0,
+  "mean_evidence_f1": 0.7698412698412698,
+  "mean_missing_f1": 0.6666666666666666,
+  "mean_materials_f1": 0.75,
+  "mean_reward": 0.7319444166666668,
+  "label_source": "synthetic weak supervision unless separately replaced and reviewed",
+  "warning": "本脚本只评价提供的预测；不证明该预测来自某种训练，不构成人工政策准确率。"
+}

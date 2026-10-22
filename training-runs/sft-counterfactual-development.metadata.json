@@ -1,0 +1,18 @@
+{
+  "model": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\work\\models\\Qwen2.5-0.5B-Instruct",
+  "adapter": "checkpoints/sft-counterfactual",
+  "cases": 92,
+  "limited_smoke_test": false,
+  "full_source_dataset": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\outputs\\huicaitong\\data\\generated\\validation_grpo.jsonl",
+  "predictions_path": "training-runs\\sft-counterfactual-development.jsonl",
+  "gold_path": "training-runs\\sft-counterfactual-development.gold.jsonl",
+  "finished_at": "2026-10-21T06:52:15.085302+00:00",
+  "generation": {
+    "max_new_tokens": 512,
+    "do_sample": false
+  },
+  "source_dataset_sha256": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed",
+  "predictions_sha256": "c2424116e408c04869e02f50a5a9c4bbd3fcaa8fda53520d59b1215944961ddd",
+  "torch": "2.7.1+cu128",
+  "adapter_sha256": "98a23ce0943590cc3c3cf1118abb3b0064e1fe4d5e3046687d7fb2536091f553"
+}

@@ -1,0 +1,18 @@
+{
+  "model": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\work\\models\\Qwen2.5-0.5B-Instruct",
+  "adapter": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\outputs\\huicaitong\\checkpoints\\grpo",
+  "cases": 48,
+  "limited_smoke_test": false,
+  "full_source_dataset": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\outputs\\huicaitong\\data\\generated\\test_v2_unseen_grpo.jsonl",
+  "predictions_path": "training-runs\\selected-v2-heldout.jsonl",
+  "gold_path": "training-runs\\selected-v2-heldout.gold.jsonl",
+  "finished_at": "2026-10-21T06:57:28.270554+00:00",
+  "generation": {
+    "max_new_tokens": 512,
+    "do_sample": false
+  },
+  "source_dataset_sha256": "5f7f59d7a5ce2819c9770aa7b4af1e6052f8f3d5f6c707facbdf912b7d333733",
+  "predictions_sha256": "0857914b14406c74c8dc92fec1965e1b5d909bd83a82c9ec1fb5eab45449c2b9",
+  "torch": "2.7.1+cu128",
+  "adapter_sha256": "c20e27f8962717f8e8b877da2c848562518da7986cd543ee43384dac7985ba1b"
+}

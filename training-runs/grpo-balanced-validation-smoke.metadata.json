@@ -1,0 +1,9 @@
+{
+  "model": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\work\\models\\Qwen2.5-0.5B-Instruct",
+  "adapter": "checkpoints/grpo-balanced",
+  "cases": 12,
+  "limited_smoke_test": true,
+  "full_source_dataset": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\outputs\\huicaitong\\data\\generated\\validation_grpo.jsonl",
+  "predictions_path": "training-runs\\grpo-balanced-validation-smoke.jsonl",
+  "gold_path": "training-runs\\grpo-balanced-validation-smoke.gold.jsonl"
+}

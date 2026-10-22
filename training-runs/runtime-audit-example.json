@@ -1,0 +1,312 @@
+{
+  "synthetic": true,
+  "profile": {
+    "city": "杭州",
+    "application_date": "2026-10-21",
+    "degree": "master",
+    "study_mode": "fulltime",
+    "school_region": "mainland",
+    "nationality": "cn",
+    "graduation_date": "2025-06-30",
+    "insurance_start_date": "2025-07-01",
+    "insurance_months": 15,
+    "employed_hangzhou": true,
+    "employer_qualified": true,
+    "insurance_current": true,
+    "insurance_without_backpay": true,
+    "prior_other_degree_subsidy": false,
+    "degree_while_employed": false,
+    "first_installment_received": true,
+    "family_has_home": false,
+    "other_housing_benefit": false,
+    "rent_first_received": false
+  },
+  "rule": {
+    "policy_id": "hz-living-first-2024",
+    "title": "应届毕业生生活补贴 · 首笔",
+    "conclusion": "ineligible",
+    "reason": "至少一项已录入条件暂不满足，可展开查看具体条款。",
+    "checks": [
+      {
+        "field": "nationality",
+        "label": "中国国籍",
+        "status": "pass",
+        "actual": "cn",
+        "citation": "living-scope",
+        "kind": "scope"
+      },
+      {
+        "field": "school_region",
+        "label": "国内普通高校学历",
+        "status": "pass",
+        "actual": "mainland",
+        "citation": "living-scope",
+        "kind": "scope"
+      },
+      {
+        "field": "study_mode",
+        "label": "当前规则覆盖全日制情形",
+        "status": "pass",
+        "actual": "fulltime",
+        "citation": "living-scope",
+        "kind": "scope"
+      },
+      {
+        "field": "degree_rank",
+        "label": "本科及以上学历",
+        "status": "pass",
+        "actual": 3,
+        "citation": "living-scope",
+        "kind": "rules"
+      },
+      {
+        "field": "graduated",
+        "label": "已毕业",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-scope",
+        "kind": "rules"
+      },
+      {
+        "field": "graduation_date",
+        "label": "毕业时间不早于 2019-06-03",
+        "status": "pass",
+        "actual": "2025-06-30",
+        "citation": "living-scope",
+        "kind": "rules"
+      },
+      {
+        "field": "within_24_months",
+        "label": "毕业后 2 年内申请",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-time",
+        "kind": "rules"
+      },
+      {
+        "field": "employed_hangzhou",
+        "label": "在杭州就业或创业",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-employer",
+        "kind": "rules"
+      },
+      {
+        "field": "employer_qualified",
+        "label": "用人单位满足指南要求",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-employer",
+        "kind": "rules"
+      },
+      {
+        "field": "insurance_current",
+        "label": "申请时在符合条件的杭州单位参保",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "insurance_months",
+        "label": "连续参保满 6 个月（不含补缴）",
+        "status": "pass",
+        "actual": 15,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "insurance_without_backpay",
+        "label": "所填连续时长不包含补缴",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "insurance_start_within_12",
+        "label": "连续参保首月在毕业后 1 年内",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "six_months_within_18",
+        "label": "毕业后 1 年半内达到连续参保 6 个月",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "first_payment_ready",
+        "label": "已到满 6 个月后的可申领月份",
+        "status": "pass",
+        "actual": true,
+        "citation": "living-insurance",
+        "kind": "rules"
+      },
+      {
+        "field": "prior_other_degree_subsidy",
+        "label": "未以其他学历享受过该生活补贴",
+        "status": "pass",
+        "actual": false,
+        "citation": "living-exclusion",
+        "kind": "rules"
+      },
+      {
+        "field": "degree_while_employed",
+        "label": "非在职取得本次全日制学历",
+        "status": "pass",
+        "actual": false,
+        "citation": "living-exclusion",
+        "kind": "rules"
+      },
+      {
+        "field": "first_installment_received",
+        "label": "本次学历尚未领取首笔",
+        "status": "fail",
+        "actual": true,
+        "citation": "living-payment",
+        "kind": "rules"
+      }
+    ],
+    "missing_fields": [],
+    "missing_labels": [],
+    "evidence_ids": [
+      "living-employer",
+      "living-exclusion",
+      "living-insurance",
+      "living-payment",
+      "living-scope",
+      "living-time"
+    ],
+    "materials": [
+      {
+        "id": "identity_info",
+        "label": "姓名、证件号码等基本信息",
+        "kind": "指南列明信息",
+        "citation": "living-materials"
+      },
+      {
+        "id": "bank_info",
+        "label": "银行卡信息",
+        "kind": "指南列明信息",
+        "citation": "living-materials"
+      },
+      {
+        "id": "education_record",
+        "label": "学历记录核对（通常由系统共享获取）",
+        "kind": "核验准备",
+        "citation": "living-materials"
+      },
+      {
+        "id": "insurance_record",
+        "label": "连续参保记录核对（通常由系统共享获取）",
+        "kind": "核验准备",
+        "citation": "living-materials"
+      }
+    ],
+    "source_url": "https://hrss.hangzhou.gov.cn/art/2024/5/13/art_1229578386_4267025.html",
+    "scope_note": "国内普通高校、中国国籍、全日制毕业生的首笔条件；境外学历、非全日制等情形转人工核验。",
+    "amount_label": "按学历标准的 50%",
+    "amount_note": "2024 年指南标准：本科 1 万元、硕士 3 万元、博士 10 万元；旧毕业时间博士有例外。本卡核对首笔，不能与第二笔重复累计总额。",
+    "application_channel": "杭州市民卡 APP · 杭州人才码，或由单位通过亲清在线申报。",
+    "timeline": [
+      {
+        "label": "毕业后两年边界",
+        "date": "2027-06-30",
+        "days_from_reference": 252,
+        "citation": "living-time"
+      },
+      {
+        "label": "连续参保第 6 个月月末",
+        "date": "2025-12-31",
+        "days_from_reference": -294,
+        "citation": "living-insurance"
+      },
+      {
+        "label": "满 6 个月后的申领月份起点",
+        "date": "2026-01-01",
+        "days_from_reference": -293,
+        "citation": "living-insurance"
+      }
+    ]
+  },
+  "model_response": {
+    "mode": "llm",
+    "model": "huicaitong-grpo-balanced-v1",
+    "result": {
+      "policy_id": "hz-living-first-2024",
+      "conclusion": "eligible",
+      "evidence_ids": [
+        "living-employer",
+        "living-exclusion",
+        "living-insurance",
+        "living-payment",
+        "living-scope",
+        "living-time"
+      ],
+      "missing_fields": [],
+      "materials": [
+        "bank_info",
+        "education_record",
+        "identity_info",
+        "insurance_record"
+      ],
+      "explanation": "已录入条件初筛通过；文件现行效力及完整资格仍需受理系统确认。"
+    },
+    "audit": {
+      "status": "needs_review",
+      "reference_conclusion": "ineligible",
+      "issues": [
+        {
+          "field": "conclusion",
+          "severity": "review",
+          "code": "conclusion_conflict",
+          "message": "模型结论与已录入规则不一致，请逐条核对。"
+        },
+        {
+          "field": "evidence_ids",
+          "severity": "note",
+          "code": "evidence_ids_difference",
+          "message": "依据条款与规则参考不完全一致。",
+          "missing": [],
+          "extra": [
+            "living-employer",
+            "living-exclusion",
+            "living-insurance",
+            "living-scope",
+            "living-time"
+          ]
+        },
+        {
+          "field": "materials",
+          "severity": "note",
+          "code": "materials_difference",
+          "message": "准备清单与规则参考不完全一致。",
+          "missing": [],
+          "extra": [
+            "bank_info",
+            "education_record",
+            "identity_info",
+            "insurance_record"
+          ]
+        }
+      ],
+      "reference": {
+        "policy_id": "hz-living-first-2024",
+        "conclusion": "ineligible",
+        "evidence_ids": [
+          "living-payment"
+        ],
+        "missing_fields": [],
+        "materials": [],
+        "explanation": "至少一项已录入条件暂不满足，可展开查看具体条款。"
+      },
+      "notice": "这是与人工整理规则的结构化对照，不验证解释文字，也不证明政策资格正确；模型原始结果完整保留。"
+    },
+    "notice": "独立模型结果已检查结构、引用编号，并与规则逐项对照；解释文字与政策资格仍需人工核验。"
+  }
+}

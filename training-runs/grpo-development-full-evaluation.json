@@ -1,0 +1,82 @@
+{
+  "cases": 92,
+  "predictions": 92,
+  "missing_predictions": 0,
+  "conclusion_accuracy": 0.6630434782608695,
+  "valid_output_rate": 0.9891304347826086,
+  "mean_evidence_f1": 0.7103002070393375,
+  "mean_missing_f1": 0.6865942028985507,
+  "mean_materials_f1": 0.6847826086956522,
+  "mean_reward": 0.6484057608695651,
+  "structured_exact_match": 0.3804347826086957,
+  "macro_f1_observed_classes": 0.6666666666666666,
+  "balanced_accuracy": 0.8030303030303031,
+  "per_class": {
+    "eligible": {
+      "support": 12,
+      "predicted": 36,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5
+    },
+    "ineligible": {
+      "support": 58,
+      "predicted": 29,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666
+    },
+    "insufficient": {
+      "support": 22,
+      "predicted": 26,
+      "precision": 0.7692307692307693,
+      "recall": 0.9090909090909091,
+      "f1": 0.8333333333333334
+    }
+  },
+  "confusion_matrix": {
+    "eligible": {
+      "eligible": 12,
+      "ineligible": 0,
+      "insufficient": 0,
+      "invalid": 0
+    },
+    "ineligible": {
+      "eligible": 22,
+      "ineligible": 29,
+      "insufficient": 6,
+      "invalid": 1
+    },
+    "insufficient": {
+      "eligible": 2,
+      "ineligible": 0,
+      "insufficient": 20,
+      "invalid": 0
+    }
+  },
+  "per_policy": {
+    "hz-living-first-2024": {
+      "cases": 46,
+      "correct": 18,
+      "valid": 45
+    },
+    "hz-living-second-2024": {
+      "cases": 46,
+      "correct": 43,
+      "valid": 46
+    }
+  },
+  "error_counts": {
+    "conclusion": 30,
+    "evidence_ids": 51,
+    "materials": 28,
+    "missing_fields": 33,
+    "invalid_output": 1
+  },
+  "label_source": "synthetic weak supervision unless separately replaced and reviewed",
+  "warning": "只评价提供的预测；不证明训练来源，不构成人工政策准确率。结构完全一致不评价解释文字。",
+  "input_sha256": {
+    "gold": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed",
+    "predictions": "bbee3a78a53ef912f6b819a33dce0fc85e1f21b30f28d8272b791c452a38d183"
+  }
+}

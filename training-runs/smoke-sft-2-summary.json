@@ -1,0 +1,50 @@
+{
+  "mode": "sft",
+  "samples": 388,
+  "model": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\work\\models\\Qwen2.5-0.5B-Instruct",
+  "dependencies": {
+    "torch": true,
+    "transformers": true,
+    "trl": true,
+    "peft": true,
+    "datasets": true,
+    "accelerate": true
+  },
+  "gpu_training_executed": true,
+  "data_path": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-21\\https-mp-weixin-qq-com-s\\outputs\\huicaitong\\data\\generated\\train_sft.jsonl",
+  "weak_labels_need_review": true,
+  "steps_completed": 2,
+  "smoke_run": true,
+  "max_gpu_allocated_gb": 2.821,
+  "training_log": [
+    {
+      "loss": 1.1448,
+      "grad_norm": 2.8899710178375244,
+      "learning_rate": 0.0001,
+      "entropy": 1.9645362496376038,
+      "num_tokens": 1818.0,
+      "mean_token_accuracy": 0.7787171304225922,
+      "epoch": 0.005154639175257732,
+      "step": 1
+    },
+    {
+      "loss": 1.2262,
+      "grad_norm": 2.9780187606811523,
+      "learning_rate": 5e-05,
+      "entropy": 1.9787787795066833,
+      "num_tokens": 3619.0,
+      "mean_token_accuracy": 0.7379487156867981,
+      "epoch": 0.010309278350515464,
+      "step": 2
+    },
+    {
+      "train_runtime": 1.7623,
+      "train_samples_per_second": 2.27,
+      "train_steps_per_second": 1.135,
+      "total_flos": 7794879907584.0,
+      "train_loss": 1.185537338256836,
+      "epoch": 0.010309278350515464,
+      "step": 2
+    }
+  ]
+}

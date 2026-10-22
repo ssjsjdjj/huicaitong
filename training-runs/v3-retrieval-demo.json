@@ -1,0 +1,156 @@
+{
+  "synthetic": true,
+  "scope": "single integration example, not an accuracy benchmark",
+  "profile": {
+    "city": "杭州",
+    "application_date": "2026-10-21",
+    "degree": "master",
+    "study_mode": "fulltime",
+    "school_region": "mainland",
+    "nationality": "cn",
+    "graduation_date": "2025-06-30",
+    "insurance_start_date": "2025-07-01",
+    "insurance_months": 15,
+    "employed_hangzhou": true,
+    "employer_qualified": true,
+    "insurance_current": true,
+    "insurance_without_backpay": true,
+    "prior_other_degree_subsidy": false,
+    "degree_while_employed": false,
+    "first_installment_received": true,
+    "family_has_home": false,
+    "other_housing_benefit": false,
+    "rent_first_received": false
+  },
+  "question": "已经领过本次学历的首笔生活补贴，还可以申请首笔吗？",
+  "response": {
+    "mode": "llm",
+    "model": "huicaitong-grpo-balanced-v1",
+    "evidence_mode": "retrieval",
+    "retrieval": {
+      "method": "bm25-required-v1",
+      "query": "已经领过本次学历的首笔生活补贴，还可以申请首笔吗？",
+      "policy_id": "hz-living-first-2024",
+      "as_of": "2026-10-21",
+      "published_on": "2024-05-13",
+      "hits": [
+        {
+          "id": "living-exclusion",
+          "section": "特别说明 3—4",
+          "score": 8.2969
+        },
+        {
+          "id": "living-materials",
+          "section": "四、申请材料（信息）",
+          "score": 7.5568
+        },
+        {
+          "id": "living-time",
+          "section": "三、申请条件／申请时限",
+          "score": 7.2954
+        }
+      ],
+      "expanded_ids": [
+        "living-scope",
+        "living-employer",
+        "living-insurance",
+        "living-payment"
+      ],
+      "context_ids": [
+        "living-exclusion",
+        "living-materials",
+        "living-time",
+        "living-scope",
+        "living-employer",
+        "living-insurance",
+        "living-payment"
+      ],
+      "required_ids": [
+        "living-employer",
+        "living-exclusion",
+        "living-insurance",
+        "living-materials",
+        "living-payment",
+        "living-scope",
+        "living-time"
+      ],
+      "encoded_rule_coverage_complete": true,
+      "policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "context_sha256": "bca91dfbc6cf9f2de4d0c22448bf9506e79c7de8d9b4b3451607d5c7eb5dda28",
+      "notice": "在所选事项内检索，再补齐已录入规则和准备清单关联的条款。覆盖完整仅指已录入规则，不证明原政策完整或现行有效；没有使用向量检索。"
+    },
+    "result": {
+      "policy_id": "hz-living-first-2024",
+      "conclusion": "eligible",
+      "evidence_ids": [
+        "living-exclusion",
+        "living-materials",
+        "living-time",
+        "living-scope",
+        "living-employer",
+        "living-insurance",
+        "living-payment"
+      ],
+      "missing_fields": [],
+      "materials": [
+        "identity_info",
+        "bank_info",
+        "education_record",
+        "insurance_record"
+      ],
+      "explanation": "已录入条件初筛是否受理中。"
+    },
+    "audit": {
+      "status": "needs_review",
+      "reference_conclusion": "ineligible",
+      "issues": [
+        {
+          "field": "conclusion",
+          "severity": "review",
+          "code": "conclusion_conflict",
+          "message": "模型结论与已录入规则不一致，请逐条核对。"
+        },
+        {
+          "field": "evidence_ids",
+          "severity": "note",
+          "code": "evidence_ids_difference",
+          "message": "依据条款与规则参考不完全一致。",
+          "missing": [],
+          "extra": [
+            "living-employer",
+            "living-exclusion",
+            "living-insurance",
+            "living-materials",
+            "living-scope",
+            "living-time"
+          ]
+        },
+        {
+          "field": "materials",
+          "severity": "note",
+          "code": "materials_difference",
+          "message": "准备清单与规则参考不完全一致。",
+          "missing": [],
+          "extra": [
+            "bank_info",
+            "education_record",
+            "identity_info",
+            "insurance_record"
+          ]
+        }
+      ],
+      "reference": {
+        "policy_id": "hz-living-first-2024",
+        "conclusion": "ineligible",
+        "evidence_ids": [
+          "living-payment"
+        ],
+        "missing_fields": [],
+        "materials": [],
+        "explanation": "至少一项已录入条件暂不满足，可展开查看具体条款。"
+      },
+      "notice": "这是与人工整理规则的结构化对照，不验证解释文字，也不证明政策资格正确；模型原始结果完整保留。"
+    },
+    "notice": "模型未收到规则结论。输出已检查结构与所给证据编号，再独立与规则对照；解释文字与政策资格仍需人工核验。"
+  }
+}

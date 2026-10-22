@@ -1,0 +1,76 @@
+{
+  "cases": 48,
+  "predictions": 48,
+  "missing_predictions": 0,
+  "conclusion_accuracy": 0.4583333333333333,
+  "valid_output_rate": 1.0,
+  "mean_evidence_f1": 0.4791666666666667,
+  "mean_missing_f1": 0.40972222222222227,
+  "mean_materials_f1": 0.4375,
+  "mean_reward": 0.3944443958333333,
+  "structured_exact_match": 0.020833333333333332,
+  "macro_f1_observed_classes": 0.24754901960784315,
+  "balanced_accuracy": 0.2914529914529915,
+  "per_class": {
+    "eligible": {
+      "support": 7,
+      "predicted": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "ineligible": {
+      "support": 26,
+      "predicted": 42,
+      "precision": 0.5,
+      "recall": 0.8076923076923077,
+      "f1": 0.6176470588235294
+    },
+    "insufficient": {
+      "support": 15,
+      "predicted": 1,
+      "precision": 1.0,
+      "recall": 0.06666666666666667,
+      "f1": 0.125
+    }
+  },
+  "confusion_matrix": {
+    "eligible": {
+      "eligible": 0,
+      "ineligible": 7,
+      "insufficient": 0,
+      "invalid": 0
+    },
+    "ineligible": {
+      "eligible": 5,
+      "ineligible": 21,
+      "insufficient": 0,
+      "invalid": 0
+    },
+    "insufficient": {
+      "eligible": 0,
+      "ineligible": 14,
+      "insufficient": 1,
+      "invalid": 0
+    }
+  },
+  "per_policy": {
+    "hz-rent-first-2026": {
+      "cases": 48,
+      "correct": 22,
+      "valid": 48
+    }
+  },
+  "error_counts": {
+    "conclusion": 26,
+    "evidence_ids": 45,
+    "materials": 27,
+    "missing_fields": 29
+  },
+  "label_source": "synthetic weak supervision unless separately replaced and reviewed",
+  "warning": "只评价提供的预测；不证明训练来源，不构成人工政策准确率。结构完全一致不评价解释文字。",
+  "input_sha256": {
+    "gold": "5f7f59d7a5ce2819c9770aa7b4af1e6052f8f3d5f6c707facbdf912b7d333733",
+    "predictions": "0857914b14406c74c8dc92fec1965e1b5d909bd83a82c9ec1fb5eab45449c2b9"
+  }
+}
