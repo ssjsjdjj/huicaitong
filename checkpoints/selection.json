@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "frozen_at": "2026-10-21T06:56:03.284739+00:00",
+  "adapter": "grpo",
+  "experiment_adapter": "grpo-balanced",
+  "adapter_sha256": "c20e27f8962717f8e8b877da2c848562518da7986cd543ee43384dac7985ba1b",
+  "model_id": "huicaitong-grpo-balanced-v1",
+  "criterion": "full 92 development structured exact match; then conclusion accuracy; tie favors SFT",
+  "selected_metrics": {
+    "phase": "grpo",
+    "folder": "grpo-balanced",
+    "report": "grpo-development-full-evaluation.json",
+    "report_sha256": "a51d81b96725ffe2fe21235605b6df06464afc0ff7c3c02a3a349beee78746b9",
+    "adapter_sha256": "c20e27f8962717f8e8b877da2c848562518da7986cd543ee43384dac7985ba1b",
+    "structured_exact_match": 0.3804347826086957,
+    "conclusion_accuracy": 0.6630434782608695,
+    "gold_sha256": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed"
+  },
+  "candidates": [
+    {
+      "phase": "grpo",
+      "folder": "grpo-balanced",
+      "report": "grpo-development-full-evaluation.json",
+      "report_sha256": "a51d81b96725ffe2fe21235605b6df06464afc0ff7c3c02a3a349beee78746b9",
+      "adapter_sha256": "c20e27f8962717f8e8b877da2c848562518da7986cd543ee43384dac7985ba1b",
+      "structured_exact_match": 0.3804347826086957,
+      "conclusion_accuracy": 0.6630434782608695,
+      "gold_sha256": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed"
+    },
+    {
+      "phase": "sft",
+      "folder": "sft-counterfactual",
+      "report": "sft-counterfactual-development-evaluation.json",
+      "report_sha256": "1d8c04f71b229377cc21338a99552a8af407772f7223cd35f6b08b16914a411f",
+      "adapter_sha256": "98a23ce0943590cc3c3cf1118abb3b0064e1fe4d5e3046687d7fb2536091f553",
+      "structured_exact_match": 0.14130434782608695,
+      "conclusion_accuracy": 0.3804347826086957,
+      "gold_sha256": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed"
+    },
+    {
+      "phase": "grpo",
+      "folder": "grpo-counterfactual",
+      "report": "grpo-counterfactual-development-evaluation.json",
+      "report_sha256": "976c591109e207dbb225b6b249df94aaaff2e5e2122397fdfacce857008f1e39",
+      "adapter_sha256": "ba02e445b31556472c8e57eea86f866b7a51b05fd21b3298235e296607ac1ad9",
+      "structured_exact_match": 0.14130434782608695,
+      "conclusion_accuracy": 0.3804347826086957,
+      "gold_sha256": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed"
+    }
+  ],
+  "holdout_subset_sha256": "5f7f59d7a5ce2819c9770aa7b4af1e6052f8f3d5f6c707facbdf912b7d333733",
+  "warning": "开发集参与调参，选择不是独立测试结果。默认模型在后续48条租房检查前冻结。"
+}
