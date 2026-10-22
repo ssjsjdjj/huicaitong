@@ -1,0 +1,39 @@
+{
+  "seed": 42,
+  "scenario_groups": 240,
+  "policy_snapshot_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "label_source": "synthetic_rule_weak_label",
+  "human_reviewed": false,
+  "test_holdout_family": "hz-rent",
+  "validation_isolation": "applicant scenario groups only; living policy sources overlap with training",
+  "test_isolation": "rental source family excluded from training; input policy text is available at inference",
+  "warning": "开发用弱监督数据，不是人工标注评测集，单一测试文件族不足以证明广泛政策泛化。正式实验需人工复核并扩充独立文件。",
+  "counts": {
+    "train": 388,
+    "validation": 92,
+    "test": 240
+  },
+  "label_counts": {
+    "train": {
+      "ineligible": 271,
+      "eligible": 46,
+      "insufficient": 71
+    },
+    "validation": {
+      "ineligible": 58,
+      "insufficient": 22,
+      "eligible": 12
+    },
+    "test": {
+      "eligible": 60,
+      "insufficient": 64,
+      "ineligible": 116
+    }
+  },
+  "balanced_training": {
+    "strategy": "deterministic undersampling of training split only",
+    "total": 138,
+    "per_class": 46,
+    "warning": "负例下采样减少覆盖，仅为开发中的类别偏差修正；验证与测试不平衡抽样，也不改变标签。"
+  }
+}

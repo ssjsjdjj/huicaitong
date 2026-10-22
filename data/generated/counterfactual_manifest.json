@@ -1,0 +1,39 @@
+{
+  "seed": 73,
+  "train_only": true,
+  "source_family": "hz-living",
+  "counts": 384,
+  "unique_tasks": 302,
+  "per_policy_per_class": 64,
+  "candidate_pool_counts": {
+    "hz-living-first-2024:eligible": 23,
+    "hz-living-first-2024:ineligible": 367,
+    "hz-living-first-2024:insufficient": 314,
+    "hz-living-second-2024:eligible": 23,
+    "hz-living-second-2024:ineligible": 366,
+    "hz-living-second-2024:insufficient": 309
+  },
+  "excluded_development_duplicates": 5,
+  "development_profile_overlap": 0,
+  "augmentation_counts": {
+    "one_field:insurance_without_backpay": 21,
+    "one_field:employer_qualified": 22,
+    "original_training": 188,
+    "one_field:school_region": 22,
+    "one_field:prior_other_degree_subsidy": 13,
+    "one_field:insurance_months": 29,
+    "one_field:employed_hangzhou": 16,
+    "one_field:insurance_current": 15,
+    "one_field:degree_while_employed": 18,
+    "one_field:study_mode": 21,
+    "one_field:degree": 7,
+    "one_field:first_installment_received": 12
+  },
+  "source_train_sha256": "0e1bd5a139a50d95d0d4daa056b317a38330d05bb15aed57771ab048afeb56cb",
+  "source_policy_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "files_sha256": {
+    "train_counterfactual_sft.jsonl": "faabd48afecffeec5a1ec2475a68dd41a819ec874c44717bdcbadfdeeb947f4b",
+    "train_counterfactual_grpo.jsonl": "7fc2ce2aa657b3f29c2d0b4f73a1159bf20a29022a9b4a3443532b6b698e32b1"
+  },
+  "warning": "训练集内单字段编辑与按政策类别平衡抽样；少数类有重复。全部标签仍由规则生成，不是人工数据，也不证明跨政策泛化。验证只读取人物标识用于排除重复，未读取测试集。"
+}
