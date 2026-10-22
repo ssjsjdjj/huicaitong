@@ -1,0 +1,9 @@
+# Optional training environment only. The web application uses Python stdlib.
+# Install a CUDA-compatible PyTorch first, following the official PyTorch selector.
+# These are an API-targeted compatibility range, not a tested lockfile.
+torch>=2.6,<3
+transformers>=4.56,<5
+trl>=0.29,<0.30
+peft>=0.17,<0.19
+accelerate>=1.4,<2
+datasets>=3.6,<5

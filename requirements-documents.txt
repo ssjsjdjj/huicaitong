@@ -1,0 +1,2 @@
+# Optional, isolated material-reading environment. The core app needs no packages.
+pypdf==6.10.0
