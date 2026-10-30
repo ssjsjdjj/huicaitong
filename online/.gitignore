@@ -1,0 +1,10 @@
+.sites-checkout*
+.sites-runtime/
+node_modules/
+__pycache__/
+*.pyc
+runtime/
+.env*
+!dist/.env.example
+
+.work/

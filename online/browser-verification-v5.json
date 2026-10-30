@@ -1,0 +1,18 @@
+{
+  "preview_url": "http://127.0.0.1:8879/",
+  "assessment": true,
+  "pdf_lazy_load": true,
+  "runtime_cache_reused": true,
+  "practice_test_freeze_blocked": true,
+  "development_freeze": true,
+  "wrong_prediction_fingerprint_blocked": true,
+  "missing_predictions_in_denominator": true,
+  "new_case_unknown_field_blocked": true,
+  "new_case_not_autolabelled": true,
+  "review_draft_reload_restored": true,
+  "mobile_viewport_width": 375,
+  "mobile_document_width": 375,
+  "viewport_override_reset": true,
+  "software_fixtures_only": true,
+  "console_errors": []
+}

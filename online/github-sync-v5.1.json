@@ -1,0 +1,14 @@
+{
+  "version": "0.5.1-online",
+  "build_id": "16678c564b31ecf5",
+  "date": "2026-10-30",
+  "source_site_commit": "483ef766a848be7796018ecc0d7165838ce68e69",
+  "online_url": "https://huicaitong-hangzhou.haleheron3.chatgpt.site",
+  "published_dist_byte_identical": true,
+  "layout_changes": "Development scripts use repository root sources and online/.work; PDF rebuild reuses the verified frozen reader.",
+  "specialized_tests": 43,
+  "native_browser_parity_scenarios": 48,
+  "credential_pattern_hits": 0,
+  "model_training_changed": false,
+  "human_research_labels_added": 0
+}

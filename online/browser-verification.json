@@ -1,0 +1,17 @@
+{
+  "preview_url": "http://127.0.0.1:8877/",
+  "policy_assessment": true,
+  "evidence_search": true,
+  "pdf_material_extraction": true,
+  "rule_evaluation": {
+    "scenarios_passed": 10,
+    "conclusions_compared": 30
+  },
+  "historical_model_results_visible": true,
+  "readable_report_preview": true,
+  "readable_report_download": true,
+  "policy_import_and_reload_restoration": true,
+  "viewport_width": 481,
+  "document_scroll_width": 481,
+  "console_errors": []
+}

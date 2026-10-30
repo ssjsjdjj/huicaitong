@@ -1,0 +1,63 @@
+{
+  "version": "0.5.1-online",
+  "build_id": "16678c564b31ecf5",
+  "tested_on": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "production_baseline": "https://huicaitong-hangzhou.haleheron3.chatgpt.site",
+  "fixed_in_local_preview": [
+    "Navigation replaced every history entry; browser Back left the site. Back and Forward now traverse views.",
+    "An empty review filter still displayed and allowed editing the previous case. Empty filters now remove the editor.",
+    "Restoring an older draft silently overwrote current notes. Conflicts now require an explicit replacement action and a successful pre-restore backup.",
+    "A cleared profile could leave a stale report visible when returning to its view. The report is now cleared and export controls remain disabled.",
+    "Phone navigation hid destinations in a horizontal scroller. All six destinations now fit in two rows.",
+    "Malformed applicant JSON exposed an English parser error. JSON inputs now have Chinese recovery guidance.",
+    "Unsaved frozen datasets could be replaced or lost on page exit. A download is required before switching, and page exit warns about undownloaded snapshots.",
+    "Downloading the current comparison did not clear its unsaved warning. Backup tracking now follows individual comparison runs."
+  ],
+  "browser_acceptance": {
+    "incomplete_profile_followups": "passed",
+    "synthetic_profile_assessment": "passed",
+    "readable_report_and_html_json_download_actions": "passed",
+    "changed_profile_blocks_old_report_export": "passed",
+    "cleared_profile_then_back_to_report": "passed",
+    "browser_back_and_forward": "passed",
+    "chinese_search_and_no_matches": "passed",
+    "knowledge_filter_empty_and_history_isolation": "passed",
+    "pdf_graduation_conflict_and_confirmed_writeback": "passed",
+    "continuous_pdf_and_interrupted_txt_ledgers": "passed",
+    "uploaded_txt_without_fields": "passed",
+    "invalid_policy_import_rejected": "passed",
+    "reference_policy_import_and_refresh_recovery": "passed",
+    "online_rule_acceptance": "10/10",
+    "empty_review_filter_removes_editor": "passed",
+    "editing_confirmed_record_switches_to_pending_filter": "passed",
+    "draft_restore_conflict_keeps_current_notes": "passed",
+    "explicit_replacement_creates_downloadable_backup": "passed",
+    "review_confirmation_and_refresh_restore": "passed",
+    "new_case_starts_unconfirmed_and_invalid_json_is_explained": "passed",
+    "practice_cannot_freeze_as_independent_test": "passed",
+    "development_freeze_and_undownloaded_snapshot_guard": "passed",
+    "wrong_prediction_fingerprint_rejected": "passed",
+    "missing_prediction_counts_in_denominator": "passed",
+    "current_comparison_backup_allows_refresh_without_spurious_prompt": "passed",
+    "phone_navigation_all_six_buttons_inside_viewport": "passed",
+    "console_errors": 0
+  },
+  "automated_checks": {
+    "native_browser_parity_scenarios": 48,
+    "policy_recovery_cache_tests": 13,
+    "review_restore_tests": 8,
+    "human_evaluation_tests": 19,
+    "prediction_bridge_tests": 3,
+    "asset_contract": "passed"
+  },
+  "human_research_labels_added": 0,
+  "model_training_changed": false,
+  "policy_content_unchanged": true,
+  "limitations": [
+    "Browser checks used synthetic software QA fixtures; they are not human policy gold labels.",
+    "File download actions were exercised; metric and snapshot content were verified by unit and parity checks, not by reading the browser download directory.",
+    "Phone coverage is a responsive viewport check, not a physical iOS or Android device test.",
+    "No real model inference, live policy update, or external official application was performed."
+  ]
+}

@@ -1,0 +1,31 @@
+<section class="panel annotation-guide">
+  <div class="panel-heading"><h2>先确定用途，再开始标注</h2><button class="btn btn-primary small" id="review-add-case">新增评测案例</button></div>
+  <ol><li>打开官方原文，核对当前政策快照和参考日期，不预填规则或模型答案。</li><li>分别选择结论、支持条款、缺失信息和准备清单，并写明判断依据及不确定处。</li><li>内置 36 条是开发练习。独立测试须另建新案例，检查重复，并确认未参与训练、提示词调整或模型选择。</li></ol>
+  <div id="review-summary" class="review-summary" aria-live="polite"></div>
+  <div class="toolbar review-stage-nav"><button class="btn btn-quiet small" data-review-stage="review-case-content">1. 标注案例</button><button class="btn btn-quiet small" data-review-stage="benchmark-freeze-panel">2. 冻结评测集</button><button class="btn btn-quiet small" data-review-stage="benchmark-evaluation-panel">3. 对照实际预测</button></div>
+  <div class="review-filters"><label>复核状态<select id="review-status-filter"><option value="all">全部案例</option><option value="pending">待复核</option><option value="reviewed">已确认</option></select></label><label>政策来源<select id="review-family-filter"><option value="all">全部来源</option></select></label><button class="btn btn-quiet small" id="review-next-pending">下一条待复核</button></div>
+</section>
+<section class="panel review-restore-conflicts" id="review-restore-conflicts" role="status" hidden>
+  <h2>恢复文件与当前填写内容有冲突</h2><p id="review-restore-conflict-summary"></p>
+  <p>当前内容尚未替换。继续时会先在本标签页保存恢复前备份；备份失败就停止恢复。长期保留请下载备份。</p>
+  <div class="toolbar"><button class="btn btn-quiet" id="review-restore-cancel">取消恢复，保留当前内容</button><button class="btn btn-primary" id="review-restore-replace">先备份，再替换冲突条目</button></div>
+</section>
+<details class="panel review-restore-backups" id="review-restore-backups" hidden><summary>草稿恢复前的备份</summary><p class="field-note">只保存在本标签页。下载后可用“恢复复核草稿”重新载入。</p><div id="review-restore-backup-list"></div></details>
+<!-- BENCHMARKS -->
+<section class="panel benchmark-panel" id="benchmark-freeze-panel">
+  <div class="panel-heading"><h2>冻结人工评测集</h2><span class="method-tag">只导出已确认记录</span></div>
+  <p>冻结文件包含政策快照、案例来源、人工标注及 SHA-256 指纹。之后编辑工作台不会改变已冻结文件。</p>
+  <form id="benchmark-freeze-form" class="benchmark-form"><label>评测集名称<input id="benchmark-name" required maxlength="120" placeholder="例如：杭州人才政策人工复核 v1"></label><label>评测集编号<input id="benchmark-id" required pattern="[a-zA-Z0-9][a-zA-Z0-9_.-]{2,79}" maxlength="80" placeholder="例如：hz-human-eval-v1"></label><label>评测用途<select id="benchmark-purpose"><option value="development">开发检查（可包含内置练习）</option><option value="test">独立测试用途（仅接受另建新案例）</option></select></label><label class="check-label independence-check" id="benchmark-independence-label" hidden><input type="checkbox" id="benchmark-independence">我确认本批案例及其近重复未用于训练、调参、提示词修改或模型选择。</label><p id="benchmark-selection" class="field-note"></p><button class="btn btn-primary" type="submit">检查并冻结当前已确认案例</button></form>
+  <div id="benchmark-current" role="status" class="field-note">当前尚无冻结评测集。</div><div id="benchmark-message" role="status" class="field-note"></div>
+  <div class="toolbar"><button class="btn" id="benchmark-download" disabled>下载冻结评测集</button><button class="btn btn-quiet" id="benchmark-load">载入已有冻结集</button><input id="benchmark-dataset-file" type="file" accept=".json" hidden><button class="btn btn-quiet" id="benchmark-template" disabled>下载预测输入与空模板</button></div>
+  <p class="field-note">程序能检查本项目记录中的完全相同人物字段，不能证明外部训练历史、近重复独立性或标注质量。内置练习不能作为独立测试。请妥善保存下载的原始文件。</p>
+</section>
+<section class="panel benchmark-panel" id="benchmark-evaluation-panel">
+  <div class="panel-heading"><h2>用同一冻结集比较实际预测</h2><span class="method-tag">不运行模型，不生成预测</span></div>
+  <p>导入实际生成的预测文件。每条需要 case_id 与 completion；支持 JSON 或 JSONL。缺失、格式错误与未知编号会明确处理，解释文字不自动评分。</p>
+  <details><summary>如何用已有本地模型生成预测？</summary><p>先下载上一步的无答案预测模板，并启动自己的本机模型服务。下面的脚本只连接本机、不读取人工答案，实际调用后生成带评测集指纹的预测文件。</p><a class="btn btn-quiet small" href="/predict-frozen.py?v=__HCT_BUILD__" download="predict-frozen.py">下载本地预测脚本</a><p><code>python predict-frozen.py --input 模板.json --model 实际模型名称 --output 新预测.json</code></p><p>默认连接 http://127.0.0.1:8766/v1，可用 --base-url 指定其他本机端口。先加 --dry-run 可检查输入而不调用模型。比较多个模型时固定同一模板及生成参数；输出文件再导入下方。</p></details>
+  <form id="benchmark-evaluate-form" class="benchmark-form"><label>模型或实验名称<input id="benchmark-model" required maxlength="120" placeholder="例如：Base / SFT / GRPO + 实验编号"></label><label>预测文件（可选）<input id="benchmark-predictions" type="file" accept=".json,.jsonl"></label><label class="prediction-paste">或粘贴预测 JSON / JSONL<textarea id="benchmark-prediction-text" rows="5" spellcheck="false" placeholder="填写 completion 为实际模型输出的预测列表；空模板不能代表模型运行。"></textarea></label><label class="check-label"><input type="checkbox" id="benchmark-binding">若文件未含评测集指纹，我确认它对应当前冻结集。</label><button class="btn btn-primary" type="submit">检查预测并计算指标</button></form>
+  <div id="benchmark-evaluation-message" role="status" class="field-note">先冻结或载入人工评测集，再导入预测。</div>
+  <div id="benchmark-results" class="benchmark-results"></div>
+  <div class="toolbar"><button class="btn btn-quiet" id="benchmark-export-results" disabled>下载当前对照指标与逐条错误</button><button class="btn btn-quiet" id="benchmark-export-all" disabled>备份本标签页全部对照记录</button></div>
+</section>

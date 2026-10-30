@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "version": "0.5.1-online",
+  "build_id": "16678c564b31ecf5",
+  "project_id": "appgprj_6ae06a63d7a4819197dae64286024700",
+  "saved_version": 3,
+  "saved_version_id": "appgprj_6ae06a63d7a4819197dae64286024700~appgver_a629fd3c2f3481919fc480c609fe1b54",
+  "deployment_id": "appgdep_6ae40e9112bc8191a8924cc119b33a6a",
+  "deployment_status": "succeeded",
+  "deployment_updated_at": "2026-10-30T03:27:20.507188+00:00",
+  "audience": "public",
+  "url": "https://huicaitong-hangzhou.haleheron3.chatgpt.site",
+  "commit_sha": "483ef766a848be7796018ecc0d7165838ce68e69",
+  "archive": "huicaitong-site-v5.1.tar.gz",
+  "anonymous_http_status": 200,
+  "production_smoke": {
+    "browser_back_stays_on_site": true,
+    "empty_review_filter_has_no_editor": true,
+    "synthetic_assessment_and_report": true,
+    "mobile_all_six_navigation_destinations_visible": true,
+    "mobile_document_width_equals_viewport": true,
+    "initial_review_confirmed": 0,
+    "initial_review_total": 36,
+    "console_errors": 0
+  },
+  "screenshots": ["huicaitong-v5.1-published.png", "huicaitong-v5.1-mobile-published.png"],
+  "automated_checks": {
+    "native_browser_parity_scenarios": 48,
+    "specialized_tests": 43,
+    "asset_contract": "passed"
+  },
+  "local_preview_stopped": true,
+  "human_research_labels_added": 0,
+  "model_training_changed": false,
+  "policy_content_unchanged": true,
+  "acceptance_details": "huicaitong-online/user-acceptance-v5.1.json"
+}

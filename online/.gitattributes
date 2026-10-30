@@ -1,0 +1,4 @@
+# Published asset hashes refer to the exact bytes on disk.
+dist/** -text
+*.zip -text
+*.wasm -text

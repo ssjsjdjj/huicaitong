@@ -1,0 +1,7 @@
+{
+  "scenarios": 48,
+  "all_equal": true,
+  "native_python": "3.12",
+  "browser_python": "3.14.2",
+  "runtime": "Pyodide 314.0.7"
+}

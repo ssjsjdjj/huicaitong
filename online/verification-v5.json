@@ -1,0 +1,19 @@
+{
+  "version": "0.5.0-online",
+  "build_id": "083a0e7ef72ad39b",
+  "policy_content_unchanged": true,
+  "policy_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "human_labels_added": 0,
+  "initial_practice_cases": 36,
+  "model_training_changed": false,
+  "native_browser_parity_scenarios": 48,
+  "recovery_cache_tests": 13,
+  "human_evaluation_tests": 19,
+  "blind_prediction_bridge_tests": 3,
+  "javascript_syntax_checks": 6,
+  "bootstrap_bytes": 63080,
+  "core_bytes": 169070,
+  "lazy_pdf_bytes": 327501,
+  "software_qa_annotations_are_not_research_gold": true,
+  "asset_contract_checked": true
+}
