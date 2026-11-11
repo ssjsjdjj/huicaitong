@@ -43,7 +43,7 @@
   }
   function signalUpdate(){window.dispatchEvent(new Event('hct:policies-updated'));}
   async function boot(){
-    const [response,module]=await Promise.all([nativeFetch('/assets.json',{cache:'no-store'}),import('/import-recovery.mjs?v=f9b47f48e2ae9c9c')]);
+    const [response,module]=await Promise.all([nativeFetch('/assets.json',{cache:'no-store'}),import('/import-recovery.mjs?v=a6f3b90eedd78575')]);
     if(!response.ok)throw new Error('页面资源清单无法加载，请重试。');
     manifest=await response.json();
     const data=await nativeFetch(manifest.bootstrap.url);if(!data.ok)throw new Error('政策资料无法加载，请重试。');

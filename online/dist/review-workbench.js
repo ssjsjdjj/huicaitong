@@ -110,7 +110,7 @@ async function renderRestoreBackups(){
 async function applyReviewRestore(allowConflicts){
   if(!pendingReviewRestore)return;
   stashReview();
-  const module=await import('/review-recovery.mjs?v=f9b47f48e2ae9c9c');
+  const module=await import('/review-recovery.mjs?v=a6f3b90eedd78575');
   const plan=module.planReviewRestore(state.reviewCases,pendingReviewRestore.cases);
   if(plan.conflicts.length&&!allowConflicts){
     $('#review-restore-conflict-summary').textContent=`文件含 ${plan.total} 条案例，其中 ${plan.conflicts.length} 条会替换当前已有填写：${plan.conflicts.join('、')}。`;

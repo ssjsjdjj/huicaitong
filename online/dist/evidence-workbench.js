@@ -1,7 +1,7 @@
 'use strict';
 let primaryRegistry=null,campaignPackets=null,campaignComparison=null;
 let adjudicationUnsaved=false;
-function sourceLink(doc,compact=false){return `<a href="${esc(safeURL(doc.url))}" target="_blank" rel="noopener noreferrer">${esc(compact?doc.title:'官方来源 ↗')}</a> · <a href="${esc(doc.local_url)}?v=f9b47f48e2ae9c9c" target="_blank" rel="noopener noreferrer">本站原始文件</a>`;}
+function sourceLink(doc,compact=false){return `<a href="${esc(safeURL(doc.url))}" target="_blank" rel="noopener noreferrer">${esc(compact?doc.title:'官方来源 ↗')}</a> · <a href="${esc(doc.local_url)}?v=a6f3b90eedd78575" target="_blank" rel="noopener noreferrer">本站原始文件</a>`;}
 window.renderPrimarySources=function(){
   if(!primaryRegistry)return;
   $$('[data-policy-source]').forEach(box=>{
@@ -12,7 +12,7 @@ window.renderPrimarySources=function(){
 };
 async function loadPrimaryEvidence(){
   primaryRegistry=await api('/api/sources');
-  $('#primary-evidence-content').innerHTML=`<p>原文补核 ${esc(primaryRegistry.checked_on)} · 自动规则仍采用 ${esc(primaryRegistry.rule_snapshot_date)} 快照。</p><p>${esc(primaryRegistry.notice)}</p><div class="source-documents">${primaryRegistry.documents.map(d=>`<details><summary>${esc(d.title)} <small>· ${esc(d.kind)}</small></summary><p>${esc(d.publisher)} · 文件日期 ${esc(d.issued_on||'未标明')} · ${esc(d.status||'效力待核实')}</p><p>${esc(d.verification_note)}</p><p>${sourceLink(d)}</p><p class="source-hash">SHA-256：${esc(d.sha256)}</p>${d.effective_until?`<p>文本所载期限：${esc(d.effective_from)} 至 ${esc(d.effective_until)}</p>`:''}</details>`).join('')}</div><h3>尚待补齐与未编码条件</h3><ul>${primaryRegistry.gaps.map(g=>`<li>${esc(g)}</li>`).join('')}</ul><a class="btn btn-quiet small" href="/source-registry.json?v=f9b47f48e2ae9c9c" download>下载原文目录与条款映射</a>`;
+  $('#primary-evidence-content').innerHTML=`<p>原文补核 ${esc(primaryRegistry.checked_on)} · 自动规则仍采用 ${esc(primaryRegistry.rule_snapshot_date)} 快照。</p><p>${esc(primaryRegistry.notice)}</p><div class="source-documents">${primaryRegistry.documents.map(d=>`<details><summary>${esc(d.title)} <small>· ${esc(d.kind)}</small></summary><p>${esc(d.publisher)} · 文件日期 ${esc(d.issued_on||'未标明')} · ${esc(d.status||'效力待核实')}</p><p>${esc(d.verification_note)}</p><p>${sourceLink(d)}</p><p class="source-hash">SHA-256：${esc(d.sha256)}</p>${d.effective_until?`<p>文本所载期限：${esc(d.effective_from)} 至 ${esc(d.effective_until)}</p>`:''}</details>`).join('')}</div><h3>尚待补齐与未编码条件</h3><ul>${primaryRegistry.gaps.map(g=>`<li>${esc(g)}</li>`).join('')}</ul><a class="btn btn-quiet small" href="/source-registry.json?v=a6f3b90eedd78575" download>下载原文目录与条款映射</a>`;
   window.renderPrimarySources();
 }
 loadPrimaryEvidence().catch(e=>{$('#primary-evidence-content').textContent='原文目录未载入：'+e.message+'。可刷新重试，已有填写保留。';});

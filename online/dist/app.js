@@ -14,11 +14,11 @@ function parseJSONInput(content,label='文件'){
 }
 function download(name,data){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function setView(name,fromHistory=false){
-  const known=['match','materials','knowledge','search','training','review','report'];
+  const known=['match','materials','knowledge','search','training','review','review-v08','review-ai','report'];
   const valid=known.includes(name);if(!valid)name='match';
   $$('.view').forEach(el=>el.hidden=el.id!==`view-${name}`);
   $$('.nav-item').forEach(el=>{el.classList.toggle('active',el.dataset.view===name);el.setAttribute('aria-current',el.dataset.view===name?'page':'false');});
-  $('#breadcrumb-title').textContent={match:'政策匹配',materials:'材料核验',review:'人工复核',knowledge:'政策知识库',search:'证据检索',training:'训练与评测',report:'中文报告'}[name];
+  $('#breadcrumb-title').textContent={match:'政策匹配',materials:'材料核验',review:'人工复核',knowledge:'政策知识库',search:'证据检索',training:'训练与评测',report:'中文报告','review-v08':'v0.8 独立复核','review-ai':'AI 辅助预审'}[name];
   if(location.hash!==`#${name}`)history[fromHistory||!valid?'replaceState':'pushState'](null,'',`#${name}`);
   if(name==='report'){
     if(!state.report)$('#readable-report').innerHTML='<p>当前没有核验报告。请返回政策匹配填写并核对资料，再生成中文报告。</p>';
@@ -55,7 +55,7 @@ function renderResults(report){
   $('#results').innerHTML=`<div class="result-summary"><span>已核对 ${report.results.length} 项，${pass} 项所列条件满足且补充项无待核验</span><span>参考日期 ${esc(report.as_of)}</span></div>`+renderGuidance(report)+report.results.map(r=>{
     const d=r.display||{}, [baseLabel,baseClass]=status[r.qualification_review&&['pending','manual'].includes(r.qualification_review.status)?'insufficient':r.conclusion];
     const label=d.label||baseLabel,cls=d.planning?'unknown':baseClass;
-    return `<article class="policy-result" data-policy="${esc(r.policy_id)}"><div class="policy-result-head"><div class="category-label">${esc(state.policies.find(p=>p.id===r.policy_id)?.category||'人才服务')} · 规则初筛</div><div class="policy-heading"><h3>${esc(r.title)}</h3><span class="status-pill ${cls}">${esc(label)}</span></div><p class="reason">${esc(d.reason||r.reason)}</p>${r.missing_labels.length&&!d.planning?`<div class="missing-box">待补充：${r.missing_labels.map(esc).join('、')}</div>`:''}${renderBenefit(r)}${renderDecisionNotes(r)}<div class="next-step"><strong>下一步到哪里办理</strong><p>${esc(r.application_channel)}</p><small>来源发布 ${esc(d.source?.published_on||'待核对')} · ${esc(d.source?.legal_status||'现行效力待核验')}</small></div></div><div class="policy-actions"><a href="${esc(safeURL(r.source_url))}" target="_blank" rel="noopener noreferrer">核对官方指南 ↗</a><button class="btn btn-quiet" data-model="${esc(r.policy_id)}" ${!state.meta.model_configured?'disabled title="公开版未启用在线推理"':''}>${state.meta.model_configured?'实验模型交叉核验 →':'公开版未启用在线模型'}</button></div><div class="model-slot"></div><details class="policy-details"><summary>逐条核对 · ${r.checks.filter(c=>c.status==='pass').length}/${r.checks.length} 项满足</summary>${r.checks.map((c,i)=>renderResultCheck(c,d.checks?.[i])).join('')}<p class="field-note">${esc(r.scope_note)}</p></details><details class="policy-details"><summary>核验准备清单 · ${r.materials.length} 项</summary><ul class="materials">${r.materials.map(m=>`<li><span>${esc(m.label)}<small>${esc(m.kind)}</small></span>${evidenceButton(m.citation)}</li>`).join('')}<p class="field-note">准备状态可在“我的准备进度”中标记并保存。</p></ul></details>${window.renderQualificationReview?.(r)||''}${renderTimeline(r)}</article>`;
+    return `<article class="policy-result" data-policy="${esc(r.policy_id)}"><div class="policy-result-head"><div class="category-label">${esc(state.policies.find(p=>p.id===r.policy_id)?.category||'人才服务')} · 规则初筛</div><div class="policy-heading"><h3>${esc(r.title)}</h3><span class="status-pill ${cls}">${esc(label)}</span></div><p class="reason">${esc(d.reason||r.reason)}</p>${r.missing_labels.length&&!d.planning?`<div class="missing-box">待补充：${r.missing_labels.map(esc).join('、')}</div>`:''}${renderBenefit(r)}${renderDecisionNotes(r)}<div class="next-step"><strong>下一步到哪里办理</strong><p>${esc(r.application_channel)}</p><small>来源发布 ${esc(d.source?.published_on||'待核对')} · ${esc(d.source?.legal_status||'现行效力待核验')}</small></div></div><div class="policy-actions"><a href="${esc(safeURL(r.source_url))}" target="_blank" rel="noopener noreferrer">核对官方指南 ↗</a><button class="btn btn-quiet" data-model="${esc(r.policy_id)}" ${!state.meta.model_configured?'disabled title="公开版未启用在线推理"':''}>${state.meta.model_configured?'实验模型交叉核验 →':'公开版未启用在线模型'}</button></div><div class="model-slot"></div><details class="policy-details"><summary>逐条核对 · ${r.checks.filter(c=>c.status==='pass').length}/${r.checks.length} 项满足</summary>${r.checks.map((c,i)=>renderResultCheck(c,d.checks?.[i])).join('')}<p class="field-note">${esc(r.scope_note)}</p></details><details class="policy-details"><summary>核验准备清单 · ${r.materials.length} 项</summary><ul class="materials">${r.materials.map(m=>`<li><span>${esc(m.label)}<small>${esc(m.kind)}</small></span>${evidenceButton(m.citation)}</li>`).join('')}<p class="field-note">准备状态可在“我的准备进度”中标记并保存。</p></ul></details>${window.sourceTimeMarkup?.(r.source_time)||''}${window.renderQualificationReview?.(r)||''}${renderTimeline(r)}</article>`;
   }).join('');
   for(const [id,response] of Object.entries(report.model_assessments||{})){const article=$$('.policy-result').find(a=>a.dataset.policy===id);if(article)$('.model-slot',article).innerHTML=renderModel(response);}
   markProfileChanged();window.applicationReportReady?.(report);
@@ -101,6 +101,10 @@ function renderTrainingStatus(){
   }
 }
 let evidenceSearchGeneration=0;
+for(const id of ['search-date','search-history','search-later-snapshot','search-mode'])$('#'+id).addEventListener('change',()=>{
+  ++evidenceSearchGeneration;$('#search-results').innerHTML='<p class="field-note">检索日期或范围已变化，请重新检索；上次结果不作为当前日期的依据。</p>';
+  $('#search-later-snapshot').disabled=$('#search-mode').value!=='primary';
+});
 async function search(event){
   event?.preventDefault();const generation=++evidenceSearchGeneration,query=$('#search-query').value.trim();if(!query){$('#search-results').innerHTML='<div class="simple-empty">输入问题，查看可追溯的政策证据。</div>';return;}
   $('#search-results').innerHTML='<div class="result-loading"><span class="spinner"></span>正在检索证据</div>';

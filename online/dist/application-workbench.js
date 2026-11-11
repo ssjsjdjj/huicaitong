@@ -3,7 +3,7 @@ const supplementaryKeys=['graduation_record_precision','has_dispatch_history','f
 let applicationExtra=Object.fromEntries(supplementaryKeys.map(k=>[k,null])),applicationDeferred=[],applicationHistory=[],applicationQuestion=null,applicationMeta=null;
 let applicationPreparation={context_sha256:'',items:{}},applicationGuideActive=false,applicationFullMode=false,applicationDirty=false,applicationGeneration=0,applicationRestorePending=null,applicationRaw=null;
 let applicationStorageGeneration=0;
-const applicationStorage=import('/application-storage.mjs?v=f9b47f48e2ae9c9c');
+const applicationStorage=import('/application-storage.mjs?v=a6f3b90eedd78575');
 const localDraftStore={getItem:k=>localStorage.getItem(k),setItem:(k,v)=>localStorage.setItem(k,v),removeItem:k=>localStorage.removeItem(k)};
 const tabDraftStore={getItem:k=>sessionStorage.getItem(k),setItem:(k,v)=>sessionStorage.setItem(k,v)};
 function applicationSnapshot(){return {profile:readProfile(),supplementary:{...applicationExtra},intent:$('#application-intent').value,deferred:[...applicationDeferred],preparation:structuredClone(applicationPreparation)};}

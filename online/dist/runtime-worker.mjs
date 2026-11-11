@@ -1,5 +1,5 @@
-import {makeAssetFetcher} from './asset-cache.mjs?v=f9b47f48e2ae9c9c';
-let runtimePromise,pdfReady=false,manifest,dispatch,py;
+import {makeAssetFetcher} from './asset-cache.mjs?v=a6f3b90eedd78575';
+let runtimePromise,pdfReady=false,reviewReady=false,manifest,dispatch,py;
 const nativeFetch=self.fetch.bind(self);
 let lastProgress=0;
 function progress(value){const now=Date.now();if(value.total&&value.loaded<value.total&&now-lastProgress<100)return;lastProgress=now;postMessage({type:'progress',...value});}
@@ -27,6 +27,12 @@ self.onmessage=event=>{
   queue=queue.then(async()=>{
     try{
       await runtimePromise;
+      if(url.startsWith('/api/v08/')&&!reviewReady){
+        progress({label:'首次进入v0.8复核，正在准备冻结任务快照…'});
+        const response=await self.fetch(new URL(manifest.review.url,self.location.href).href);
+        if(!response.ok)throw new Error('v0.8任务快照下载失败，请重试');
+        py.unpackArchive(await response.arrayBuffer(),'zip',{extractDir:'/app'});reviewReady=true;
+      }
       if(url==='/api/materials/extract'&&body?.filename?.toLowerCase().endsWith('.pdf')&&!pdfReady){
         progress({label:'首次读取 PDF，正在准备阅读组件…'});
         const response=await self.fetch(new URL(manifest.pdf.url,self.location.href).href);
