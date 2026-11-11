@@ -19,6 +19,8 @@ sys.path.insert(0,str(LOCAL))
 import app
 from core import RAW_FIELDS, validate_profile
 from fixtures import CASES
+import runpy
+runpy.run_path(str(SITE/'scripts/build-research-data.py'),run_name='__main__')
 
 
 def encode(value):
@@ -72,13 +74,27 @@ known={'profile_sha256':sorted(seen),'inputs':inputs,'notice':'只覆盖本项�
 core={}
 for name in ('app.py','core.py','fixtures.py','guidance.py','llm.py','materials.py','policy_time.py','presentation.py','rag.py','review.py','store.py','document_worker.py'):
     core[name]=(LOCAL/name).read_bytes()
-for name in ('browser_backend.py','human_evaluation.py'):
+for name in ('browser_backend.py','human_evaluation.py','campaign_review.py','primary_evidence.py','diagnostics.py','application_flow.py'):
     core[name]=(SITE/name).read_bytes()
 for name in ('__init__.py','evaluate.py','rewards.py'):
     core['training/'+name]=(LOCAL/'training'/name).read_bytes()
 for name in ('policies.json','review_draft.json'):
     core['data/'+name]=(LOCAL/'data'/name).read_bytes()
 core['data/evaluation-known-profiles.json']=encode(known)
+for name in ('source-registry.json','review-campaign.json','primary-corpus.json','historical-diagnostics.json'):
+    core['data/'+name]=(SITE/'data'/name).read_bytes()
+registry=json.loads(core['data/source-registry.json']);campaign=json.loads(core['data/review-campaign.json'])
+assert not ({profile_hash(r['profile']) for r in campaign['cases']} & seen),'Candidate overlaps existing development data'
+assert len(campaign['cases'])==54 and all(r['expected'] is None and r['review']['status']=='pending' for r in campaign['cases'])
+assert len({profile_hash(r['profile']) for r in campaign['cases']})==54
+sources={}
+for doc in registry['documents']:
+    source=SITE/doc['local_url'].lstrip('/');data=source.read_bytes()
+    assert len(data)==doc['bytes'] and sha(data)==doc['sha256']
+    target=DIST/doc['local_url'].lstrip('/');target.parent.mkdir(exist_ok=True);target.write_bytes(data)
+    sources[doc['id']]=doc['sha256']
+(DIST/'source-registry.json').write_bytes(encode(registry))
+(DIST/'review-campaign-54-blank.json').write_bytes(encode(campaign))
 for source in (LOCAL/'data'/'material_examples').iterdir():
     if source.suffix in {'.pdf','.txt'}:core['data/material_examples/'+source.name]=source.read_bytes()
 core['checkpoints/selection.json']=(LOCAL/'checkpoints'/'selection.json').read_bytes()
@@ -91,7 +107,6 @@ pypdf=WORK/'documents-venv'/'Lib'/'site-packages'/'pypdf'
 if pypdf.is_dir():
     pdf={'pypdf/'+p.relative_to(pypdf).as_posix():p.read_bytes() for p in pypdf.rglob('*.py')}
 else:
-    # Reuse the verified reader shipped with this frozen release.
     with zipfile.ZipFile(DIST/'python-app.zip') as existing:
         pdf={name:existing.read(name) for name in existing.namelist() if name.startswith('pypdf/') and name.endswith('.py') and '..' not in Path(name).parts}
     if not pdf:raise RuntimeError('The frozen pypdf reader is missing from dist/python-app.zip.')
@@ -105,8 +120,8 @@ meta={'city':'杭州','snapshot_date':app.TODAY,'checked_on':seed['checked_on'],
       'clauses':sum(len(p['clauses']) for p in seed['policies'] if p['status']=='included'),
       'retriever':'中文 BM25 · 浏览器内检索','model_configured':False,'model_name':'公开演示 · 模型实验记录',
       'training':app.training_status(),'selected_model':app.selected_model(),'model_evaluations':app.model_evaluations(),
-      'notice':seed['notice'],'version':'0.5.0-online','deployment_mode':'browser'}
-bootstrap={'/api/health':{'ok':True,'version':'0.5.0-online'},'/api/meta':meta,
+      'notice':seed['notice'],'version':'0.8.0-online','deployment_mode':'browser'}
+bootstrap={'/api/health':{'ok':True,'version':'0.8.0-online'},'/api/meta':meta,
            '/api/policies':{'policies':seed['policies']},'/api/examples':{'examples':[{'name':c['id'],'profile':c['profile']} for c in CASES]},
            '/api/materials/capabilities':{'text':True,'pdf':True,'image':False,'ocr_language':None},
            '/api/materials/examples':{'examples':[{'id':'graduation','title':'毕业材料 · 合成 PDF','filename':'graduation-demo.pdf'},{'id':'insurance','title':'连续参保 · 合成 PDF','filename':'insurance-demo.pdf'},{'id':'gap','title':'参保中断 · 合成 TXT','filename':'insurance-gap-demo.txt'}]},
@@ -130,32 +145,53 @@ if runtime_source==runtime_root:
 runtime_base='/vendor/pyodide/'+runtime_id+'/'
 runtime_assets=[{'url':runtime_base+name,'bytes':len(data),'sha256':sha(data),'label':'核验引擎' if name.endswith('.wasm') else 'Python 标准库' if name.endswith('.zip') else '运行组件'} for name,data in runtime_data.items()]
 
-custom=('online.js','runtime-worker.mjs','asset-cache.mjs','import-recovery.mjs','review-recovery.mjs','review-workbench.js','online.css','review-panels.html','review-dialog.html','scripts/predict-frozen.py')
+custom=('online.js','runtime-worker.mjs','asset-cache.mjs','import-recovery.mjs','review-recovery.mjs','review-workbench.js','evidence-workbench.js','research-workbench.js','application-storage.mjs','application-workbench.js','online.css','application-panels.html','review-panels.html','campaign-panels.html','research-panels.html','review-dialog.html','scripts/predict-frozen.py','INDEPENDENT_EVALUATION.md','scripts/build-public.py','scripts/build-research-data.py')
 web_inputs={p.name:sha(p.read_bytes()) for p in (LOCAL/'web').iterdir() if p.is_file()}
 overrides={p.name:p for p in (SITE/'web-overrides').iterdir() if p.is_file()}
 web_inputs.update({name:sha(p.read_bytes()) for name,p in overrides.items()})
-build_id=sha(encode({'custom':{name:sha((SITE/name).read_bytes()) for name in custom},'web':web_inputs,'core':core_asset['sha256'],'pdf':pdf_asset['sha256'],'bootstrap':bootstrap_asset['sha256']}))[:16]
+build_id=sha(encode({'custom':{name:sha((SITE/name).read_bytes()) for name in custom},'sources':sources,'web':web_inputs,'core':core_asset['sha256'],'pdf':pdf_asset['sha256'],'bootstrap':bootstrap_asset['sha256']}))[:16]
 for name in ('app.js','workflow.js','ux.js','styles.css','workflow.css','ux.css','icon.svg'):
     shutil.copy2(overrides.get(name,LOCAL/'web'/name),DIST/name)
 for name in custom:
-    if name.endswith(('.js','.mjs','.css')):(DIST/name).write_text((SITE/name).read_text(encoding='utf-8').replace('__HCT_BUILD__',build_id),encoding='utf-8')
+    if name.endswith(('.js','.mjs','.css')):(DIST/name).write_text((SITE/name).read_text(encoding='utf-8').replace('__HCT_BUILD__',build_id),encoding='utf-8',newline='\n')
 (DIST/'predict-frozen.py').write_bytes((SITE/'scripts'/'predict-frozen.py').read_bytes())
+(DIST/'independent-evaluation-guide.txt').write_bytes((SITE/'INDEPENDENT_EVALUATION.md').read_bytes())
 
 html=(LOCAL/'web'/'index.html').read_text(encoding='utf-8')
 html=html.replace('<script src="/app.js" defer>','<link rel="stylesheet" href="/online.css"><script src="/online.js" defer></script><script src="/app.js" defer>')
-html=html.replace('<script src="/ux.js" defer>','<script src="/review-workbench.js" defer></script><script src="/ux.js" defer>')
-html=html.replace('本地研究原型','公开体验版').replace('连接本地模型 <span>↗</span>','模型实验说明 <span>↗</span>').replace('<span class="version">v0.4</span>','<span class="version">v0.5.1</span>')
+html=html.replace('<script src="/ux.js" defer>','<script src="/review-workbench.js" defer></script><script src="/evidence-workbench.js" defer></script><script src="/research-workbench.js" defer></script><script src="/ux.js" defer>')
+html=html.replace('<script src="/ux.js" defer></script>','<script src="/ux.js" defer></script><script src="/application-workbench.js" defer></script>')
+html=html.replace('本地研究原型','公开体验版').replace('连接本地模型 <span>↗</span>','模型实验说明 <span>↗</span>').replace('<span class="version">v0.4</span>','<span class="version">v0.8.0</span>')
+application_parts=(SITE/'application-panels.html').read_text(encoding='utf-8')
+application_top,application_rest=application_parts.split('<!-- EXTRA -->',1)
+application_extra,application_preparation=application_rest.split('<!-- PREPARATION -->',1)
+html=html.replace('<div class="match-grid">',application_top+'<div class="match-grid">',1)
+html=html.replace('<details class="coverage-details">',application_extra+'<details class="coverage-details">',1)
+materials_marker='    <section class="view" id="view-materials" hidden>'
+match_end=html.index(materials_marker);match_close=html[:match_end].rfind('</section>')
+html=html[:match_close]+application_preparation+html[match_close:]
+html=html.replace('不会保存你的申请信息。','仅在你主动保存时写入本浏览器。')
+html=html.replace('填写左侧信息，或载入一个演示案例。','通过逐问向导填写情况，或切换完整表单载入合成案例。')
+html=html.replace('申请信息已修改。请点击「开始核对政策」更新结果；更新前不能调用模型或导出旧报告。','申请信息或政策已变化。请点击「查看当前核对结果」重新核对；更新前不能导出旧报告。')
+html=html.replace('<div class="search-options">','<div class="search-options"><label>检索范围<select id="search-mode"><option value="primary">官方原文片段（3份资料）</option><option value="organized">整理条款要点</option></select></label>',1)
+html=html.replace('在本地知识库检索条款，查看出处与发布时间。','搜索已收录的官方原文快照，展开命中片段与上下文；也可切换到整理要点。')
+html=html.replace('输入问题，查看可追溯的政策条款。','输入问题，查找原文片段或整理要点。')
+html=html.replace('<input type="checkbox" id="search-history">包含历史资料','<input type="checkbox" id="search-history">包含历史资料与旧版问答')
+review_marker='    <section class="view" id="view-review" hidden>'
+training_end=html.index(review_marker);training_close=html[:training_end].rfind('</section>')
+html=html[:training_close]+(SITE/'research-panels.html').read_text(encoding='utf-8')+html[training_close:]
 status='''<section class="engine-status" id="engine-status" data-state="loading" role="status"><div><strong>浏览器核验</strong><span id="engine-message">页面可先浏览与填写，正在载入政策资料…</span></div><progress id="engine-progress" max="100" aria-label="核验组件准备进度"></progress><button class="btn btn-quiet small" id="engine-retry" hidden>重试加载（保留填写内容）</button></section>
 <section id="import-recovery-banner" class="import-recovery" role="alert" hidden><h2>政策导入恢复需要处理</h2><p id="import-recovery-summary"></p><ul id="import-recovery-errors"></ul><p id="import-recovery-notice"></p><div class="toolbar"><button class="btn small" id="import-original-backup">下载原始记录</button><button class="btn small" id="import-live-backup">备份当前可用政策</button><button class="btn small" id="import-retry">重新尝试恢复</button><button class="btn small" id="import-use-recovered">备份后仅保留可用政策</button></div></section>'''
-html=html.replace('<main id="main">','<main id="main">'+status+'<div class="online-banner"><strong>公开体验版</strong> · 申请资料只在你的浏览器内处理。页面可先浏览和填写；核验引擎后台准备，PDF 组件按需加载。大模型保留历史实验记录，当前不提供在线推理。资料来源核对日期为 2026-10-21。</div>')
+html=html.replace('<main id="main">','<main id="main">'+status+'<div class="online-banner"><strong>公开体验版</strong> · 申请资料只在你的浏览器内处理。大模型保留历史实验记录，当前不提供在线推理。规则快照 2026-10-21；原始依据补核 2026-10-30。完整资格与效力请核对主管部门。</div>')
 html=html.replace('accept=".pdf,.txt,.png,.jpg,.jpeg"','accept=".pdf,.txt"')
 html=html.replace('文件在本机处理，不发送给模型或外部服务。文字 PDF 最多 5 页。图片识别不可用时，可从原系统导出文字 PDF，或粘贴完整逐月记录为 TXT；不要把图片仅改后缀。','文件只在当前浏览器处理，不上传服务器。支持 TXT 和最多 5 页的文字 PDF；图片与扫描 PDF 暂不支持。PDF 阅读组件仅在首次读取 PDF 时准备。')
 html=html.replace('导入前需人工核对原文。','导入前需人工核对原文。导入只影响当前浏览器；恢复失败记录会保留，可下载备份后整理。')
-html=html.replace('<div id="knowledge-list"','<details class="panel import-backups"><summary>政策导入恢复与备份</summary><p id="import-backup-status" role="status"></p><div id="import-backup-history"></div></details><div id="knowledge-list"')
+html=html.replace('<div id="knowledge-list"','<section class="panel" id="primary-evidence-panel"><h2>杭州政策原始依据与版本核对</h2><div id="primary-evidence-content" role="status">正在准备原文目录…</div></section><details class="panel import-backups"><summary>政策导入恢复与备份</summary><p id="import-backup-status" role="status"></p><div id="import-backup-history"></div></details><div id="knowledge-list"')
 html=html.replace('训练步数、峰值显存和评测结果读取自本机运行记录。','训练步数、峰值显存和评测结果来自冻结的历史实验。公开网页不执行 GPU 训练或推理。')
 html=html.replace('36 条合成人物草稿，答案留空。请先阅读原文，再记录你的结论与依据。','内置 36 条仅作开发练习；可另建新案例，人工确认后冻结评测集并比较实际预测。')
 panels=(SITE/'review-panels.html').read_text(encoding='utf-8')
 guide,benchmarks=panels.split('<!-- BENCHMARKS -->',1)
+guide=(SITE/'campaign-panels.html').read_text(encoding='utf-8')+guide
 html=html.replace('<div class="review-layout">',guide+'<div class="review-layout">',1)
 marker='    <section class="view" id="view-report" hidden>'
 position=html.index(marker)
@@ -163,20 +199,21 @@ before=html[:position];end=before.rfind('</section>')
 html=before[:end]+benchmarks+before[end:]+html[position:]
 html=html.replace('<span id="review-storage-status" role="status"></span>','<span id="review-storage-status" role="status"></span><button class="btn btn-quiet small" id="review-recovery-download" hidden>下载未恢复的原始复核记录</button><button class="btn btn-quiet small" id="review-recovery-saved" hidden>下载既有复核恢复备份</button>')
 html=html.replace('<div class="toast" id="toast"',(SITE/'review-dialog.html').read_text(encoding='utf-8')+'<div class="toast" id="toast"')
+html=html.replace('<div class="toast" id="toast"','<dialog id="primary-passage-dialog" class="detail-dialog primary-dialog" aria-label="原始政策片段与上下文"><div class="dialog-top"><span class="eyebrow">原始依据回溯</span><button class="icon-button" data-close aria-label="关闭原文">×</button></div><div id="primary-passage-content"></div></dialog><div class="toast" id="toast"')
 start=html.index('<h2>连接你自己的本地模型</h2>');end=html.index('</dialog>',start)
 html=html[:start]+'<h2>模型实验说明</h2><p>公开版当前不运行推理模型。「训练与评测」保留真实历史实验；「人工复核」支持冻结标注并比较你实际生成的预测。规则结果与模型实验分开记录。</p><button class="btn btn-primary full" id="refresh-model">查看当前运行状态</button>'+html[end:]
-for name in ('styles.css','workflow.css','ux.css','online.css','app.js','workflow.js','ux.js','online.js','review-workbench.js'):
+for name in ('styles.css','workflow.css','ux.css','online.css','app.js','workflow.js','ux.js','online.js','review-workbench.js','evidence-workbench.js','research-workbench.js','application-workbench.js'):
     html=html.replace('/'+name+'"','/'+name+'?v='+build_id+'"')
-(DIST/'index.html').write_text(html.replace('__HCT_BUILD__',build_id),encoding='utf-8')
+(DIST/'index.html').write_text('\n'.join(line.rstrip() for line in html.replace('__HCT_BUILD__',build_id).splitlines())+'\n',encoding='utf-8',newline='\n')
 
 app_js=(DIST/'app.js').read_text(encoding='utf-8').replace('规则基线 · 模型未连接','浏览器规则核验 · 公开演示').replace('需连接本地模型','公开版未启用在线推理').replace('连接本地模型','模型实验说明').replace('实验模型未连接','公开版未启用在线模型')
 app_js=app_js.replace('尚未检测到配置，请保存并重启应用','公开版运行正常，当前不提供在线模型推理')
 app_js=app_js.replace('已导入 ${r.imported} 份政策。请继续核对规则与来源。','已导入 ${r.imported} 份政策，仅影响当前浏览器。${r.storage_notice||\'\'}')
-(DIST/'app.js').write_text(app_js,encoding='utf-8')
+(DIST/'app.js').write_text(app_js,encoding='utf-8',newline='\n')
 workflow=(DIST/'workflow.js').read_text(encoding='utf-8').split('function updateReviewProgress(){',1)[0]
-(DIST/'workflow.js').write_text(workflow,encoding='utf-8')
+(DIST/'workflow.js').write_text(workflow,encoding='utf-8',newline='\n')
 
-manifest={'build_id':build_id,'version':'0.5.1-online','bootstrap':bootstrap_asset,'core':core_asset,'pdf':pdf_asset,'runtime_base':runtime_base,'cached_assets':[core_asset,pdf_asset,*runtime_assets]}
+manifest={'build_id':build_id,'version':'0.8.0-online','bootstrap':bootstrap_asset,'core':core_asset,'pdf':pdf_asset,'runtime_base':runtime_base,'cached_assets':[core_asset,pdf_asset,*runtime_assets]}
 (DIST/'assets.json').write_bytes(encode(manifest))
 # Remove only previous generated bundles under this build's assets directory.
 current={a['url'] for a in (core_asset,pdf_asset,bootstrap_asset)}
@@ -185,6 +222,6 @@ for key in ('core','pdf','bootstrap'):
     if url and url not in current:
         target=(DIST/url.lstrip('/')).resolve()
         if target.is_relative_to(ASSETS.resolve()) and target.name.startswith(('core-','pdf-','bootstrap-')) and target.is_file():target.unlink()
-provenance={'source_snapshot_date':'2026-10-21','runtime':'Pyodide 314.0.7 / Python 3.14.2','pypdf_version':'6.10.0','build_id':build_id,'applicant_uploads':False,'model_inference':False,'known_profile_groups':len(seen),'core_files':{name:sha(data) for name,data in sorted(core.items())},'pdf_files':{name:sha(data) for name,data in sorted(pdf.items())}}
+provenance={'source_snapshot_date':'2026-10-21','primary_sources_checked_on':registry['checked_on'],'source_registry_sha256':registry['sha256'],'candidate_batch_sha256':campaign['sha256'],'candidate_count':len(campaign['cases']),'primary_documents_on_demand':True,'runtime':'Pyodide 314.0.7 / Python 3.14.2','pypdf_version':'6.10.0','build_id':build_id,'applicant_uploads':False,'model_inference':False,'known_profile_groups':len(seen),'core_files':{name:sha(data) for name,data in sorted(core.items())},'pdf_files':{name:sha(data) for name,data in sorted(pdf.items())}}
 (SITE/'source-provenance.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'build_id':build_id,'bootstrap_bytes':bootstrap_asset['bytes'],'core_bytes':core_asset['bytes'],'lazy_pdf_bytes':pdf_asset['bytes'],'runtime_bytes':sum(a['bytes'] for a in runtime_assets),'known_profile_groups':len(seen)}))

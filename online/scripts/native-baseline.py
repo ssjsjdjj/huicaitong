@@ -29,6 +29,22 @@ for path in ('/api/health','/api/meta','/api/policies','/api/examples','/api/mat
     run(path)
 for case in CASES:
     run('/api/assess',{'profile':case['profile']})
+run('/api/application/meta')
+safe={'graduation_record_precision':'day','has_dispatch_history':False,'family_scope_confirmed':True,'housing_scope_confirmed':True,'family_property_history':False,'prior_rent_degree_subsidy':False}
+application={'profile':CASES[0]['profile'],'supplementary':safe,'intent':'rent','saved_at':'2026-11-11T08:00:00+08:00'}
+run('/api/application/assess',application)
+run('/api/application/assess',{**application,'supplementary':{}})
+run('/api/application/assess',{**application,'supplementary':{**safe,'family_property_history':True}})
+run('/api/application/guide',{'profile':{'application_date':'2026-11-11'},'intent':'rent','deferred':['degree']})
+run('/api/application/guide',{**application,'focus_question':'extra.family_property_history'})
+application_report=run('/api/application/assess',application)
+application['preparation']={'context_sha256':application_report['application']['context_sha256'],'items':{application_report['application']['preparation_items'][0]['id']:'ready'}}
+application_packet=run('/api/application/packet',application)
+run('/api/application/restore',{'packet':application_packet})
+tampered=copy.deepcopy(application_packet);tampered['profile']['degree']='phd'
+run('/api/application/restore',{'packet':tampered})
+run('/api/application/packet',{'profile':{'insurance_months':True}})
+run('/api/application/packet',{'profile':{'application_date':None,'insurance_start_date':'2025-01-01','graduation_date':'2026-10-01'},'saved_at':application['saved_at']})
 for query in ('生活补贴首笔需要几个月社保','租房补贴家庭有房能申请吗','生活补贴多少钱 去哪里申请'):
     from urllib.parse import urlencode
     run('/api/search?'+urlencode({'q':query,'as_of':'2026-10-21'}))
@@ -70,5 +86,29 @@ run('/api/benchmark/evaluate',{'dataset':dataset,'predictions':[],'model_name':'
 practice=copy.deepcopy(draft['cases'][0]);practice.update(expected=confirmed['expected'],review=confirmed['review'])
 run('/api/benchmark/freeze',{**settings,'cases':[practice],'purpose':'test','independence_confirmed':True})
 run('/api/review/summary',{'cases':[new,confirmed]})
+run('/api/sources');run('/api/campaign')
+assignment=run('/api/campaign/assignment',{'slot':'A'})['packet']
+run('/api/review/restore',assignment)
+run('/api/campaign/submit',{'cases':assignment['cases'],'reviewer_id':'software-fixture','independent_confirmed':True,'submitted_at':'2026-10-30T08:00:00+00:00'})
+run('/api/campaign/assignment',{'slot':'invalid'})
+packets={}
+for slot in ('A','B'):
+    rows=run('/api/campaign/assignment',{'slot':slot})['packet']['cases']
+    for row in rows:
+        row['expected']={'policy_id':row['policy_id'],'conclusion':'insufficient','evidence_ids':[],'missing_fields':[],'materials':[],'explanation':'Software parity fixture only, NOT human labels.'}
+        row['review']={'status':'reviewed','reviewer':'software-parity-'+slot,'reviewed_at':settings['frozen_at'],'source_checked':True}
+    packets[slot.lower()]=run('/api/campaign/submit',{'cases':rows,'reviewer_id':'software-parity-'+slot,'independent_confirmed':True,'submitted_at':settings['frozen_at']})['packet']
+run('/api/campaign/compare',packets)
+dual=run('/api/campaign/freeze',{**packets,**settings,'adjudicator_id':'software-parity-C','source_checked':True,'independence_confirmed':True,'decisions':[]})['dataset']
+run('/api/benchmark/verify',{'dataset':dual})
+run('/api/primary/catalogue')
+run('/api/primary/search?q=房产交易记录&as_of=2026-11-11')
+run('/api/primary/search?q=租房补贴&as_of=2026-10-21&history=1')
+run('/api/primary/passage?id=living-guide-2024-p3&q=连续参保')
+run('/api/primary/clause?id=rent-eligibility')
+run('/api/primary/search?q=x&as_of=bad')
+run('/api/primary/search?q=x&as_of=2026-11-11&history=bad')
+run('/api/primary/passage?id=not-found')
+run('/api/diagnostics/history')
 (work/'online-qa-baseline.json').write_text(json.dumps(spec,ensure_ascii=False),encoding='utf-8')
 print('Native baseline scenarios:',len(spec))
