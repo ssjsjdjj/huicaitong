@@ -1,0 +1,15 @@
+{
+  "version": "0.8.3-online",
+  "checked_on": "2026-11-11",
+  "published_build_id": "a6f3b90eedd78575",
+  "sites_source_commit": "928fd6b0cabecec5aa7c7b188a6b7690af76af1a",
+  "url": "https://huicaitong-hangzhou.zishu41.chatgpt.site",
+  "automated_tests": 226,
+  "native_browser_parity_scenarios": 115,
+  "dist_matches_deployment": true,
+  "legacy_ai_records_included": 12,
+  "ai_records_human_checked": 0,
+  "reserved_60_unchanged": true,
+  "new_model_training_or_project_model_inference": 0,
+  "note": "GitHub build/test path adaptations do not alter the archived deployed dist. AI round remains v0.8.2 historical input, not an independent human reference."
+}

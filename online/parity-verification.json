@@ -1,5 +1,5 @@
 {
-  "scenarios": 82,
+  "scenarios": 115,
   "all_equal": true,
   "native_python": "3.12",
   "browser_python": "3.14.2",

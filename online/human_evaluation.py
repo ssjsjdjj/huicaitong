@@ -23,6 +23,8 @@ def profile_hash(profile):
 
 
 def provenance(row):
+    if str(row.get('case_id','')).startswith('ai-dev-') or row.get('protocol')=='huicaitong-ai-prereview-v1' or row.get('type')=='ai_assisted_development_records':
+        raise ValueError('AI辅助开发记录不能作为独立人工标注，请使用AI辅助预审入口')
     if row.get('case_id','').startswith('review-draft-') or row.get('scenario_source')=='synthetic_draft_for_blind_review':
         return {'kind':'built_in_practice','training_use':'unknown'}
     source=row.get('provenance',{})
@@ -92,6 +94,11 @@ def freeze_dataset(body,policies,*,_campaign_authorized=False):
         reserved={profile_hash(r['profile']) for r in json.loads(reserved_path.read_text(encoding='utf-8'))['cases']}
         if any(profile_hash(r['profile']) in reserved for r in rows):
             raise ValueError('人物字段属于54条保留批次，移除任务元数据也不能跳过双人复核')
+    v08_reserved=ROOT/'data'/'v08-reserved-profiles.json'
+    if v08_reserved.exists():
+        v08_hashes=set(json.loads(v08_reserved.read_text(encoding='utf-8'))['profile_sha256'])
+        if any(profile_hash(r['profile']) in v08_hashes for r in rows):
+            raise ValueError('人物字段属于v0.8保留批次，请使用专用三人复核入口；不能降为旧格式绕过流程')
     if any(r['review']['status']!='reviewed' for r in rows):
         raise ValueError('冻结评测集只接受已填写依据并人工确认的记录；待复核草稿不能计入')
     reviewed_tasks(rows,policies)

@@ -1,0 +1,52 @@
+{
+  "version": "0.8.1-online",
+  "checked_on": "2026-11-11",
+  "build_id": "29eb5a4c3cdfe327",
+  "automated_tests": {
+    "existing": 120,
+    "new_protocol": 31,
+    "new_review_storage": 5,
+    "total": 156,
+    "passed": true
+  },
+  "native_browser_parity": {
+    "scenarios": 97,
+    "all_equal": true
+  },
+  "new_batch": {
+    "id": "hz-v08-review-60-v1",
+    "sha256": "c4f496e4fa399e8c5374a6c74c661c99cf76d8c9ffbccb823c810672819d425f",
+    "cases": 60,
+    "blank_answers": 60,
+    "human_reviews_completed": 0,
+    "policy_tasks": {
+      "hz-rent-first-2026": 20,
+      "hz-living-second-2024": 20,
+      "hz-living-first-2024": 20
+    },
+    "policy_families": 2
+  },
+  "browser_verified": [
+    "new_review_route_and_lazy_task_loading",
+    "blank_A_assignment",
+    "partial_draft_restore",
+    "unconfirmed_submission_rejected",
+    "malformed_json_keeps_current_work",
+    "editing_returns_confirmed_record_to_pending",
+    "case_navigation_keeps_notes",
+    "task_switch_conflict_cancel",
+    "coordinator_source_pair_restore",
+    "all_60_decision_records_restored",
+    "case_inputs_and_original_context_visible_to_adjudicator",
+    "actual_adjudication_draft_download",
+    "software_fixture_freeze_and_actual_frozen_download"
+  ],
+  "retained_old54_sha256": "abac6cf9b139f6353e42f303de4140932aaa963dcd5b4676cac069ccecd3d4b6",
+  "retained_source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6",
+  "application_v08_engine_sha256": "0966fa1244e2def0087e35257fdfd4716f0c95b80f848d2d0a00c7485f92e45f",
+  "core_bytes": 235048,
+  "review_snapshot_bytes": 38747,
+  "new_real_human_annotations": 0,
+  "new_model_inference_calls": 0,
+  "notice": "Browser and API results use explicitly named software fixtures only. Distributed candidate task packs contain no reference answers. Not a legal-effect or eligibility certification."
+}

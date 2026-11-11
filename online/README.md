@@ -1,6 +1,20 @@
-# 惠才通公开体验版 · v0.8.0
+# 惠才通公开体验版 · v0.8.3
 
 [在线使用](https://huicaitong-hangzhou.zishu41.chatgpt.site) · [返回项目首页](../README.md)
+
+v0.8.3在不改动原文库、政策、60条保留案例及A/B材料的前提下，为原文检索补充8条原先因长度阈值被过滤的关键短条款（基础34条加补充8条，共42条可检索定位）。租房主题检索和开发预审涵盖参保期限、补缴、既往领取后再获学历、在职获学历、家庭住房口径及正文自述施行日；条款覆盖补充明确标记，顺序不是BM25排名或可信度。60条独立评测流程不使用这轮AI建议。
+
+政策匹配结果、中文报告、检索结果及AI提示词增加适用时间提示：发布、正文自述施行、取证和核对日期分列，参考日适用效力保持未确认；晚取证页面不能倒推历史状态。原文检索默认严格隔离，明确勾选后才显示晚取证线索；AI开发输入允许线索但在提示词内显式标记。规则结论与原有冻结引擎不变。旧AI文件按原输入哈希兼容恢复，显示历史版本且不自动重跑或套用新版引用。`scripts/test-evidence-context.py`覆盖检索、日期边界与新旧记录兼容。
+
+v0.8.2新增独立的「AI辅助预审」入口（`#review-ai`），使用另外编写的12条无答案开发练习，不加载60条保留任务生成提示词。按所选政策从原文BM25检索片段，复制提示词给实际模型，再导入完整JSON回答；本页不运行在线推理。记录模型名称、生成时间、输入与来源指纹、引文文字检查和人工核查版本。AI回答默认“未人工核查”，人工核查后仍标识为AI辅助记录；有误引文可记为需修改或无法确认，不能直接标记为已核查。模型与核查人身份均为使用者声明，文字匹配不验证引用的支持关系。
+
+新回答及人工核查都新增历史版本；记录可以下载、校验并合并恢复。导出明确限定开发用途，不提供独立冻结操作，新开发人物也计入已知开发数据。没有新增真实模型输出或真人标注；60条候选、A/B材料包、独立协议、原政策和历史实验保持不变。操作见 [AI_PREREVIEW.md](AI_PREREVIEW.md)，软件回测见 `user-acceptance-v082.json`。
+
+v0.8.1增加独立的「v0.8专用复核」入口（`#review-v08`）与60条新合成候选，三项任务各20条。基础条件、补充资格、可接受下一问、准备信息与指定陈述的原文支持分别记录；所有答案留空，真人完成数仍为0。旧54条及其原始指纹保留。新版在A/B任务、草稿、正式提交、逐条第三人终审和冻结中绑定原文、人物输入、协议及v0.8引擎版本；更换A/B提交不能套用旧终审选择。普通旧格式冻结入口也会阻止该保留批次绕过专用流程。
+
+真人材料由 `scripts/package-v08-review.py` 生成，网站提供A/B各自的任务JSON、离线空白记录页、原文及定位上下文、标注说明，协调者包另含终审清单和留空的实验预登记表。无需AI生成参考标签，不能将软件夹具冒充人工复核。当前只准备材料和软件流程，未新增真实标注或模型推理。
+
+任务快照另行分包，进入专用复核才加载，不进入普通申请页的首屏核心包。下载的冻结集包含自己的政策及原文快照；无答案输入不含人工参考标签。对照分别计算基础初筛、补充资格、字段/材料/原文编号F1、可接受下一问和预设陈述的支持标签，缺失与无效输出保留在60条分母中。原文编号F1及预设陈述标签均不自动认证模型生成解释的语义。复核标识不构成身份认证，本页不展示算法预测，但不提供人员访问隔离。
 
 默认进入「逐问核对下一步」，选择生活补贴首笔、第二笔、租房首笔或全部事项后，一次回答一个当前有用的问题。可以跳过未知信息、返回修改，也可切换完整表单。已明确不满足、在读规划及超出自动覆盖的事项不会继续追问无关问题。结果中的补充信息入口能返回对应问题。
 
@@ -30,7 +44,7 @@
 
 政策恢复逐份进行，单条失败不阻断其他有效记录。格式错误、编号冲突和版本不兼容会显示原因；原始缓存不会自动清除。可下载原始记录和当前可用政策，或在成功保存恢复备份后选择仅保留可用政策。存储已满时保留原记录，并提示新导入仅在当前标签页使用。知识库页提供恢复备份下载入口。
 
-浏览器前进、后退可在功能页之间切换；手机导航完整显示六个入口。清空资料后再返回报告页会显示空状态，不继续展示旧报告。
+浏览器前进、后退可在功能页之间切换；手机导航完整显示七个入口。清空资料后再返回报告页会显示空状态，不继续展示旧报告。
 
 首屏资料由独立小包提供，页面可先浏览、填写和查看历史记录，Python 引擎后台准备。核验逻辑与 PDF 阅读器拆成按内容命名的两个包；PDF 仅首次读取时加载。浏览器支持时，CacheStorage 只缓存列入清单的版本化静态组件，不缓存申请表、材料或评测输入。加载失败可重试，已填写内容保留。首次仍需下载引擎，不承诺离线启动或固定加载秒数。
 
@@ -66,6 +80,8 @@ node --test scripts/test-recovery-cache.mjs
 node --test scripts/test-review-recovery.mjs
 python scripts/test-human-evaluation.py
 python scripts/test-application-flow.py
+python scripts/test-ai-prereview.py
+python scripts/test-evidence-context.py
 node --test scripts/test-application-storage.mjs
 python scripts/native-baseline.py
 node scripts/check-parity.mjs
@@ -79,8 +95,10 @@ node scripts/check-parity.mjs
 
 Pyodide 314.0.7 由 npm 官方包下载并按 registry 的 SHA-512 integrity 校验；原始包、源码及相关许可证见 `dist/THIRD_PARTY_NOTICES.txt`。运行时及 PDF 阅读器均随站点分发，页面使用时不依赖第三方运行组件 CDN。
 
-## GitHub 目录与复现
+## GitHub目录与复现
 
-本目录的 `dist/` 保留已发布 v0.8 构建 `f9b47f48e2ae9c9c` 的原始字节。构建和测试脚本适配本仓库布局，从根目录读取本地版源文件，临时文件仅写入已忽略的 `online/.work/`；PDF 读取组件复用发布包中的已校验 pypdf 源码，不依赖开发者电脑的虚拟环境。
+`dist/`保留已发布v0.8.3构建`a6f3b90eedd78575`的原始字节。构建脚本适配本仓库：本地版源码从仓库根目录读取，临时文件及重建的复核总材料包仅写入被忽略的`online/.work/`，PDF读取器固定复用发布包中的已校验版本。建议Python 3.12；Node用于测试及接口对照，静态预览无需Node。
 
-修改后重新构建会产生新的内容指纹；其中脚本布局适配本身也参与构建指纹，因此不声称重新构建必然得到线上原指纹。建议 Python 3.12；Node 用于检查和测试，静态预览无需 Node。进入 `online/`，运行上方检查命令；全部软件测试可运行 `python scripts/test-human-evaluation.py`、`python scripts/test-campaign-review.py`、`python scripts/test-research.py`、`python scripts/test-prediction-bridge.py`、`python scripts/test-application-flow.py` 和 `node --test scripts/test-*.mjs`。先运行 `python scripts/native-baseline.py`，再运行 `node scripts/check-parity.mjs`，可复核82个接口场景的一致性。
+进入`online/`，先运行`python scripts/build.py`准备构建及临时复核材料包，再运行上面的专项测试。完整线上测试为8个`test-*.py`脚本（application-flow、human-evaluation、campaign-review、research、prediction-bridge、v08-evaluation、ai-prereview、evidence-context）以及`node --test scripts/test-*.mjs`，共226项。先运行`python scripts/native-baseline.py`，再运行`node scripts/check-parity.mjs`，可对照115个接口场景。原本地版测试另在仓库根目录运行`python -m unittest discover -s tests`。
+
+路径适配脚本本身也参与内容指纹，因此重新构建得到新指纹是预期行为；不声称它与已发布dist逐字节重建相同。归档的60条案例、原文、A/B材料内容及历史模型记录保持不变。不要运行prepare-v08-review.py重写保留集。AI历史文件仍可导入；应使用新版提示词另行生成AI输出，不把旧结果当作新检索后的成绩。

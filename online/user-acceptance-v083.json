@@ -1,0 +1,37 @@
+{
+  "version": "0.8.3-online",
+  "build_id": "a6f3b90eedd78575",
+  "checked_on": "2026-11-11",
+  "software_tests_passed": 226,
+  "new_coverage_time_compatibility_tests": 33,
+  "native_browser_api_parity": {"scenarios": 115, "all_equal": true},
+  "source_snapshots_changed": false,
+  "reserved_60_changed": false,
+  "human_materials_changed": false,
+  "original_ai_round_artifacts_changed": false,
+  "actual_new_model_outputs": 0,
+  "actual_new_human_reference_labels": 0,
+  "retrieval": {"baseline_passages": 34, "additional_critical_short_clauses": 8, "current_searchable_passages": 42, "method": "primary-bm25-coverage-v2"},
+  "browser_checks": [
+    "Rent development input 11 includes l50 insurance, l68 time window, l32 prior benefit/reacquired degree and l92 declared start",
+    "Date card separates application reference, unknown page publication, capture, source check and text-declared start; applicability remains unverified",
+    "All 12 actual v0.8.2 AI records import unchanged and remain unreviewed",
+    "Historical input banner is shown; original answer about then-missing clauses remains unchanged",
+    "Version-2 software response adds a separate history version without a historical banner; selecting old version restores its banner and original citations",
+    "Strict search at 2026-10-21 returns no late-captured rent page",
+    "Explicit later-capture checkbox clears old date results and permits flagged clues",
+    "Previously excluded short reacquired-degree clause is shown first with its original text and locator",
+    "Raw-source context dialog retains the same reference-date warning",
+    "Rent application result and readable Chinese report both include applicability notice",
+    "390px mobile viewport with expanded date card and old AI record has no document horizontal overflow",
+    "No browser console errors observed"
+  ],
+  "fixture_notice": "One local mixed-version response is explicitly marked SOFTWARE VERSION COMPATIBILITY FIXTURE; it is not published as a new actual AI answer, human label or accuracy result.",
+  "limits": [
+    "This release does not certify current policy effect or historical version applicability",
+    "A text-declared 2021-10-15 start does not prove all later platform additions applied from that day",
+    "Original AI answers are retained, not automatically rerun on expanded evidence",
+    "Topic coverage ordering is explicit retrieval configuration, not model confidence or BM25 rank",
+    "No new online inference service is enabled"
+  ]
+}

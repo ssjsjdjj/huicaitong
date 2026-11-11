@@ -32,6 +32,9 @@ from human_evaluation import new_case, restore_rows, summarize, freeze_dataset, 
 import campaign_review as campaign
 import primary_evidence
 import application_flow
+import v08_evaluation as v08
+import ai_prereview as ai_review
+import evidence_context
 
 
 def browser_extract(body,profile):
@@ -91,21 +94,47 @@ def request(path,body=None):
         if body is not None and not isinstance(body,dict):
             raise ValueError('请求须为 JSON 对象')
         route=urlparse(path).path
+        if route=='/api/ai-review/catalogue' and body is None:return {'status':200,'data':ai_review.catalogue()}
+        if route.startswith('/api/ai-review/') and body is not None:
+            op=route.rsplit('/',1)[1]
+            if op=='request':value=ai_review.request(body.get('case_id'))
+            elif op=='import':value=ai_review.import_response(body)
+            elif op in {'check','packet','restore','context'}:value=getattr(ai_review,op)(body)
+            else:raise ValueError('未知AI辅助预审操作')
+            return {'status':200,'data':value}
+        if route=='/api/v08/meta' and body is None:return {'status':200,'data':v08.meta()}
+        if route=='/api/v08/catalogue' and body is None:return {'status':200,'data':v08.catalogue()}
+        if route.startswith('/api/v08/') and body is not None:
+            op=route.rsplit('/',1)[1]
+            if op=='assignment':value=v08.assignment(body.get('slot'))
+            elif op=='restore':value=v08.restore(body.get('packet'))
+            elif op=='restore-adjudication':value=v08.restore_adjudication(body.get('packet'))
+            elif op=='verify':value={'batch_id':v08.verify_dataset(body.get('dataset'))['batch_id']}
+            elif op=='verify-submission':value=v08.submission(body.get('packet'),v08.batch())
+            elif op=='template':value=v08.prediction_input(body.get('dataset'))
+            elif op in {'draft','submit','compare','freeze','evaluate','adjudication-draft'}:value=getattr(v08,op.replace('-','_'))(body)
+            else:raise ValueError('未知v0.8复核操作')
+            return {'status':200,'data':value}
         if route=='/api/application/meta' and body is None:
             return {'status':200,'data':{'intents':application_flow.INTENTS,'supplementary_fields':application_flow.EXTRA,'notice':application_flow.NOTICE}}
         if route in {'/api/application/assess','/api/application/guide','/api/application/packet','/api/application/restore'} and body is not None:
             operation=route.rsplit('/',1)[1]
             result=application_flow.restore(body.get('packet'),store.all()) if operation=='restore' else getattr(application_flow,operation)(body,store.all())
+            if operation=='assess':
+                for row in result['results']:row['source_time']=evidence_context.policy_time(row['policy_id'],result['as_of'])
             return {'status':200,'data':result}
         if route=='/api/primary/catalogue' and body is None:
-            return {'status':200,'data':primary_evidence.catalogue()}
+            return {'status':200,'data':evidence_context.catalogue()}
         if route in {'/api/primary/search','/api/primary/passage','/api/primary/clause'} and body is None:
             args=parse_qs(urlparse(path).query,keep_blank_values=True);arg=lambda k,default='':args.get(k,[default])[0]
             if route.endswith('/search'):
                 if arg('history','0') not in {'0','1'}:raise ValueError('历史资料开关无效')
-                data=primary_evidence.search(arg('q'),arg('as_of'),arg('history','0')=='1',int(arg('limit','8')))
-            elif route.endswith('/passage'):data=primary_evidence.passage(arg('id'),arg('q'))
-            else:data=primary_evidence.clause_evidence(arg('id'))
+                if arg('later_snapshot','0') not in {'0','1'}:raise ValueError('晚取证快照开关无效')
+                data=evidence_context.search(arg('q'),arg('as_of'),arg('history','0')=='1',int(arg('limit','8')),include_later_capture=arg('later_snapshot','0')=='1')
+            elif route.endswith('/passage'):
+                data=primary_evidence.passage(arg('id'),arg('q'))
+                if arg('as_of'):data['temporal_context']=evidence_context.time_context(arg('as_of'),[data['passage']['document_id']])
+            else:data=evidence_context.clause_evidence(arg('id'))
             return {'status':200,'data':data}
         if route=='/api/diagnostics/history' and body is None:
             return {'status':200,'data':json.loads((ROOT/'data/historical-diagnostics.json').read_text(encoding='utf-8'))}
@@ -143,10 +172,10 @@ def request(path,body=None):
         else:
             handler.do_POST()
         if urlparse(path).path=='/api/meta' and handler.status==200:
-            handler.value.update(version='0.8.0-online',deployment_mode='browser',model_configured=False,
+            handler.value.update(version='0.8.3-online',deployment_mode='browser',model_configured=False,
                                  model_name='公开演示 · 模型实验记录',retriever='中文 BM25 · 浏览器内检索')
         if route=='/api/health' and handler.status==200:
-            handler.value['version']='0.8.0-online'
+            handler.value['version']='0.8.3-online'
         result={'status':handler.status,'data':handler.value}
         if urlparse(path).path=='/api/import' and handler.status==200:
             result['imports']=imported_policies()
