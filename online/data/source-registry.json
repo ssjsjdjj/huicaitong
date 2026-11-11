@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "registry_id": "hz-primary-evidence-20261030",
+  "checked_on": "2026-10-30",
+  "rule_snapshot_date": "2026-10-21",
+  "documents": [
+    {
+      "id": "living-guide-2024",
+      "title": "杭州市应届毕业生生活补贴申请指南（2024-05-13）",
+      "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web3163/site/attach/0/353333a8ef0c4dcbaf7671e692728824.pdf",
+      "local_url": "/sources/living-guide-20240513.pdf",
+      "kind": "官方办理指南",
+      "issued_on": "2024-05-13",
+      "checked_on": "2026-10-30",
+      "sha256": "872cfcf42bd12b1431d493db1f657c4204e221287a4e51e0351c87e5bf6636c6",
+      "bytes": 257251,
+      "verification_note": "已核对第2—5页正文与表格。完整PDF共11页；当前生效状态仍需受理系统确认。",
+      "publisher": "杭州市人力资源和社会保障局",
+      "pages": 11
+    },
+    {
+      "id": "rent-faq-2021",
+      "title": "大学生租房补贴政策解答（2021-10-15）",
+      "url": "https://qinqing.hangzhou.gov.cn/rizhiyewushujucunchu-shengchan/gep/c07c1435792149ceba778506d3682273.pdf",
+      "local_url": "/sources/rent-faq-20211015.pdf",
+      "kind": "主管部门平台附件",
+      "issued_on": "2021-10-15",
+      "checked_on": "2026-10-30",
+      "sha256": "fc03d114b6bdc4687a07a4a245698449a1f5a6c5f2be457a594d9ee5677f7f5d",
+      "bytes": 118220,
+      "verification_note": "从亲清在线租房补贴详情“查看”取得原始附件。与当前平台补充说明并读，不把2021附件视作最新完整规则。",
+      "publisher": "亲清在线 · 住房保障和房产管理部门"
+    },
+    {
+      "id": "plan-45-2023",
+      "title": "杭政办函〔2023〕45号：大学生创新创业三年行动计划（2023—2025年）",
+      "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web149/site/attach/0/998dd07dddda4e4f9e5f2a5d2a8c44a3.pdf",
+      "local_url": "/sources/plan-45-2023.pdf",
+      "kind": "历史政策原件",
+      "issued_on": "2023-06-03",
+      "checked_on": "2026-10-30",
+      "sha256": "ee04f5e00311e360617fa0dd04bb5d8f4a8a444f3ff87b68aacff5f673febd1f",
+      "bytes": 271472,
+      "verification_note": "正文写明2023-07-05施行，有效期至2025-12-31。仅作历史及政策链背景，不能据此断言2026年补贴有效或停止。",
+      "publisher": "杭州市人民政府办公厅",
+      "effective_from": "2023-07-05",
+      "effective_until": "2025-12-31",
+      "status": "文本所载有效期已届满"
+    },
+    {
+      "id": "rules-126-2023",
+      "title": "杭人社发〔2023〕126号：三年行动计划实施细则（签章扫描件）",
+      "url": "https://www.hangzhou.gov.cn/art/2023/12/15/art_1229063383_1839113.html",
+      "local_url": "/sources/rules-126-2023.pdf",
+      "kind": "规范性文件原件",
+      "issued_on": "2023-12-12",
+      "checked_on": "2026-10-30",
+      "sha256": "3d421d981419e7fe44a974b4e93bff102707c8755bba5d3b7060a617b9da40f2",
+      "bytes": 6889466,
+      "verification_note": "发布页在本次核对时标注“有效”；扫描件43页已核对签章封面，未对全卷完成OCR或逐条核验。仅作上位链背景，不作每一条补贴条件的直接证据。",
+      "publisher": "杭州市人力资源和社会保障局等",
+      "attachment_url": "https://zjjcmspublicnew.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/cms_files/jcms1/web3163/site/attach/0/b2b7cc23edd746c9bde34f49988d364e.pdf",
+      "status": "发布页标有效；与行动计划期限的衔接待核实",
+      "pages": 43
+    },
+    {
+      "id": "talent-4-2020",
+      "title": "市委办发〔2020〕4号：落实“人才生态37条”的补充意见",
+      "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2754/site/picture/zcdhpt/policys/关于服务保障“抓防控促发展”落实“人才生态37条”的补充意见.pdf",
+      "local_url": "/sources/talent-37-2020.pdf",
+      "kind": "历史政策原件",
+      "issued_on": "2020-02-24",
+      "checked_on": "2026-10-30",
+      "sha256": "3628c1dcbac066cd6ad604d7a301f013383e1bdc5eeddea43d19576eb35cfb7b",
+      "bytes": 631744,
+      "verification_note": "从富阳政府政策导航链接取得签章扫描原件；已核对封面与文号。现行效力未核实，不用旧文件覆盖当前平台说明。",
+      "publisher": "中共杭州市委办公厅、杭州市人民政府办公厅"
+    },
+    {
+      "id": "rent-platform-2026",
+      "title": "亲清在线：新引进应届大学生租房补贴完整细则（页面取证）",
+      "url": "https://qinqing.hangzhou.gov.cn/mobile/",
+      "local_url": "/sources/qinqing-rent-live.txt",
+      "kind": "主管部门平台现行展示",
+      "issued_on": null,
+      "checked_on": "2026-10-30",
+      "sha256": "4f4214b6fd12ee9a461b8403b702cab04b2ace7ba4c4243b6416cd2336e39292",
+      "bytes": 9601,
+      "verification_note": "进入首页“【杭州市】新引进应届大学生租房补贴”。动态详情没有稳定独立链接，本站提供2026-10-30可见正文快照；网页展示不等同于独立确认文件法律效力。",
+      "publisher": "杭州市住房保障和房产管理局 · 亲清在线",
+      "capture_url": "https://qinqing.hangzhou.gov.cn/mobile/#/policy/detail",
+      "status": "平台当前展示，条款含2023-07-05补充"
+    }
+  ],
+  "bindings": [
+    {
+      "policy_id": "hz-living-first-2024",
+      "policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "direct_sources": [
+        "living-guide-2024"
+      ],
+      "clause_links": [
+        {
+          "clause_id": "living-scope",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-time",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-employer",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-insurance",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-exclusion",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-payment",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-materials",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第4页：四、申请材料"
+        }
+      ]
+    },
+    {
+      "policy_id": "hz-living-second-2024",
+      "policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "direct_sources": [
+        "living-guide-2024"
+      ],
+      "clause_links": [
+        {
+          "clause_id": "living-second-scope",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-second-insurance",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        },
+        {
+          "clause_id": "living-second-payment",
+          "source_id": "living-guide-2024",
+          "locator": "PDF第2—5页：二、三、特别说明及申请流程"
+        }
+      ]
+    },
+    {
+      "policy_id": "hz-rent-first-2026",
+      "policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "direct_sources": [
+        "rent-platform-2026",
+        "rent-faq-2021"
+      ],
+      "clause_links": [
+        {
+          "clause_id": "rent-eligibility",
+          "source_id": "rent-platform-2026",
+          "locator": "页面“资格条件”“业务流程”“所需材料”；旧版解答按问题编号核对"
+        },
+        {
+          "clause_id": "rent-time",
+          "source_id": "rent-platform-2026",
+          "locator": "页面“资格条件”“业务流程”“所需材料”；旧版解答按问题编号核对"
+        },
+        {
+          "clause_id": "rent-standard",
+          "source_id": "rent-platform-2026",
+          "locator": "页面“资格条件”“业务流程”“所需材料”；旧版解答按问题编号核对"
+        },
+        {
+          "clause_id": "rent-channel",
+          "source_id": "rent-platform-2026",
+          "locator": "页面“资格条件”“业务流程”“所需材料”；旧版解答按问题编号核对"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "杭委人办〔2021〕7号完整签章原件尚未取得；租房细则现以主管部门亲清在线完整页面及附件核对。",
+    "行动计划有效期至2025年底；126号发布页仍标有效。2026年承接文件及具体效力衔接需主管部门确认。",
+    "非全日制研究生例外、境外学历及国籍差异未纳入自动规则，相关案例应转人工核验。",
+    "租房细则还要求住房交易历史、家庭范围和住房地域等核验，当前字段不能完整表达；自动初筛通过不代表完整资格通过。",
+    "劳务派遣历史、仅记毕业年月、西部再次补贴和租房续发均需额外核实，本轮不扩大自动规则范围。"
+  ],
+  "notice": "新增原文依据单独版本化，不改写2026-10-21规则快照或历史实验。原文校验指纹证明文件一致，不证明法律效力或标注正确。",
+  "sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+}

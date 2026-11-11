@@ -1,0 +1,2225 @@
+{
+  "schema_version": 1,
+  "batch_id": "hz-holdout-54-v1",
+  "created_on": "2026-10-30",
+  "annotation_source": "unlabeled_project_authored_candidates",
+  "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6",
+  "cases": [
+    {
+      "case_id": "hz-holdout-20261030-001",
+      "title": "候选案例 001",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-04",
+        "graduation_date": "2025-01-04",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-03-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-002",
+      "title": "候选案例 002",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-08",
+        "graduation_date": "2025-01-07",
+        "degree": "college",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-04-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-003",
+      "title": "候选案例 003",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-03",
+        "graduation_date": null,
+        "degree": null,
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-004",
+      "title": "候选案例 004",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-07-04",
+        "graduation_date": "2025-01-13",
+        "degree": "master",
+        "study_mode": "parttime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-03-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-005",
+      "title": "候选案例 005",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-08-05",
+        "graduation_date": "2025-01-16",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "overseas",
+        "nationality": "cn",
+        "insurance_start_date": "2025-04-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-006",
+      "title": "候选案例 006",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-06",
+        "graduation_date": "2025-01-19",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "other",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-007",
+      "title": "候选案例 007",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-07-07",
+        "graduation_date": "2025-01-22",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-03-01",
+        "insurance_months": 13,
+        "employed_hangzhou": false,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-008",
+      "title": "候选案例 008",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-08-08",
+        "graduation_date": "2025-01-25",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": null,
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": null,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-009",
+      "title": "候选案例 009",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-09",
+        "graduation_date": "2025-01-28",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": false,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-010",
+      "title": "候选案例 010",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-07-10",
+        "graduation_date": "2025-01-31",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-03-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": false,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-011",
+      "title": "候选案例 011",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-11",
+        "graduation_date": "2025-02-03",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 5,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-012",
+      "title": "候选案例 012",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-12",
+        "graduation_date": "2025-02-06",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 6,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-013",
+      "title": "候选案例 013",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-08-13",
+        "graduation_date": "2025-02-09",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-04-01",
+        "insurance_months": 11,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-014",
+      "title": "候选案例 014",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-01",
+        "graduation_date": "2025-02-12",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 12,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-015",
+      "title": "候选案例 015",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-02",
+        "graduation_date": "2025-02-15",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": true,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-016",
+      "title": "候选案例 016",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-08-03",
+        "graduation_date": "2025-02-18",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-04-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": true,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-017",
+      "title": "候选案例 017",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-04",
+        "graduation_date": "2025-02-21",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": true,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-018",
+      "title": "候选案例 018",
+      "policy_id": "hz-living-first-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-05",
+        "graduation_date": "2025-02-24",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": null,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "8c7caf9f6ba05baf5d12187e1d833de12dceffdc0d40d0aa6c7fdbd451f2ed74",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-019",
+      "title": "候选案例 019",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-02-27",
+        "graduation_date": "2025-02-27",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-04-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-020",
+      "title": "候选案例 020",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-03-03",
+        "graduation_date": "2025-03-02",
+        "degree": "college",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-021",
+      "title": "候选案例 021",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-03",
+        "graduation_date": null,
+        "degree": null,
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-022",
+      "title": "候选案例 022",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-04",
+        "graduation_date": "2025-03-08",
+        "degree": "master",
+        "study_mode": "parttime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-023",
+      "title": "候选案例 023",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-05",
+        "graduation_date": "2025-03-11",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "overseas",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-024",
+      "title": "候选案例 024",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-06",
+        "graduation_date": "2025-03-14",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "other",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-025",
+      "title": "候选案例 025",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-07",
+        "graduation_date": "2025-03-17",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 14,
+        "employed_hangzhou": false,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-026",
+      "title": "候选案例 026",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-08",
+        "graduation_date": "2025-03-20",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": null,
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": null,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-027",
+      "title": "候选案例 027",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-09",
+        "graduation_date": "2025-03-23",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": false,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-028",
+      "title": "候选案例 028",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-09-10",
+        "graduation_date": "2025-03-26",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-05-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": false,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-029",
+      "title": "候选案例 029",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-11",
+        "graduation_date": "2025-03-29",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 6,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-030",
+      "title": "候选案例 030",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-12",
+        "graduation_date": "2025-04-01",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 7,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-031",
+      "title": "候选案例 031",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-13",
+        "graduation_date": "2025-04-04",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 12,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-032",
+      "title": "候选案例 032",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-01",
+        "graduation_date": "2025-04-07",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-033",
+      "title": "候选案例 033",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-02",
+        "graduation_date": "2025-04-10",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": true,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-034",
+      "title": "候选案例 034",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-10-03",
+        "graduation_date": "2025-04-13",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": true,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-035",
+      "title": "候选案例 035",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-04",
+        "graduation_date": "2025-04-16",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": true,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-036",
+      "title": "候选案例 036",
+      "policy_id": "hz-living-second-2024",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-05",
+        "graduation_date": "2025-04-19",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": null,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "a2df7829fd04f87bb71c73283f36f99015dd4cda7f05b0fcef83546741f45e46",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-037",
+      "title": "候选案例 037",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-04-22",
+        "graduation_date": "2025-04-22",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-06-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-038",
+      "title": "候选案例 038",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-04-26",
+        "graduation_date": "2025-04-25",
+        "degree": "college",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-039",
+      "title": "候选案例 039",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-03",
+        "graduation_date": null,
+        "degree": null,
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-040",
+      "title": "候选案例 040",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-04",
+        "graduation_date": "2025-05-01",
+        "degree": "master",
+        "study_mode": "parttime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-041",
+      "title": "候选案例 041",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-05",
+        "graduation_date": "2025-05-04",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "overseas",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-042",
+      "title": "候选案例 042",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-06",
+        "graduation_date": "2025-05-07",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "other",
+        "insurance_start_date": "2025-09-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-043",
+      "title": "候选案例 043",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-07",
+        "graduation_date": "2025-05-10",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 15,
+        "employed_hangzhou": false,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-044",
+      "title": "候选案例 044",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-08",
+        "graduation_date": "2025-05-13",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": null,
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": null,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-045",
+      "title": "候选案例 045",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-09",
+        "graduation_date": "2025-05-16",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-09-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": false,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-046",
+      "title": "候选案例 046",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-10",
+        "graduation_date": "2025-05-19",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": false,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-047",
+      "title": "候选案例 047",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-11",
+        "graduation_date": "2025-05-22",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 7,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-048",
+      "title": "候选案例 048",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-12",
+        "graduation_date": "2025-05-25",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-09-01",
+        "insurance_months": 8,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-049",
+      "title": "候选案例 049",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-11-13",
+        "graduation_date": "2025-05-28",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-050",
+      "title": "候选案例 050",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-01",
+        "graduation_date": "2025-05-31",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 14,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-051",
+      "title": "候选案例 051",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-02-02",
+        "graduation_date": "2025-06-03",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-10-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": true,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-052",
+      "title": "候选案例 052",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2026-12-03",
+        "graduation_date": "2025-06-06",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-08-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": true,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-053",
+      "title": "候选案例 053",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-01-04",
+        "graduation_date": "2025-06-09",
+        "degree": "phd",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-09-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": true,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "hz-holdout-20261030-054",
+      "title": "候选案例 054",
+      "policy_id": "hz-rent-first-2026",
+      "profile": {
+        "city": "杭州",
+        "application_date": "2027-02-05",
+        "graduation_date": "2025-06-12",
+        "degree": "bachelor",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "insurance_start_date": "2025-10-01",
+        "insurance_months": 15,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": null,
+        "rent_first_received": false
+      },
+      "source_policy_sha256": "b8ce15aeef8e015f09779c0f6a8264a2d5f0db0b903f49c10c9a7b88ffd309a9",
+      "provenance": {
+        "kind": "user_authored_synthetic",
+        "training_use": "not_used"
+      },
+      "campaign": {
+        "batch_id": "hz-holdout-54-v1",
+        "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6"
+      },
+      "expected": null,
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    }
+  ],
+  "notice": "54条项目编写的合成候选案例；答案全部留空。尚未人工复核，不是独立测试结果。两笔生活补贴共享政策来源，只有两类政策，不能据此宣称跨政策泛化。",
+  "sha256": "abac6cf9b139f6353e42f303de4140932aaa963dcd5b4676cac069ccecd3d4b6"
+}

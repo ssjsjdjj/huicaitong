@@ -1,0 +1,384 @@
+{
+  "batch_id": "hz-holdout-54-v1",
+  "cases": [
+    {
+      "case_id": "hz-holdout-20261030-001",
+      "varied_fields": [
+        "application_date"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-002",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-003",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-004",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-005",
+      "varied_fields": [
+        "school_region"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-006",
+      "varied_fields": [
+        "nationality"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-007",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-008",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-009",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-010",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-011",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-012",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-013",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-014",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-015",
+      "varied_fields": [
+        "prior_other_degree_subsidy"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-016",
+      "varied_fields": [
+        "degree_while_employed"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-017",
+      "varied_fields": [
+        "family_has_home"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-018",
+      "varied_fields": [
+        "other_housing_benefit"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-019",
+      "varied_fields": [
+        "application_date"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-020",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-021",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-022",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-023",
+      "varied_fields": [
+        "school_region"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-024",
+      "varied_fields": [
+        "nationality"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-025",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-026",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-027",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-028",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-029",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-030",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-031",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-032",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-033",
+      "varied_fields": [
+        "prior_other_degree_subsidy"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-034",
+      "varied_fields": [
+        "degree_while_employed"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-035",
+      "varied_fields": [
+        "family_has_home"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-036",
+      "varied_fields": [
+        "other_housing_benefit"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-037",
+      "varied_fields": [
+        "application_date"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-038",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-039",
+      "varied_fields": [
+        "degree"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-040",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-041",
+      "varied_fields": [
+        "school_region"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-042",
+      "varied_fields": [
+        "nationality"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-043",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-044",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-045",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-046",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-047",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-048",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-049",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-050",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-051",
+      "varied_fields": [
+        "prior_other_degree_subsidy"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-052",
+      "varied_fields": [
+        "degree_while_employed"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-053",
+      "varied_fields": [
+        "family_has_home"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    },
+    {
+      "case_id": "hz-holdout-20261030-054",
+      "varied_fields": [
+        "other_housing_benefit"
+      ],
+      "note": "设计分层信息不含参考结论；发给复核者的空白包不包含本表。"
+    }
+  ],
+  "notice": "只作抽样设计与作者审计，不含标签，不向盲审者展示分层。"
+}
