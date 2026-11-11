@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-11-11T07:57:57+00:00",
+  "protocol": "huicaitong-ai-prereview-v1",
+  "source_application_version": "0.8.2-online",
+  "batch_sha256": "385561f0e8b18f3272593bd4fbfa44923140ef22c1015724773ed8fc0605b958",
+  "packet_sha256": "a0366146d5607ab8023439deae3ceb2b18a3af7ec188cb717fe30c21270aef5e",
+  "file_sha256": "656031dc13c1a931c0cd9e25ac7b66897eb13d1e25b2d4d43c6fce5196aa56d9",
+  "records": 12,
+  "all_human_check_null": true,
+  "independent_human_reference": false,
+  "purpose": "development_only",
+  "judgments": {
+    "needs_info": 4,
+    "manual_check": 3,
+    "listed_block": 5
+  },
+  "citations": 28,
+  "citations_with_exact_text_match": 28,
+  "source_checked_on": "2026-10-30",
+  "application_reference_date": "2026-10-21",
+  "generation_method": "Actual AI analysis authored in this Codex conversation from the 12 saved request inputs and their retrieved excerpts. Python only preserves exact source quotations, serializes, validates and packages these responses. No rule-prediction function generated these judgments.",
+  "model_identity": "Codex · 本次对话AI预审（非项目Base/SFT/GRPO）",
+  "exact_model_id_independently_verified": false,
+  "additional_model_api_calls": 0,
+  "project_base_sft_grpo_models_used": false,
+  "human_reference_labels_generated": 0,
+  "held_out_60_used_as_ai_input": false,
+  "reserved_sources_and_human_materials_unchanged": true,
+  "imported_at_meaning": "Local validation and serialization time, not an assertion that the user has imported the file into the website.",
+  "verification_limits": [
+    "Quote membership is a mechanical check, not a human confirmation of entailment.",
+    "No accuracy is computed without independent human reference labels.",
+    "Rent excerpts were captured after the case application reference date; applicability at that earlier date is not established.",
+    "Some rent retrievals omit the specific prior-benefit/reacquired-degree or insurance duration clauses.",
+    "A saved_at/request hash binds this artifact to the current development protocol and snapshots; it is not a signature verifying author/model identity."
+  ]
+}
