@@ -1,0 +1,500 @@
+{
+  "protocol": "huicaitong-ai-prereview-v1",
+  "batch_id": "hz-ai-development-12-v1",
+  "purpose": "development_only",
+  "cases": [
+    {
+      "case_id": "ai-dev-01",
+      "title": "毕业记录信息待核对",
+      "intent": "living-first",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 13,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "unknown",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 毕业时间 年月 申请材料",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-02",
+      "title": "有派遣工作经历",
+      "intent": "living-first",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 12,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": true,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 劳务派遣 实际用工单位 申请材料",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-03",
+      "title": "部分参保信息未填写",
+      "intent": "living-first",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": null,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": null,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 连续参保 补缴 单位",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-04",
+      "title": "国境外学习经历",
+      "intent": "living-first",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "overseas",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 11,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 国境外 学历认证 申请材料",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-05",
+      "title": "首笔领取记录待确认",
+      "intent": "living-second",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 10,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": null,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 第二笔 首笔 申请时间",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-06",
+      "title": "当前参保存在待核项",
+      "intent": "living-second",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 9,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": null,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 第二笔 连续参保 申请条件",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-07",
+      "title": "曾以其他学历领取补贴",
+      "intent": "living-second",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 8,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": true,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 其他学历 已享受 第二笔",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-08",
+      "title": "连续时长含待确认记录",
+      "intent": "living-second",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 7,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": null,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": true,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "生活补贴 第二笔 连续缴纳 补缴",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-09",
+      "title": "家庭核验范围待确认",
+      "intent": "rent",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 6,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": null,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "租房补贴 申请人 配偶 未成年子女 住房",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-10",
+      "title": "存在家庭房产交易历史",
+      "intent": "rent",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 5,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": true,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "租房补贴 房产交易 买卖 赠与 继承",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-11",
+      "title": "曾领取后又取得新学历",
+      "intent": "rent",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 4,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": true,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": true
+      },
+      "query": "租房补贴 已享受 更高学历 申请条件",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    },
+    {
+      "case_id": "ai-dev-12",
+      "title": "住房地域口径待核对",
+      "intent": "rent",
+      "profile": {
+        "city": "杭州",
+        "degree": "master",
+        "study_mode": "fulltime",
+        "school_region": "mainland",
+        "nationality": "cn",
+        "graduation_date": "2025-05-13",
+        "application_date": "2026-10-21",
+        "insurance_start_date": "2025-07-01",
+        "insurance_months": 3,
+        "employed_hangzhou": true,
+        "employer_qualified": true,
+        "insurance_current": true,
+        "insurance_without_backpay": true,
+        "prior_other_degree_subsidy": false,
+        "degree_while_employed": false,
+        "first_installment_received": false,
+        "family_has_home": false,
+        "other_housing_benefit": false,
+        "rent_first_received": false
+      },
+      "supplementary": {
+        "graduation_record_precision": "day",
+        "has_dispatch_history": false,
+        "family_scope_confirmed": true,
+        "housing_scope_confirmed": null,
+        "family_property_history": false,
+        "prior_rent_degree_subsidy": false
+      },
+      "query": "租房补贴 单位所在区 主城区 住房范围",
+      "expected": null,
+      "provenance": {
+        "kind": "project_authored_synthetic_ai_development",
+        "training_use": "development_only",
+        "independent_human_reference": false
+      }
+    }
+  ],
+  "sha256": "385561f0e8b18f3272593bd4fbfa44923140ef22c1015724773ed8fc0605b958"
+}

@@ -1,0 +1,454 @@
+{
+  "batch_id": "hz-v08-review-60-v1",
+  "cases": [
+    {
+      "case_id": "v08-5b2410c464f7",
+      "varied_fields": [
+        "degree",
+        "insurance_months",
+        "supplementary_all_unknown"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-a91fa9623cf5",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-43d56c4e2d18",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-d2ff1c492e62",
+      "varied_fields": [
+        "school_region"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-d322cabd8f82",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-5d53dcf73f66",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-28983738f2be",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-2bf38c7338b7",
+      "varied_fields": [
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-43b61efff41d",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-a38ca3fbdfdf",
+      "varied_fields": [
+        "first_installment_received"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-c876ea3670be",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months",
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-72fda4eef560",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-85635feaeef1",
+      "varied_fields": [
+        "extra.graduation_record_precision"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-c64f4b12a902",
+      "varied_fields": [
+        "extra.has_dispatch_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-29b1fc187b81",
+      "varied_fields": [
+        "extra.graduation_record_precision"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-54864a8e301b",
+      "varied_fields": [
+        "extra.has_dispatch_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-3077c0d6e2ec",
+      "varied_fields": [
+        "prior_other_degree_subsidy"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-c54577cb68cb",
+      "varied_fields": [
+        "degree_while_employed"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-c164d16c469d",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-b21be5d96d8d",
+      "varied_fields": [
+        "extra.has_dispatch_history",
+        "nationality"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-651244505fa9",
+      "varied_fields": [
+        "degree",
+        "insurance_months",
+        "supplementary_all_unknown"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-2cd31012d6c7",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-1238789cdb63",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-5580095799a7",
+      "varied_fields": [
+        "school_region"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-aa84e50b902c",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-3a0199dafc11",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-6660f93b5038",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-6bb179a6b7ee",
+      "varied_fields": [
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-ec37827ea5d9",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-66b55f95e41b",
+      "varied_fields": [
+        "first_installment_received"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-bd10700cb024",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months",
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-f306a9d98312",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-28284be615ba",
+      "varied_fields": [
+        "extra.graduation_record_precision"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-feb6d0483e12",
+      "varied_fields": [
+        "extra.has_dispatch_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-2af30de69cf2",
+      "varied_fields": [
+        "extra.graduation_record_precision"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-e4c4c215aa50",
+      "varied_fields": [
+        "extra.has_dispatch_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-baaa7cf5e02b",
+      "varied_fields": [
+        "prior_other_degree_subsidy"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-951de333d54e",
+      "varied_fields": [
+        "degree_while_employed"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-17ea5e61a7cf",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-4aa35f09f1f8",
+      "varied_fields": [
+        "extra.has_dispatch_history",
+        "nationality"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-52850ffd5e04",
+      "varied_fields": [
+        "degree",
+        "insurance_months",
+        "supplementary_all_unknown"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-a693275c2b54",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-0d740d6fa1a9",
+      "varied_fields": [
+        "employer_qualified"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-9440dac730b7",
+      "varied_fields": [
+        "school_region"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-c0331504184d",
+      "varied_fields": [
+        "study_mode"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-d996d6941192",
+      "varied_fields": [
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-ca72bc91f4b0",
+      "varied_fields": [
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-05f55082b3ac",
+      "varied_fields": [
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-4332a84ccc56",
+      "varied_fields": [
+        "insurance_without_backpay"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-e901034dbe18",
+      "varied_fields": [
+        "rent_first_received"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-d962c4e86d95",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months",
+        "employed_hangzhou"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-47b710e6c06f",
+      "varied_fields": [
+        "graduation_date",
+        "insurance_start_date",
+        "insurance_months"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-617a36f91f6f",
+      "varied_fields": [
+        "extra.graduation_record_precision"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-a8bba85825d1",
+      "varied_fields": [
+        "extra.has_dispatch_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-fcd24bcc27a3",
+      "varied_fields": [
+        "extra.family_scope_confirmed"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-d6d82d873b70",
+      "varied_fields": [
+        "extra.family_property_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-f2db5546eb01",
+      "varied_fields": [
+        "extra.prior_rent_degree_subsidy"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-a4139fda7df0",
+      "varied_fields": [
+        "extra.housing_scope_confirmed",
+        "family_has_home"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-fbbde1877237",
+      "varied_fields": [
+        "insurance_current"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    },
+    {
+      "case_id": "v08-9d24a981bfa0",
+      "varied_fields": [
+        "extra.has_dispatch_history",
+        "extra.housing_scope_confirmed",
+        "extra.family_property_history"
+      ],
+      "notice": "协调者抽样审计信息，不含参考答案，不发给盲审者。"
+    }
+  ]
+}
