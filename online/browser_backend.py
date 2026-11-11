@@ -6,7 +6,7 @@ import io
 import json
 from pathlib import Path
 from types import SimpleNamespace
-from urllib.parse import urlparse
+from urllib.parse import urlparse,parse_qs
 
 ROOT=Path(__file__).resolve().parent
 tree=ast.parse((ROOT/'app.py').read_text(encoding='utf-8'))
@@ -29,6 +29,9 @@ from document_worker import read_document
 from materials import parse_fields
 from store import PolicyStore
 from human_evaluation import new_case, restore_rows, summarize, freeze_dataset, evaluate_dataset, verify_dataset
+import campaign_review as campaign
+import primary_evidence
+import application_flow
 
 
 def browser_extract(body,profile):
@@ -88,6 +91,36 @@ def request(path,body=None):
         if body is not None and not isinstance(body,dict):
             raise ValueError('请求须为 JSON 对象')
         route=urlparse(path).path
+        if route=='/api/application/meta' and body is None:
+            return {'status':200,'data':{'intents':application_flow.INTENTS,'supplementary_fields':application_flow.EXTRA,'notice':application_flow.NOTICE}}
+        if route in {'/api/application/assess','/api/application/guide','/api/application/packet','/api/application/restore'} and body is not None:
+            operation=route.rsplit('/',1)[1]
+            result=application_flow.restore(body.get('packet'),store.all()) if operation=='restore' else getattr(application_flow,operation)(body,store.all())
+            return {'status':200,'data':result}
+        if route=='/api/primary/catalogue' and body is None:
+            return {'status':200,'data':primary_evidence.catalogue()}
+        if route in {'/api/primary/search','/api/primary/passage','/api/primary/clause'} and body is None:
+            args=parse_qs(urlparse(path).query,keep_blank_values=True);arg=lambda k,default='':args.get(k,[default])[0]
+            if route.endswith('/search'):
+                if arg('history','0') not in {'0','1'}:raise ValueError('历史资料开关无效')
+                data=primary_evidence.search(arg('q'),arg('as_of'),arg('history','0')=='1',int(arg('limit','8')))
+            elif route.endswith('/passage'):data=primary_evidence.passage(arg('id'),arg('q'))
+            else:data=primary_evidence.clause_evidence(arg('id'))
+            return {'status':200,'data':data}
+        if route=='/api/diagnostics/history' and body is None:
+            return {'status':200,'data':json.loads((ROOT/'data/historical-diagnostics.json').read_text(encoding='utf-8'))}
+        if route=='/api/sources' and body is None:
+            return {'status':200,'data':campaign.registry()}
+        if route=='/api/campaign' and body is None:
+            return {'status':200,'data':{'batch_id':campaign.campaign()['batch_id'],'audit':campaign.audit_candidates()}}
+        if route=='/api/campaign/assignment' and body is not None:
+            return {'status':200,'data':{'packet':campaign.assignment(body.get('slot'))}}
+        if route=='/api/campaign/submit' and body is not None:
+            return {'status':200,'data':{'packet':campaign.submission(body,store.all())}}
+        if route=='/api/campaign/compare' and body is not None:
+            return {'status':200,'data':campaign.compare(body,store.all())}
+        if route=='/api/campaign/freeze' and body is not None:
+            return {'status':200,'data':{'dataset':campaign.reconcile(body,store.all())}}
         if route=='/api/review/new-case' and body is not None:
             return {'status':200,'data':{'case':new_case(body,store.all())}}
         if route=='/api/review/restore' and body is not None:
@@ -110,10 +143,10 @@ def request(path,body=None):
         else:
             handler.do_POST()
         if urlparse(path).path=='/api/meta' and handler.status==200:
-            handler.value.update(version='0.5.0-online',deployment_mode='browser',model_configured=False,
+            handler.value.update(version='0.8.0-online',deployment_mode='browser',model_configured=False,
                                  model_name='公开演示 · 模型实验记录',retriever='中文 BM25 · 浏览器内检索')
         if route=='/api/health' and handler.status==200:
-            handler.value['version']='0.5.0-online'
+            handler.value['version']='0.8.0-online'
         result={'status':handler.status,'data':handler.value}
         if urlparse(path).path=='/api/import' and handler.status==200:
             result['imports']=imported_policies()

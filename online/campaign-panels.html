@@ -1,0 +1,21 @@
+<section class="panel campaign-panel" id="campaign-panel">
+  <div class="panel-heading"><h2>54 条新案例 · 独立复核批次</h2><span class="method-tag">候选案例，尚无人工答案</span></div>
+  <p>18 条生活补贴首笔、18 条第二笔、18 条租房首笔；两笔生活补贴共享来源，合计只有两类政策。项目编写合成案例，不能替代真实用户验证。</p>
+  <p id="campaign-audit" class="field-note" role="status">正在检查批次与开发记录重复情况…</p>
+  <p><a href="/independent-evaluation-guide.txt?v=__HCT_BUILD__" target="_blank" rel="noopener noreferrer">阅读完整评测操作规程 ↗</a></p>
+  <ol><li>协调者先核对知识库原始依据，固定本批与模型版本。将 A / B 空白任务分别发给两位复核者。</li><li>两人各自在自己的浏览器载入任务，独立阅读原文；不看另一位、规则或模型答案。逐条确认后，分别导出正式提交。</li><li>第三位终审者导入两份提交，阅读全部解释并处理每个分歧，最后冻结；任一份未完成54条都会阻止提交。</li></ol>
+  <div class="toolbar"><button class="btn" data-campaign-download="A">下载 A 空白任务</button><button class="btn" data-campaign-download="B">下载 B 空白任务</button><a class="btn btn-quiet" href="/review-campaign-54-blank.json?v=__HCT_BUILD__" download>下载54条原始候选</a></div>
+  <div class="toolbar"><button class="btn btn-quiet" data-campaign-load="A">在本标签页载入 A</button><button class="btn btn-quiet" data-campaign-load="B">在本标签页载入 B</button></div>
+  <details><summary>复核者：检查整批并导出正式提交</summary><form id="campaign-submit-form" class="benchmark-form">
+    <label>本次任务<select id="campaign-submit-slot"><option>A</option><option>B</option></select></label><label>本批复核者标识<input id="campaign-reviewer" required maxlength="80" placeholder="与每条保存时使用的标识一致"></label>
+    <label class="check-label"><input id="campaign-independent" type="checkbox" required>我已独立阅读原文，未参考另一位复核者、规则或模型答案；本批及近重复未用于开发。</label><button class="btn btn-primary">检查全部54条并下载提交</button>
+  </form><p class="field-note">未完成时可用下方“下载草稿备份”保留进度。A/B 后缀隔离两份任务，不增加样本数。请不要在同一标签页替另一位填写。</p></details>
+  <p id="campaign-message" class="field-note" role="status"></p>
+</section>
+<details class="panel campaign-panel" id="campaign-adjudication"><summary>协调者：导入双人提交、处理分歧并冻结</summary>
+  <p>只接受正式提交文件；程序校验同批人物、政策与原文目录指纹。身份与独立性由参与者声明。SHA-256 不提供身份认证。</p>
+  <form id="campaign-compare-form" class="benchmark-form"><label>A 正式提交<input id="campaign-file-a" type="file" accept=".json" required></label><label>B 正式提交<input id="campaign-file-b" type="file" accept=".json" required></label><button class="btn">检查并对照两份提交</button></form>
+  <p id="campaign-comparison-status" class="field-note" role="status"></p><div class="toolbar"><button class="btn btn-quiet small" id="campaign-decision-backup" disabled>下载终审进度草稿</button><label class="btn btn-quiet small">恢复终审进度草稿<input id="campaign-decision-file" type="file" accept=".json"></label></div><div id="campaign-comparison"></div>
+  <form id="campaign-freeze-form" class="benchmark-form" hidden><label>评测集名称<input id="campaign-dataset-name" required maxlength="120" value="杭州政策双人复核54条 v1"></label><label>评测集编号<input id="campaign-dataset-id" required maxlength="80" pattern="[a-zA-Z0-9][a-zA-Z0-9_.-]{2,79}" value="hz-dual-review-54-v1"></label><label>第三位终审者标识<input id="campaign-adjudicator" required maxlength="80"></label><label class="check-label"><input id="campaign-final-source" type="checkbox" required>我已阅读原文，复核全部案例的两份解释，并完成分歧处理；若两人均错，先退回修订重交。</label><label class="check-label"><input id="campaign-final-independence" type="checkbox" required>本批及近重复未用于训练、调参、提示词修改或模型选择；冻结后先登记实验方案，再生成模型预测。</label><button class="btn btn-primary">核验整批并冻结双人评测集</button></form>
+  <p class="field-note">结构一致不表示解释正确。一致率和 kappa 只衡量复核者一致性。对照结果仅在本标签页保留，正式提交和冻结集请下载保存。</p>
+</details>

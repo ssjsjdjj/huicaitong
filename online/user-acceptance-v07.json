@@ -1,0 +1,49 @@
+{
+  "version": "0.7.0-online",
+  "checked_on": "2026-11-11",
+  "build_id": "b14b7b15fee8f134",
+  "automated_tests": {
+    "new_retrieval_and_diagnostics": 23,
+    "existing_human_evaluation": 19,
+    "existing_dual_review": 20,
+    "existing_prediction_bridge": 3,
+    "existing_recovery_cache": 21,
+    "total": 86,
+    "passed": true
+  },
+  "native_browser_parity": {
+    "scenarios": 70,
+    "all_equal": true
+  },
+  "browser_verified": [
+    "primary_source_search_and_highlighting",
+    "complete_page_and_snapshot_context",
+    "original_file_page_links_and_layout_warning",
+    "organized_primary_mode_switch",
+    "query_html_escaping_no_injected_elements",
+    "history_error_counts_and_denominators",
+    "error_type_and_policy_filters",
+    "empty_filter_result",
+    "per_case_raw_prediction_and_reference",
+    "rule_clue_to_primary_evidence",
+    "new_frozen_development_software_fixture_missing_predictions_kept_in_denominator",
+    "390px_responsive_search_and_diagnostics_no_document_horizontal_overflow",
+    "no_console_errors"
+  ],
+  "primary_corpus": {
+    "sha256": "6188b39712384697534fd5e7cfee56696d508b8f6b5ed8a8c839bea0cbc5c304",
+    "indexed_documents": 3,
+    "searchable_passages": 34,
+    "source_checked_on": "2026-10-30"
+  },
+  "retained_candidate_batch_sha256": "abac6cf9b139f6353e42f303de4140932aaa963dcd5b4676cac069ccecd3d4b6",
+  "retained_source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6",
+  "historical_input_sha256": {
+    "gold": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed",
+    "predictions": "bbee3a78a53ef912f6b819a33dce0fc85e1f21b30f28d8272b791c452a38d183",
+    "original_report": "a51d81b96725ffe2fe21235605b6df06464afc0ff7c3c02a3a349beee78746b9"
+  },
+  "new_model_inference_calls": 0,
+  "new_real_human_annotations": 0,
+  "notice": "Browser evaluation examples were explicitly labeled software fixtures, not research gold. Historical diagnostics use the original saved weak-supervision development predictions."
+}

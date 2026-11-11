@@ -1,0 +1,58 @@
+{
+  "version": "0.8.0-online",
+  "checked_on": "2026-11-11",
+  "build_id": "f9b47f48e2ae9c9c",
+  "automated_tests": {
+    "new_application_flow": 26,
+    "new_application_storage": 8,
+    "existing_retrieval_and_diagnostics": 23,
+    "existing_human_evaluation": 19,
+    "existing_dual_review": 20,
+    "existing_prediction_bridge": 3,
+    "existing_recovery_cache": 21,
+    "total": 120,
+    "passed": true
+  },
+  "native_browser_parity": {
+    "scenarios": 82,
+    "all_equal": true,
+    "native_python": "3.12",
+    "browser_python": "3.14.2",
+    "runtime": "Pyodide 314.0.7"
+  },
+  "browser_verified": [
+    "wizard_skip_unknown_and_edit_previous",
+    "full_form_and_synthetic_example_switch",
+    "family_and_region_before_property_history",
+    "manual_housing_gate_with_original_evidence",
+    "supplementary_answers_visible_in_result_and_report",
+    "preparation_status_saved_with_application_context",
+    "no_automatic_profile_restore_after_reload",
+    "explicit_restore_requires_fresh_assessment",
+    "changed_application_disables_old_report_and_progress",
+    "restore_conflict_cancel_retains_current_and_apply_backs_up",
+    "malformed_json_import_leaves_current_work_untouched",
+    "actual_json_download_and_file_import_roundtrip",
+    "clear_saved_draft_backs_up_and_retains_current_page",
+    "mobile_390px_results_and_report_no_document_horizontal_overflow",
+    "result_followup_opens_visible_wizard_question",
+    "no_console_errors"
+  ],
+  "retained_policy_file_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "retained_candidate_batch_sha256": "abac6cf9b139f6353e42f303de4140932aaa963dcd5b4676cac069ccecd3d4b6",
+  "retained_source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6",
+  "primary_corpus": {
+    "sha256": "6188b39712384697534fd5e7cfee56696d508b8f6b5ed8a8c839bea0cbc5c304",
+    "indexed_documents": 3,
+    "searchable_passages": 34,
+    "source_checked_on": "2026-10-30"
+  },
+  "historical_input_sha256": {
+    "gold": "a3773442490fef1f38660e1e7cd1353af65eb738bb911b2b034cb46350a27aed",
+    "predictions": "bbee3a78a53ef912f6b819a33dce0fc85e1f21b30f28d8272b791c452a38d183",
+    "original_report": "a51d81b96725ffe2fe21235605b6df06464afc0ff7c3c02a3a349beee78746b9"
+  },
+  "new_model_inference_calls": 0,
+  "new_real_human_annotations": 0,
+  "notice": "Software fixtures only. Supplementary fields create pending/manual review gates, not a verified full-eligibility or legal-effect determination. Original policies, RAW_FIELDS and legacy research interface retained."
+}

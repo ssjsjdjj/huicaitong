@@ -1,0 +1,17 @@
+{
+  "version": "0.8.0-online",
+  "checked_on": "2026-11-11",
+  "published_build_id": "f9b47f48e2ae9c9c",
+  "sites_source_commit": "6bf7b175c657865ce7c4ca62378900e017a3ea8b",
+  "url": "https://huicaitong-hangzhou.zishu41.chatgpt.site",
+  "automated_tests": 120,
+  "native_browser_parity_scenarios": 82,
+  "dist_matches_deployment": true,
+  "new_real_human_annotations": 0,
+  "new_model_training_or_inference": 0,
+  "note": "GitHub build/test path adaptations do not modify the frozen deployed dist.",
+  "github_layout_tests_passed": 120,
+  "github_layout_parity_scenarios": 82,
+  "github_layout_build_passed": true,
+  "github_layout_rebuilt_id": "9246822bb303b214"
+}

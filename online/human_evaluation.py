@@ -39,6 +39,10 @@ def restore_rows(rows,policies):
     clean=restore_drafts(rows,policies)
     for original,row in zip(rows,clean):
         row['provenance']=provenance(original)
+        if 'campaign' in original:
+            from campaign_review import validate_assignment_rows
+            validate_assignment_rows([original],policies)
+            row['campaign']=original['campaign'].copy()
     return clean
 
 
@@ -77,10 +81,17 @@ def summarize(rows,policies):
             'origins':dict(Counter(provenance(r)['kind'] for r in rows))}
 
 
-def freeze_dataset(body,policies):
+def freeze_dataset(body,policies,*,_campaign_authorized=False):
     if not body.get('cases'):
         raise ValueError('当前没有已确认记录，请先阅读原文并保存人工标注')
     rows=restore_rows(body.get('cases'),policies)
+    if any('campaign' in r for r in rows):
+        raise ValueError('54条保留批次须通过双人独立复核与终审冻结，不能从普通冻结入口跳过流程')
+    reserved_path=ROOT/'data'/'review-campaign.json'
+    if reserved_path.exists() and not _campaign_authorized:
+        reserved={profile_hash(r['profile']) for r in json.loads(reserved_path.read_text(encoding='utf-8'))['cases']}
+        if any(profile_hash(r['profile']) in reserved for r in rows):
+            raise ValueError('人物字段属于54条保留批次，移除任务元数据也不能跳过双人复核')
     if any(r['review']['status']!='reviewed' for r in rows):
         raise ValueError('冻结评测集只接受已填写依据并人工确认的记录；待复核草稿不能计入')
     reviewed_tasks(rows,policies)
@@ -140,6 +151,9 @@ def verify_dataset(dataset):
         raise ValueError('评测集政策快照编号重复')
     rows=restore_rows(dataset.get('cases'),policies)
     tasks=reviewed_tasks(rows,policies)
+    if dataset.get('review_protocol') is not None:
+        from campaign_review import verify_protocol
+        verify_protocol(dataset,policies)
     if dataset['purpose']=='test' and any(provenance(r)['kind']=='built_in_practice' for r in rows):
         raise ValueError('内置练习不能作为独立测试用途')
     return rows,tasks,policies
@@ -177,4 +191,5 @@ def evaluate_dataset(body):
     supplied={row['case_id'] for row in normalized}
     for detail in details:detail['missing_prediction']=detail['case_id'] not in supplied
     result['dataset_summary']=summarize(rows,policies)
-    return {'metrics':result,'details':details,'dataset_sha256':dataset['sha256']}
+    from diagnostics import analyze
+    return {'metrics':result,'details':details,'dataset_sha256':dataset['sha256'],'diagnostics':analyze(tasks,normalized,details,policies)}

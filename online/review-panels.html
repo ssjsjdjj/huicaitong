@@ -3,7 +3,7 @@
   <ol><li>打开官方原文，核对当前政策快照和参考日期，不预填规则或模型答案。</li><li>分别选择结论、支持条款、缺失信息和准备清单，并写明判断依据及不确定处。</li><li>内置 36 条是开发练习。独立测试须另建新案例，检查重复，并确认未参与训练、提示词调整或模型选择。</li></ol>
   <div id="review-summary" class="review-summary" aria-live="polite"></div>
   <div class="toolbar review-stage-nav"><button class="btn btn-quiet small" data-review-stage="review-case-content">1. 标注案例</button><button class="btn btn-quiet small" data-review-stage="benchmark-freeze-panel">2. 冻结评测集</button><button class="btn btn-quiet small" data-review-stage="benchmark-evaluation-panel">3. 对照实际预测</button></div>
-  <div class="review-filters"><label>复核状态<select id="review-status-filter"><option value="all">全部案例</option><option value="pending">待复核</option><option value="reviewed">已确认</option></select></label><label>政策来源<select id="review-family-filter"><option value="all">全部来源</option></select></label><button class="btn btn-quiet small" id="review-next-pending">下一条待复核</button></div>
+  <div class="review-filters"><label>案例批次<select id="review-batch-filter"><option value="all">全部批次</option><option value="practice">内置开发练习</option><option value="A">54条保留批次 · A</option><option value="B">54条保留批次 · B</option><option value="custom">自行新增案例</option></select></label><label>复核状态<select id="review-status-filter"><option value="all">全部案例</option><option value="pending">待复核</option><option value="reviewed">已确认</option></select></label><label>政策来源<select id="review-family-filter"><option value="all">全部来源</option></select></label><button class="btn btn-quiet small" id="review-next-pending">下一条待复核</button></div>
 </section>
 <section class="panel review-restore-conflicts" id="review-restore-conflicts" role="status" hidden>
   <h2>恢复文件与当前填写内容有冲突</h2><p id="review-restore-conflict-summary"></p>

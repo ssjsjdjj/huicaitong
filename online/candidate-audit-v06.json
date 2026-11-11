@@ -1,0 +1,13 @@
+{
+  "cases": 54,
+  "blank_answers": 54,
+  "unique_profiles": 54,
+  "known_exact_overlaps": [],
+  "same_nondated_pattern_groups": 1,
+  "policy_tasks": {
+    "hz-living-first-2024": 18,
+    "hz-living-second-2024": 18,
+    "hz-rent-first-2026": 18
+  },
+  "notice": "日期不同但其余特征相同的组合已单列；这些近重复须整批隔离于开发，不能把54条等同于54种独立政策或真实用户。"
+}

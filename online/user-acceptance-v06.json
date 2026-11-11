@@ -1,0 +1,47 @@
+{
+  "version": "0.6.0-online",
+  "checked_on": "2026-10-30",
+  "build_id": "b4ae8b5b7ba43fbd",
+  "automated_tests": {
+    "campaign_protocol": 20,
+    "human_evaluation": 19,
+    "prediction_bridge": 3,
+    "recovery_and_cache": 21,
+    "total": 63,
+    "passed": true
+  },
+  "native_browser_parity": {
+    "scenarios": 61,
+    "all_equal": true
+  },
+  "browser_workflows_verified": [
+    "official_original_links_and_coverage_gaps",
+    "54_blank_assignment_loading",
+    "changed_batch_recovery_retains_original_backup",
+    "pending_records_cannot_submit",
+    "A_and_B_progress_isolated",
+    "two_complete_software_fixture_submissions_compared",
+    "unresolved_disagreement_blocks_freeze",
+    "adjudication_draft_download_and_restore",
+    "54_case_freeze_contains_audit",
+    "actual_download_roundtrip_in_native_python_and_browser",
+    "no_browser_console_errors"
+  ],
+  "fixed_in_acceptance": [
+    "Normalize integral agreement rates before new-protocol fingerprinting so JSON.stringify roundtrip preserves SHA-256."
+  ],
+  "browser_fixture_export": {
+    "sha256": "23e101191d909c86121ad32f8f8868f2813e18da0f51d1fe1c649dfb5521f5fc",
+    "software_fixture_only": true,
+    "not_in_public_candidate_data": true
+  },
+  "original_policy_sha256": "1e2d062367a8e49754a12f3a578d05337bc44cb5e274c3ba0820caeebf0a0690",
+  "human_annotations_added": 0,
+  "model_predictions_generated": 0,
+  "limitations": [
+    "No real human review completed this release.",
+    "No new trained-model scores.",
+    "Current legal-effect succession after 2025 remains unverified.",
+    "One nondated-pattern duplicate group remains reserved together."
+  ]
+}

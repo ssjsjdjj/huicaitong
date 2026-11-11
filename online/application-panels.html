@@ -1,0 +1,18 @@
+<section class="panel application-wizard" id="application-wizard">
+  <div class="panel-heading"><h2>逐问核对下一步</h2><button class="btn btn-quiet small" id="application-mode">切换完整表单</button></div>
+  <div class="application-context"><label>我想核对<select id="application-intent"><option value="all">全部收录事项</option><option value="living-first">生活补贴首笔</option><option value="living-second">生活补贴第二笔</option><option value="rent">租房补贴首笔</option></select></label><label>拟申请日期<input type="date" id="application-date"></label></div>
+  <p class="field-note">每次只问一个当前有用的问题。不清楚可以先跳过，结果中仍会列为待核验；已有填写会继续使用。</p>
+  <button class="btn btn-primary" id="application-start">开始逐问核对</button><p id="application-flow-message" class="field-note" role="status"></p><div id="application-question"></div><div class="toolbar"><button class="btn btn-quiet small" id="application-back" hidden>修改上一个回答</button><button class="btn btn-quiet small" id="application-show-results">查看当前核对结果</button></div>
+</section>
+<details class="panel application-draft-panel" id="application-draft-panel">
+  <summary id="application-draft-summary">申请草稿 · 保存、恢复与下载</summary>
+  <p class="field-note">保存填写内容和自填准备进度，供本浏览器恢复；原始材料、材料确认记录和审批结果不写入草稿。使用公共电脑时可只下载文件。</p>
+  <div class="toolbar"><button class="btn btn-quiet small" id="application-save">保存到本浏览器</button><button class="btn btn-quiet small" id="application-restore">恢复已保存草稿</button><button class="btn btn-quiet small" id="application-export">下载申请草稿</button><button class="btn btn-quiet small" id="application-import">导入申请草稿</button><button class="btn btn-quiet small" id="application-clear">清除本浏览器草稿</button><input id="application-file" type="file" accept=".json" hidden></div>
+  <p id="application-storage-status" class="field-note" role="status"></p><p id="application-message" class="field-note" role="status"></p><button class="btn btn-quiet small" id="application-raw-download" hidden>下载未恢复的原始草稿</button>
+  <div id="application-restore-conflict" class="application-conflict" hidden><h3>恢复内容会替换当前填写</h3><p>当前内容尚未替换。继续时会先保留恢复前备份；备份失败就停止。</p><div class="toolbar"><button class="btn btn-quiet small" id="application-cancel-restore">保留当前填写</button><button class="btn small" id="application-apply-restore">先备份当前填写，再恢复</button></div></div>
+  <details id="application-backups" hidden><summary>恢复、保存或清除前的备份</summary><p class="field-note">备份保留在当前标签页，长期保留请下载。</p><div id="application-backup-list"></div></details>
+</details>
+<!-- EXTRA -->
+<details class="form-details" id="application-extra-details"><summary>补充资格核验<span>06</span></summary><p class="field-note">这些信息用于提示原有规则的覆盖缺口；不确定就保留待确认。相关原文可在结果中展开核对。</p><div class="form-grid" id="application-extra-fields"></div></details>
+<!-- PREPARATION -->
+<section class="panel application-preparation" id="application-preparation" hidden><div class="panel-heading"><h2>我的准备进度</h2><span class="method-tag">自填标记</span></div><p class="field-note">“已准备”只表示你已备好相关信息，不代表材料真实、已提交或已获批。更改申请情况或政策版本后需重新核对。</p><p id="application-preparation-message" class="field-note" role="status"></p><div id="application-preparation-items"></div></section>
