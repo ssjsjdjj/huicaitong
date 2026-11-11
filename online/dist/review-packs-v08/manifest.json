@@ -1,0 +1,15 @@
+{
+  "protocol": "huicaitong-v08-human-v1",
+  "batch_sha256": "c4f496e4fa399e8c5374a6c74c661c99cf76d8c9ffbccb823c810672819d425f",
+  "cases": 60,
+  "answers_blank": true,
+  "human_reviews_completed": 0,
+  "source_registry_sha256": "8b759d8415e797f767d776a13e0ca36af94772c64001291aa8e6b769d14567b6",
+  "engine_sha256": "0966fa1244e2def0087e35257fdfd4716f0c95b80f848d2d0a00c7485f92e45f",
+  "files": {
+    "coordinator.zip": "37e15ae309b582b49c9cf0644de5bd12093b6ef9b09cbd52fc61a2fbfef0db99",
+    "reviewer-A.zip": "2dee7f915b7669cd8704d0d71ad6b5c04ac18af17d42317704186395504cd8fd",
+    "reviewer-B.zip": "99e79626e36733007723f53e5e90c05da36cee48d8ef54ca9b4675297bfe68af",
+    "reviewer-guide.html": "9641ca0e5119a89c5f08fd372b0423f536a1a47e9718f10b4cfc32cd061e30da"
+  }
+}
