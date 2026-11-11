@@ -24,7 +24,7 @@ assert 'online-loading' not in parser.ids
 for url in parser.scripts:
     assert '?v='+manifest['build_id'] in url
     assert (root/url.split('?')[0].lstrip('/')).is_file()
-for name in ('online.js','runtime-worker.mjs','asset-cache.mjs','import-recovery.mjs','review-recovery.mjs','review-workbench.js','research-workbench.js','application-workbench.js','application-storage.mjs'):
+for name in ('online.js','runtime-worker.mjs','asset-cache.mjs','import-recovery.mjs','review-recovery.mjs','review-workbench.js','research-workbench.js','application-workbench.js','application-storage.mjs','v08-review.js','v08-review-storage.mjs'):
     assert '__HCT_BUILD__' not in (root/name).read_text(encoding='utf-8')
 assert manifest['core']['bytes']<250000 and manifest['bootstrap']['bytes']<100000
 print('Asset hashes, cache scope, unique DOM IDs, versioned scripts and split loading verified.')

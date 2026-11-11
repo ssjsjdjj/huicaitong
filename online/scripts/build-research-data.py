@@ -8,19 +8,17 @@ LOCAL=SITE.parent if (SITE.parent/'app.py').is_file() else SITE.parent/'huicaito
 WORK=SITE/'.work'
 WORK.mkdir(exist_ok=True)
 sys.path[:0]=[str(SITE),str(LOCAL),str(WORK/'documents-venv/Lib/site-packages')]
-try:
-    from pypdf import PdfReader
-except ModuleNotFoundError:
-    import zipfile
-    frozen=WORK/'frozen-python';frozen.mkdir(exist_ok=True)
-    with zipfile.ZipFile(SITE/'dist/python-app.zip') as archive:
-        for name in archive.namelist():
-            if name.startswith('pypdf/') and name.endswith('.py'):
-                target=(frozen/name).resolve()
-                assert target.is_relative_to(frozen.resolve())
-                target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(archive.read(name))
-    sys.path.insert(0,str(frozen))
-    from pypdf import PdfReader
+# Use the exact PDF reader shipped in the frozen browser release.
+import zipfile
+frozen=WORK/'frozen-python';frozen.mkdir(exist_ok=True)
+with zipfile.ZipFile(SITE/'dist/python-app.zip') as archive:
+    for name in archive.namelist():
+        if name.startswith('pypdf/') and name.endswith('.py'):
+            target=(frozen/name).resolve()
+            assert target.is_relative_to(frozen.resolve())
+            target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(archive.read(name))
+sys.path.insert(0,str(frozen))
+from pypdf import PdfReader
 from primary_evidence import digest
 from diagnostics import analyze
 from training.evaluate import evaluate_predictions
