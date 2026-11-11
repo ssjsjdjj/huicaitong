@@ -2,8 +2,10 @@
 import argparse
 from datetime import datetime, timezone
 import json
+import hashlib
 from pathlib import Path
 import re
+import time
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
@@ -39,6 +41,8 @@ def main():
     parser.add_argument('--input',required=True,help='网站下载的 prediction-template.json')
     parser.add_argument('--base-url',default='http://127.0.0.1:8766/v1')
     parser.add_argument('--model',required=True,help='本地服务实际提供的模型名称')
+    parser.add_argument('--model-revision',default='not_recorded',help='实际检查点版本或SHA；由运行者填写，程序不认证')
+    parser.add_argument('--seed',type=int,help='传给兼容服务的随机种子；仍需确认服务实际支持')
     parser.add_argument('--output',help='新的输出 JSON 文件，不能覆盖已有文件')
     parser.add_argument('--dry-run',action='store_true')
     args=parser.parse_args()
@@ -51,18 +55,26 @@ def main():
     if not args.output:raise SystemExit('实际预测时需要 --output')
     target=Path(args.output)
     if target.exists() or target.resolve()==Path(args.input).resolve():raise SystemExit('输出文件已存在或与输入相同，请选择新的文件名')
-    predictions=[];errors=[]
+    predictions=[];errors=[];calls=[];started=datetime.now(timezone.utc).isoformat()
+    generation={'temperature':0,'max_tokens':768}
+    if args.seed is not None:generation['seed']=args.seed
     for index,row in enumerate(data['requests'],1):
+        began=time.perf_counter();outcome='error'
         try:
-            body={'model':args.model,'messages':messages_for(row),'temperature':0,'max_tokens':768}
+            body={'model':args.model,'messages':messages_for(row),**generation}
             request=Request(args.base_url.rstrip('/')+'/chat/completions',data=json.dumps(body,ensure_ascii=False).encode(),headers={'Content-Type':'application/json'},method='POST')
             with urlopen(request,timeout=120) as response:completion=json.load(response)['choices'][0]['message']['content']
             if not isinstance(completion,str):raise ValueError('模型未返回文本')
             predictions.append({'case_id':row['case_id'],'completion':completion})
+            outcome='returned'
         except Exception as error:
             errors.append({'case_id':row['case_id'],'error_type':type(error).__name__,'notice':'本次实际调用未完成；评测时将作为缺失预测计入'})
+        calls.append({'case_id':row['case_id'],'outcome':outcome,'elapsed_seconds':round(time.perf_counter()-began,6)})
         print(f'Processed {index}/{len(data["requests"])}; returned {len(predictions)}; failed {len(errors)}',flush=True)
     result={'schema_version':1,'dataset_sha256':data['dataset_sha256'],'model_name':args.model,'created_at':datetime.now(timezone.utc).isoformat(),
+            'run_started_at':started,'model_revision_declared':args.model_revision,'generation_parameters':generation,
+            'input_sha256':hashlib.sha256(Path(args.input).read_bytes()).hexdigest(),'system_prompt_sha256':hashlib.sha256(SYSTEM.encode()).hexdigest(),
+            'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'calls':calls,
             'evidence_mode':'full_policy_clauses','prediction_source':'local_chat_completions','cases':len(data['requests']),'predictions':predictions,'errors':errors,
             'notice':'真实调用返回的原始文本。未读取人工答案。使用完整政策条款，不与其他提示或检索配置的历史结果直接混比。'}
     target.parent.mkdir(parents=True,exist_ok=True)

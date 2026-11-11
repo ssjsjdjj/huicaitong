@@ -1,4 +1,4 @@
-import {makeAssetFetcher} from './asset-cache.mjs?v=16678c564b31ecf5';
+import {makeAssetFetcher} from './asset-cache.mjs?v=f9b47f48e2ae9c9c';
 let runtimePromise,pdfReady=false,manifest,dispatch,py;
 const nativeFetch=self.fetch.bind(self);
 let lastProgress=0;

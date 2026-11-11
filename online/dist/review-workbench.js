@@ -12,8 +12,8 @@ const labelName={eligible:'初筛通过',ineligible:'暂不满足',insufficient:
 const purposeName={development:'开发检查',test:'测试用途（复核者声明）'};
 document.addEventListener('click',event=>{const button=event.target.closest('[data-review-stage]');if(button&&['review-case-content','benchmark-freeze-panel','benchmark-evaluation-panel'].includes(button.dataset.reviewStage))document.getElementById(button.dataset.reviewStage)?.scrollIntoView({behavior:'smooth',block:'start'});});
 function filteredReviewIndexes(){
-  const filter=$('#review-status-filter').value,family=$('#review-family-filter').value;
-  return state.reviewCases.map((row,index)=>({row,index})).filter(({row})=>(filter==='all'||row.review.status===filter)&&(family==='all'||state.policies.find(p=>p.id===row.policy_id)?.family===family)).map(x=>x.index);
+  const filter=$('#review-status-filter').value,family=$('#review-family-filter').value,batch=$('#review-batch-filter').value;
+  return state.reviewCases.map((row,index)=>({row,index})).filter(({row})=>(batch==='all'||(batch==='practice'&&row.case_id.startsWith('review-draft-'))||(batch==='custom'&&!row.campaign&&!row.case_id.startsWith('review-draft-'))||row.campaign?.slot===batch)&&(filter==='all'||row.review.status===filter)&&(family==='all'||state.policies.find(p=>p.id===row.policy_id)?.family===family)).map(x=>x.index);
 }
 function visibleConfirmed(){return filteredReviewIndexes().map(i=>state.reviewCases[i]).filter(row=>row.review.status==='reviewed');}
 function updateReviewProgress(){
@@ -62,6 +62,8 @@ function renderReviewCase(){
   const practice=row.case_id.startsWith('review-draft-')||row.provenance?.kind==='built_in_practice';
   $('#review-case-content').innerHTML=`<div class="review-case-heading"><span class="method-tag">${esc(row.case_id)} · ${practice?'内置开发练习':'待人工核对的新案例'}</span><h2>${esc(row.title||policy.title)}</h2><a href="${esc(safeURL(policy.source_url))}" target="_blank" rel="noopener noreferrer">阅读官方原文 ↗</a><p>来源 ${esc(policy.published_on)} · ${esc(policy.legal_status||'现行效力待核验')}</p><p class="field-note">${practice?'本条不能冻结为独立测试。':'来源与未参与开发的情况为填写者声明，程序只做重复与格式检查。'}</p></div><div class="review-profile">${Object.entries(row.profile).map(([key,value])=>`<div><span>${esc(state.reviewLabels[key]||(key==='city'?'城市':key))}</span><strong>${esc(readableValue(value))}</strong></div>`).join('')}</div><form id="review-form" class="review-form"><label>你的初筛结论<select id="review-conclusion" required><option value="">阅读原文后选择</option><option value="eligible">所列条件初筛通过</option><option value="ineligible">存在明确不满足条件</option><option value="insufficient">信息不足或超出覆盖</option></select></label><fieldset><legend>支持这一结论的条款</legend>${policy.clauses.map(c=>`<label class="review-option"><input type="checkbox" data-review-evidence value="${esc(c.id)}" ${checked('evidence_ids',c.id)}><span>${esc(c.section)}<br><small>${esc(c.text)}</small></span></label>`).join('')}</fieldset><fieldset><legend>还缺哪些申请人信息</legend>${Object.keys(state.reviewLabels).filter(k=>k!=='city').map(key=>`<label class="review-option"><input type="checkbox" data-review-missing value="${esc(key)}" ${checked('missing_fields',key)}><span>${esc(state.reviewLabels[key])}</span></label>`).join('')}</fieldset><fieldset><legend>应提示的准备信息</legend>${policy.materials.map(m=>`<label class="review-option"><input type="checkbox" data-review-material value="${esc(m.id)}" ${checked('materials',m.id)}><span>${esc(m.label)} · ${esc(m.kind)}</span></label>`).join('')}</fieldset><label>判断依据与不确定处<textarea id="review-explanation" required maxlength="3000">${esc(annotation.explanation||'')}</textarea></label><label>复核者标识<input id="reviewer-name" required maxlength="80" value="${esc(annotation.reviewer||row.review.reviewer||'')}" placeholder="用于追溯的标识"></label><label class="review-option"><input id="review-source-checked" type="checkbox" required ${row.review.status==='reviewed'?'checked':''}><span>我已阅读对应原文并核对本条依据；程序未替我确认标注正确。</span></label><div id="review-form-error" class="form-error" role="alert" hidden></div><div class="review-actions"><button type="button" class="btn btn-quiet small" id="review-prev">← 上一条</button><button type="submit" class="btn btn-primary" id="review-save">确认并保存本条</button><button type="button" class="btn btn-quiet small" id="review-next">下一条 →</button></div></form>`;
   $('#review-conclusion').value=annotation.conclusion||'';
+  const sourceBox=document.createElement('div');sourceBox.dataset.policySource=policy.id;sourceBox.className='primary-source-context';$('#review-form').before(sourceBox);window.renderPrimarySources?.();
+  if(row.campaign){const note=document.createElement('p');note.className='field-note';note.textContent='保留批次 '+row.campaign.slot+'：评测目标是所列条件的初筛，不是完整审批资格。原文的额外条件或快照缺口请在“不确定处”注明；超出覆盖转人工核验。请先核对下方原始依据，不参考规则或模型答案。';sourceBox.before(note);}
   const position=indexes.indexOf(state.reviewIndex);
   $('#review-prev').disabled=position<=0;$('#review-next').disabled=position>=indexes.length-1;
 }
@@ -84,8 +86,8 @@ $('#review-case-content').addEventListener('submit',async event=>{
   catch(error){if($('#review-form-error')){$('#review-form-error').textContent=error.message.replaceAll('模型输出','标注');$('#review-form-error').hidden=false;}}
   finally{if($('#review-save'))$('#review-save').disabled=false;}
 });
-for(const id of ['review-status-filter','review-family-filter'])$('#'+id).addEventListener('change',()=>{stashReview();const indexes=filteredReviewIndexes();if(!indexes.includes(state.reviewIndex)&&indexes.length)state.reviewIndex=indexes[0];renderReviewCase();});
-$('#review-next-pending').addEventListener('click',()=>{stashReview();const rows=state.reviewCases;let next=-1;for(let n=1;n<=rows.length;n++){const i=(state.reviewIndex+n)%rows.length;if(rows[i].review.status!=='reviewed'){next=i;break;}}if(next<0){toast('当前没有待复核案例。');return;}$('#review-status-filter').value='pending';$('#review-family-filter').value='all';state.reviewIndex=next;renderReviewCase();saveReviewSession();});
+for(const id of ['review-status-filter','review-family-filter','review-batch-filter'])$('#'+id).addEventListener('change',()=>{stashReview();const indexes=filteredReviewIndexes();if(!indexes.includes(state.reviewIndex)&&indexes.length)state.reviewIndex=indexes[0];renderReviewCase();});
+$('#review-next-pending').addEventListener('click',()=>{stashReview();const rows=state.reviewCases;$('#review-status-filter').value='pending';const indexes=filteredReviewIndexes();let next=indexes.find(i=>i>state.reviewIndex)??indexes[0]??-1;if(next<0){renderReviewCase();toast('当前筛选范围没有待复核案例。');return;}state.reviewIndex=next;renderReviewCase();saveReviewSession();});
 $('#review-download-draft').addEventListener('click',()=>{stashReview();download('惠才通-复核草稿备份.json',{schema_version:1,cases:state.reviewCases,notice:'包含未确认草稿，不能整体作为人工标注基准。'});state.reviewUnsaved=false;saveReviewSession();});
 $('#review-export').addEventListener('click',async()=>{stashReview();const cases=state.reviewCases.filter(r=>r.review.status==='reviewed');try{await api('/api/review/validate',{cases});download('惠才通-已确认人工标注.json',{schema_version:1,annotation_source:'reviewer_declared',cases});}catch(error){toast(error.message,true);}});
 $('#review-import').addEventListener('click',()=>$('#review-file').click());$('#review-restore').addEventListener('click',()=>$('#review-restore-file').click());
@@ -108,7 +110,7 @@ async function renderRestoreBackups(){
 async function applyReviewRestore(allowConflicts){
   if(!pendingReviewRestore)return;
   stashReview();
-  const module=await import('/review-recovery.mjs?v=16678c564b31ecf5');
+  const module=await import('/review-recovery.mjs?v=f9b47f48e2ae9c9c');
   const plan=module.planReviewRestore(state.reviewCases,pendingReviewRestore.cases);
   if(plan.conflicts.length&&!allowConflicts){
     $('#review-restore-conflict-summary').textContent=`文件含 ${plan.total} 条案例，其中 ${plan.conflicts.length} 条会替换当前已有填写：${plan.conflicts.join('、')}。`;
@@ -120,6 +122,7 @@ async function applyReviewRestore(allowConflicts){
   }
   const incoming=pendingReviewRestore;pendingReviewRestore=null;
   mergeReviewRows(incoming.cases);state.reviewUnsaved=state.reviewUnsaved||plan.conflicts.length>0;
+  const slots=[...new Set(incoming.cases.map(r=>r.campaign?.slot))];if(slots.length===1&&['A','B'].includes(slots[0])){$('#review-batch-filter').value=slots[0];$('#campaign-submit-slot').value=slots[0];$('#review-status-filter').value='all';$('#review-family-filter').value='all';state.reviewIndex=state.reviewCases.findIndex(r=>r.case_id===incoming.cases[0].case_id);}
   $('#review-restore-conflicts').hidden=true;renderReviewCase();saveReviewSession();renderRestoreBackups();toast(incoming.notice);
 }
 $('#review-restore-cancel').addEventListener('click',()=>{pendingReviewRestore=null;$('#review-restore-conflicts').hidden=true;toast('已取消恢复，当前填写保持不变。');});
@@ -136,7 +139,7 @@ $('#review-new-form').addEventListener('submit',async event=>{
     const body={case_id:$('#new-case-id').value.trim(),title:$('#new-case-title').value.trim(),policy_id:$('#new-case-policy').value,profile:parseJSONInput($('#new-case-profile').value,'申请字段'),provenance:{kind:$('#new-case-origin').value,training_use:$('#new-case-training').value}};
     if(state.reviewCases.some(r=>r.case_id===body.case_id))throw new Error('案例编号已存在，请使用新编号。');
     const result=await api('/api/review/new-case',body);stashReview();state.reviewCases.push(result.case);state.reviewIndex=state.reviewCases.length-1;state.reviewUnsaved=true;
-    $('#review-status-filter').value='all';$('#review-family-filter').value='all';renderReviewCase();saveReviewSession();$('#review-new-dialog').close();toast('已建立空白标签草稿，请阅读原文后逐项复核。');
+    $('#review-status-filter').value='all';$('#review-family-filter').value='all';$('#review-batch-filter').value='custom';renderReviewCase();saveReviewSession();$('#review-new-dialog').close();toast('已建立空白标签草稿，请阅读原文后逐项复核。');
   }catch(error){$('#new-case-error').textContent=error.message;$('#new-case-error').hidden=false;}
 });
 function showDataset(dataset,created=false){
@@ -145,6 +148,7 @@ function showDataset(dataset,created=false){
   $('#benchmark-binding').checked=false;$('#benchmark-predictions').value='';$('#benchmark-prediction-text').value='';
   $('#benchmark-download').disabled=false;$('#benchmark-template').disabled=false;
   $('#benchmark-current').textContent=`当前冻结集「${dataset.name}」 · ${purposeName[dataset.purpose]||dataset.purpose} · ${dataset.cases.length} 条 · SHA-256：${dataset.sha256}`;
+  $('#benchmark-current').textContent+=' · '+(dataset.review_protocol?.version===2?'双人独立初审＋第三人终审':'单次标注声明；未记录双人复核');
   $('#benchmark-message').textContent='文件检查已通过。切换评测集时不会混合指标，其他对照记录仍可从本标签页全部备份下载。';
   $('#benchmark-evaluation-message').textContent='已准备好冻结集。当前仅保留在本标签页，请下载冻结集后再刷新或关闭；工作台后续编辑不会改变它。';
 }
@@ -166,6 +170,7 @@ $('#benchmark-dataset-file').addEventListener('change',async event=>{const file=
 function renderBenchmarkRuns(){
   const pct=value=>typeof value==='number'?(value*100).toFixed(1)+'%':'—';
   $('#benchmark-results').innerHTML='<div class="benchmark-table-wrap"><table><thead><tr><th>实际预测名称</th><th>结论一致率</th><th>有效输出</th><th>引用编号 F1</th><th>缺失预测</th></tr></thead><tbody>'+benchmarkRuns.map(run=>{const m=run.metrics;return `<tr><td>${esc(m.model_name)}</td><td>${pct(m.conclusion_accuracy)}</td><td>${pct(m.valid_output_rate)}</td><td>${pct(m.mean_evidence_f1)}</td><td>${m.missing_predictions} / ${m.cases}</td></tr>`;}).join('')+'</tbody></table></div>'+benchmarkRuns.map(run=>`<details><summary>${esc(run.metrics.model_name)} · 逐条错误与分类指标</summary><p>${esc(run.metrics.warning)}</p><p>预测绑定：${run.metrics.prediction_binding==='artifact_sha256'?'文件指纹匹配':'由使用者声明对应当前集'}</p><div class="benchmark-table-wrap"><table><thead><tr><th>类别</th><th>样本数</th><th>精确率</th><th>召回率</th></tr></thead><tbody>${Object.entries(run.metrics.per_class).map(([key,value])=>`<tr><td>${labelName[key]}</td><td>${value.support}</td><td>${pct(value.precision)}</td><td>${pct(value.recall)}</td></tr>`).join('')}</tbody></table></div><ul>${run.details.filter(d=>d.errors.length).map(d=>`<li>${esc(d.case_id)}：参考 ${labelName[d.expected]} / 预测 ${labelName[d.predicted]||'无有效输出'}；${d.missing_prediction?'缺失预测':esc(d.errors.join('、'))}</li>`).join('')||'<li>在已计算的结构化字段上未发现差异；这不评价解释文字或标注质量。</li>'}</ul></details>`).join('');
+  benchmarkRuns.forEach((run,index)=>{const panel=document.createElement('details');panel.innerHTML=`<summary>${esc(run.metrics.model_name)} · 错误归因与规则对照线索</summary>`+(window.renderDiagnosticBoard?.('benchmark-'+run.dataset_sha256+'-'+index,run.diagnostics)||'<p class="field-note">错误分析组件尚未准备。</p>');$('#benchmark-results').append(panel);});
 }
 $('#benchmark-evaluate-form').addEventListener('submit',async event=>{
   event.preventDefault();const message=$('#benchmark-evaluation-message');message.textContent='正在检查预测文件…';

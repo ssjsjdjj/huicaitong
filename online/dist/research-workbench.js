@@ -1,0 +1,55 @@
+'use strict';
+const diagnosticBoards=new Map();let historyLoading=false,historyLoaded=false;
+const researchLabels={eligible:'通过',ineligible:'不满足',insufficient:'信息不足',invalid:'无有效输出'};
+const percent=value=>typeof value==='number'?(100*value).toFixed(1)+'%':'—';
+function markedText(parts){return (parts||[]).map(p=>p.matched?`<mark>${esc(p.text)}</mark>`:esc(p.text)).join('');}
+function primaryCard(r,q='',compact=false){return `<article class="evidence-card primary-card"><div class="evidence-meta"><span>${esc(r.publisher)} · ${esc(r.locator)}</span><span class="method-tag">${r.role==='historical_qa'?'历史问答':'官方资料快照'}</span></div><h3>${esc(r.document_title)}</h3><p class="field-note">文件日期 ${esc(r.issued_on||'未标明')} · 来源补核 ${esc(r.checked_on)}${r.temporal_basis.includes('取证')?' · 平台快照按取证日隔离':''}</p><div class="primary-snippet">${r.snippet_before?'…':''}${markedText(r.snippet_parts)}${r.snippet_after?'…':''}</div>${r.layout_note?`<p class="layout-note">${esc(r.layout_note)}</p>`:''}<div class="toolbar"><button class="btn btn-quiet small" data-primary-open="${esc(r.id)}" data-primary-query="${esc(q)}">展开原文与上下文</button><a href="${esc(r.original_file_url)}" target="_blank" rel="noopener noreferrer">打开原始文件${r.page?'第'+r.page+'页':''} ↗</a>${compact?'':`<small>BM25 ${r.score.toFixed(2)}</small>`}</div></article>`;}
+window.searchPrimaryEvidence=async function(q,asOf,history){
+  const params=new URLSearchParams({q,as_of:asOf,history:history?'1':'0'});const data=await api('/api/primary/search?'+params);
+  return `<div class="result-summary"><span>命中 ${data.matching_passages} 个原文片段，显示前 ${data.results.length} 条</span><span>原文 BM25 · 参考日期 ${esc(data.as_of)}</span></div><p class="field-note">${esc(data.notice)}</p>${data.results.map(r=>primaryCard(r,q)).join('')||'<div class="simple-empty">当前日期与范围内未找到原文片段。可缩短关键词，或勾选历史资料；没有命中不代表不符合政策。</div>'}<details class="panel"><summary>检索范围与未纳入内容</summary><ul>${data.excluded_by_filter.map(d=>`<li>${esc(d.title)}：${esc(d.reason)}</li>`).join('')}${data.not_indexed.map(d=>`<li>${esc(d.title)}：${esc(d.reason)}</li>`).join('')}</ul><p class="source-hash">原文库 SHA-256：${esc(data.corpus_sha256)}</p></details>`;
+};
+window.loadClauseEvidence=async function(id,container){
+  container.textContent='正在定位相关原文…';
+  try{const data=await api('/api/primary/clause?'+new URLSearchParams({id}));if(!container.isConnected)return;container.innerHTML=`<h3>相关原始依据</h3><p class="field-note">${esc(data.notice)}</p>${data.results.map(r=>primaryCard(r,'',true)).join('')||'<p class="field-note">当前原文库尚无这条整理条款的定位，请保留原文链接人工核对。</p>'}`;}
+  catch(e){if(container.isConnected)container.textContent='原文定位未完成：'+e.message;}
+};
+let primaryDialogGeneration=0;
+async function openPrimary(id,q){
+  const dialog=$('#primary-passage-dialog'),body=$('#primary-passage-content'),generation=++primaryDialogGeneration;body.textContent='正在读取原文上下文…';if(!dialog.open)dialog.showModal();
+  try{const data=await api('/api/primary/passage?'+new URLSearchParams({id,q}));if(generation!==primaryDialogGeneration||!dialog.open)return;const p=data.passage;
+    body.innerHTML=`<span class="method-tag">${esc(p.locator)} · ${p.role==='historical_qa'?'历史问答':'官方资料快照'}</span><h2>${esc(p.document_title)}</h2><p>${esc(p.publisher)} · 文件日期 ${esc(p.issued_on||'未标明')} · 补核 ${esc(p.checked_on)}</p>${p.layout_note?`<p class="layout-note">${esc(p.layout_note)}</p>`:''}<p class="field-note">${esc(data.context_locator)}；高亮表示命中词，不表示已验证结论。${esc(data.notice)}</p><div class="primary-context">${markedText(data.context_parts)}</div><div class="toolbar">${data.adjacent.map(x=>`<button class="btn btn-quiet small" data-primary-open="${esc(x.id)}" data-primary-query="${esc(q)}">查看${esc(x.locator)}</button>`).join('')}<a class="btn" href="${esc(p.original_file_url)}" target="_blank" rel="noopener noreferrer">打开原始文件 ↗</a><a href="${esc(safeURL(p.official_url))}" target="_blank" rel="noopener noreferrer">官方来源 ↗</a></div><p class="source-hash">原始文件 SHA-256：${esc(p.source_sha256)}</p>`;
+  }catch(e){if(generation===primaryDialogGeneration)body.textContent='未读取：'+e.message;}
+}
+function filteredDiagnostics(board){return board.data.cases.filter(r=>(board.filter==='all'||board.filter==='errors'&&r.categories.length||r.categories.includes(board.filter))&&(board.policy==='all'||r.policy_id===board.policy));}
+function diagnosticCase(row){
+  const value=v=>v===null?'待确认':typeof v==='object'?JSON.stringify(v):String(v);
+  return `<section class="diagnostic-detail"><h3>${esc(row.case_id)}</h3><p>参考：${researchLabels[row.expected]} · 预测：${researchLabels[row.predicted]} · ${row.categories.map(c=>esc(row._categories[c])).join('、')||'结构化字段一致'}</p><div class="review-pair"><div><h4>参考标注</h4><pre>${esc(JSON.stringify(row.reference,null,2))}</pre></div><div><h4>实际模型原始输出${row.missing_prediction?'（缺失）':''}</h4><pre>${esc(row.raw_output||'未提供本案例预测')}</pre></div></div><details><summary>人物字段与结构化差异</summary><pre>${esc(JSON.stringify(row.profile,null,2))}</pre><pre>${esc(JSON.stringify(row.differences,null,2))}</pre></details><h4>规则快照对照线索</h4><p class="field-note">规则参考结论：${researchLabels[row.rule_conclusion]}。以下只是可核对的条件差异，不解释模型内部原因，也不代替原文判断。</p>${row.rule_signals.length?`<ul>${row.rule_signals.map(r=>`<li>${esc(r.label)}：${r.status==='fail'?'所填值不满足':'缺失或超出覆盖'} · 所填/派生值 ${esc(value(r.actual))} ${state.policies.some(p=>p.clauses.some(c=>c.id===r.citation))?`<button class="text-button" data-evidence="${esc(r.citation)}">核对条款与原文 ↗</button>`:esc(r.citation)}</li>`).join('')}</ul>`:'<p class="field-note">已编码规则没有失败或未知项；仍需检查参考标签、原文额外条件及解释是否正确。</p>'}</section>`;
+}
+function diagnosticMarkup(key){
+  const b=diagnosticBoards.get(key),d=b.data,s=d.summary;const rows=filteredDiagnostics(b);const pages=Math.max(1,Math.ceil(rows.length/12));b.page=Math.min(b.page,pages-1);const shown=rows.slice(b.page*12,b.page*12+12);const selected=rows.find(r=>r.case_id===b.selection);
+  return `<div class="diagnostic-kpis"><div><strong>${s.false_pass} / ${s.reference_nonpass}</strong><span>参考非通过却判通过</span><small>不满足 ${s.false_pass_from_ineligible} · 信息不足 ${s.false_pass_from_insufficient}</small></div><div><strong>${percent(s.pass_precision)}</strong><span>预测通过的精确率</span><small>正确通过 ${s.correct_pass} / 预测通过 ${s.predicted_pass}</small></div><div><strong>${s.cases_with_errors} / ${s.cases}</strong><span>有结构化差异的案例</span><small>缺失 ${s.missing_predictions} · 已供给但无效 ${s.invalid_outputs_supplied}</small></div></div><p class="field-note">${esc(d.notice)}</p><div class="review-filters"><label>错误类型<select data-diagnostic-filter><option value="errors" ${b.filter==='errors'?'selected':''}>所有有误案例</option><option value="all" ${b.filter==='all'?'selected':''}>全部案例</option>${Object.entries(d.categories).map(([k,v])=>`<option value="${k}" ${b.filter===k?'selected':''}>${esc(v)}（${s.category_counts[k]||0}）</option>`).join('')}</select></label><label>政策任务<select data-diagnostic-policy><option value="all">全部任务</option>${[...new Map(d.cases.map(r=>[r.policy_id,r.policy_title])).entries()].map(([id,title])=>`<option value="${esc(id)}" ${b.policy===id?'selected':''}>${esc(title)}</option>`).join('')}</select></label><button class="btn btn-quiet small" data-diagnostic-export>下载完整错误分析</button></div><p role="status">当前筛选 ${rows.length} 条 · 第 ${b.page+1} / ${pages} 页；上方统计覆盖整份评测集。</p><div class="benchmark-table-wrap"><table><thead><tr><th>案例</th><th>参考</th><th>预测</th><th>差异类型</th></tr></thead><tbody>${shown.map(r=>`<tr><td><button class="text-button" data-diagnostic-case="${esc(r.case_id)}">${esc(r.case_id)}</button></td><td>${researchLabels[r.expected]}</td><td>${researchLabels[r.predicted]}</td><td>${r.categories.map(k=>esc(d.categories[k])).join('、')||'结构一致'}</td></tr>`).join('')}</tbody></table></div>${rows.length?'':'<p class="simple-empty">当前筛选没有案例。</p>'}<div class="toolbar"><button class="btn btn-quiet small" data-diagnostic-page="-1" ${b.page<=0?'disabled':''}>上一页</button><button class="btn btn-quiet small" data-diagnostic-page="1" ${b.page>=pages-1?'disabled':''}>下一页</button></div>${selected?diagnosticCase({...selected,_categories:d.categories}):'<p class="field-note">点击案例编号，核对原始输出、人物字段与规则线索。</p>'}`;
+}
+window.renderDiagnosticBoard=function(key,data){
+  if(!data)return '<p class="field-note">这份旧对照未带错误归因；可用原预测与冻结集重新计算。</p>';
+  if(!diagnosticBoards.has(key))diagnosticBoards.set(key,{data,filter:'errors',policy:'all',page:0,selection:null});
+  return `<div class="diagnostic-board" data-diagnostic-board="${esc(key)}">${diagnosticMarkup(key)}</div>`;
+};
+function refreshBoard(el){el.innerHTML=diagnosticMarkup(el.dataset.diagnosticBoard);}
+document.addEventListener('change',event=>{const el=event.target.closest('[data-diagnostic-board]');if(!el)return;const b=diagnosticBoards.get(el.dataset.diagnosticBoard);if(event.target.matches('[data-diagnostic-filter]'))b.filter=event.target.value;else if(event.target.matches('[data-diagnostic-policy]'))b.policy=event.target.value;else return;b.page=0;b.selection=null;refreshBoard(el);});
+document.addEventListener('click',event=>{
+  const primary=event.target.closest('[data-primary-open]');if(primary){openPrimary(primary.dataset.primaryOpen,primary.dataset.primaryQuery||'');return;}
+  const el=event.target.closest('[data-diagnostic-board]');if(!el)return;const b=diagnosticBoards.get(el.dataset.diagnosticBoard),caseButton=event.target.closest('[data-diagnostic-case]'),page=event.target.closest('[data-diagnostic-page]');
+  if(caseButton){b.selection=caseButton.dataset.diagnosticCase;refreshBoard(el);el.querySelector('.diagnostic-detail')?.scrollIntoView({behavior:'smooth',block:'start'});}
+  if(page){b.page+=Number(page.dataset.diagnosticPage);b.selection=null;refreshBoard(el);}
+  if(event.target.closest('[data-diagnostic-export]'))download('惠才通-错误分析-'+el.dataset.diagnosticBoard+'.json',b.data);
+});
+async function loadHistory(){
+  if(historyLoading||historyLoaded)return;historyLoading=true;const button=$('#load-historical-diagnostics');button.disabled=true;$('#historical-diagnostics-message').textContent='正在读取已保存的历史预测…';
+  try{const result=await api('/api/diagnostics/history');$('#historical-diagnostics-message').textContent=result.notice;$('#historical-diagnostics').innerHTML=window.renderDiagnosticBoard('historical-grpo-development',result.diagnostics);historyLoaded=true;button.hidden=true;}
+  catch(e){$('#historical-diagnostics-message').textContent='未载入：'+e.message;}finally{historyLoading=false;button.disabled=false;}
+}
+$('#load-historical-diagnostics').addEventListener('click',loadHistory);
+document.addEventListener('click',e=>{if(e.target.closest('[data-view="training"]'))loadHistory();});
+window.addEventListener('hashchange',()=>{if(location.hash==='#training')loadHistory();});
+if(location.hash==='#training')loadHistory();
+$('#search-mode').addEventListener('change',search);
